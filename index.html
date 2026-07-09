@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SideCash.ai | Get paid for AI data annotation work</title>
+<meta name="description" content="Pre-register for SideCash.ai: verified AI data annotation work with training, quality review, and transparent payouts. Early access list open now, program starts next month.">
+<!--
+  ============================================================================
+  SideCash.ai pre-registration landing page (single file)
+  ----------------------------------------------------------------------------
+  BEFORE UPLOADING, EDIT ONE LINE:
+    Search for GOOGLE_FORM_URL below and paste your real Google Form link.
+
+  CONTACT FORM EMAIL:
+    The footer form sends to support@sidecash.ai via formsubmit.co.
+    First submission triggers a one-time activation email to that mailbox -
+    open it and click Activate. The mailbox support@sidecash.ai must exist.
+
+  HOSTING: upload this file as index.html into public_html (cPanel / FTP).
+  Fonts: loads Inter from Google Fonts when online; falls back to the system
+  font when viewed offline.
+  ============================================================================
+-->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20292.8%20316.83'%3E%3Cpath%20fill='%2320B776'%20d='M292.8,58.77V0L105.06,0.11C46.85,1.27,0,48.73,0,107.22c0,27.79,10.66,53.03,28.01,72.08l42.23,45.78H32.98C14.77,225.07,0,239.84,0,258.06v58.77l187.74-0.11c58.21-1.16,105.06-48.62,105.06-107.11c0-27.79-10.66-53.03-28.01-72.08l-42.23-45.78h37.26C278.03,91.75,292.8,76.99,292.8,58.77zM212.36,165.42c-26.91,10.65-48.17,32.42-58.11,59.64H140.9c-9.94-27.22-31.2-48.99-58.11-59.64V151.4c26.91-10.6,48.17-32.37,58.11-59.64h13.35c9.94,27.27,31.2,49.04,58.11,59.64V165.42z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#0F9D58; --green-hover:#0C8A4D; --deep:#064E3B; --deep-2:#047857;
+    --emerald:#10B981; --mint:#ECFDF5; --mint-line:#D1FAE5; --pale:#A7F3D0;
+    --bright:#6EE7B7; --ground:#F8FAF7; --card:#FFFFFF; --ink:#111827;
+    --muted:#6B7280; --line:#E5E7EB;
+    --ok-bg:#DCFCE7; --ok-ink:#166534; --warn-bg:#FEF3C7; --warn-ink:#92400E;
+    --err:#DC2626;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ground);color:var(--ink);
+    font:16px/1.6 'Inter',-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-feature-settings:"cv02","cv03","cv04","cv11";
+    -webkit-font-smoothing:antialiased}
+  ::selection{background:var(--mint-line)}
+  img,svg{max-width:100%}
+  a{color:var(--green)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;
+    border:0;border-radius:12px;padding:14px 26px;font-size:16px;font-weight:600;cursor:pointer;
+    font-family:inherit;text-decoration:none;box-shadow:0 10px 30px -10px rgba(15,157,88,.55);
+    transition:transform .18s var(--ease), background .18s, box-shadow .18s}
+  .btn:hover{background:var(--green-hover);transform:translateY(-2px);box-shadow:0 16px 36px -12px rgba(15,157,88,.65)}
+  .btn:active{transform:translateY(0) scale(.97)}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+  .btn.ghost:hover{background:var(--mint);border-color:var(--mint-line);box-shadow:0 10px 26px -14px rgba(6,78,59,.25)}
+  .btn svg{transition:transform .18s var(--ease)}
+  .btn:hover svg{transform:translateX(3px)}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--mint);
+    border:1px solid var(--mint-line);color:var(--deep);border-radius:999px;
+    padding:6px 14px;font-size:13px;font-weight:600}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  h1,h2,h3{letter-spacing:-.022em;line-height:1.12;text-wrap:balance;font-weight:700}
+  h2{font-size:clamp(25px,3.5vw,34px);margin:0 0 8px}
+  .sub{color:var(--muted);max-width:62ch;margin:0 0 28px}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin:0 0 8px}
+  section{padding:68px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    box-shadow:0 1px 2px rgba(17,24,39,.04),0 10px 28px -14px rgba(6,78,59,.14);
+    transition:transform .22s var(--ease), box-shadow .22s, border-color .22s}
+  :focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+  /* Scroll reveal (progressive enhancement: hidden only when JS is active) */
+  html.js .reveal{opacity:0;transform:translateY(20px);
+    transition:opacity .6s var(--ease), transform .6s var(--ease)}
+  html.js .reveal.in{opacity:1;transform:none}
+  html.js [data-stagger] > *{opacity:0;transform:translateY(18px);
+    transition:opacity .55s var(--ease), transform .55s var(--ease)}
+  html.js [data-stagger].in > *{opacity:1;transform:none}
+  html.js [data-stagger].in > :nth-child(1){transition-delay:.05s}
+  html.js [data-stagger].in > :nth-child(2){transition-delay:.15s}
+  html.js [data-stagger].in > :nth-child(3){transition-delay:.25s}
+  html.js [data-stagger].in > :nth-child(4){transition-delay:.35s}
+  html.js [data-stagger].in > :nth-child(5){transition-delay:.45s}
+  html.js [data-stagger].in > :nth-child(6){transition-delay:.55s}
+
+  /* Founders trust bar */
+  .trustbar{background:linear-gradient(150deg,var(--deep),var(--deep-2));color:#D9FBE9;
+    font-size:12.5px;font-weight:500;text-align:center;padding:7px 16px}
+  .trustbar svg{vertical-align:-2px;margin-right:6px}
+
+  /* Header */
+  header.site{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+  header.site.scrolled{box-shadow:0 6px 24px -14px rgba(6,78,59,.3)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;text-decoration:none}
+  .logo .logo-svg{height:32px;width:auto;display:block;overflow:visible}
+  /* Logo icon: one smooth 360 turn on hover only (no ambient animation) */
+  .logo-ico{transform-box:fill-box;transform-origin:center}
+  .logo:hover .logo-ico{animation:icoSpin 1.2s var(--ease) 1}
+  @keyframes icoSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  .nav .btn{padding:10px 18px;font-size:14px}
+
+  /* Hero */
+  .hero{background:
+    radial-gradient(48rem 26rem at 85% -10%, rgba(16,185,129,.16), transparent 60%),
+    radial-gradient(40rem 22rem at -10% 30%, rgba(15,157,88,.10), transparent 55%),
+    linear-gradient(180deg,#fff 0%, var(--ground) 100%);
+    padding:76px 0 68px}
+  .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(34px,5vw,52px);font-weight:800;margin:18px 0 14px}
+  .hero p.lead{font-size:18px;color:var(--muted);max-width:54ch;margin:0 0 12px}
+  .rotator{min-height:24px;font-size:14.5px;font-weight:600;color:var(--deep);margin:0 0 24px}
+  .rotator span{display:inline-block}
+  html.js .rotator span{animation:rotIn .45s var(--ease)}
+  @keyframes rotIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+  .hero .note{font-size:13.5px;color:var(--muted)}
+
+  /* Dashboard mockup */
+  .dash{position:relative;transition:transform .3s var(--ease)}
+  .dash:hover{transform:translateY(-4px)}
+  .dash::before{content:"";position:absolute;inset:-26px;z-index:-1;border-radius:32px;
+    background:radial-gradient(40rem 20rem at 50% 0%, rgba(16,185,129,.20), transparent 70%)}
+  .dash .frame{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fff;
+    box-shadow:0 24px 60px -24px rgba(6,78,59,.35)}
+  .dash .top{background:linear-gradient(150deg,var(--deep),var(--deep-2));color:#fff;padding:18px 22px}
+  .dash .top .row{display:flex;justify-content:space-between;align-items:center;font-size:11px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--pale)}
+  .dash .amt{font-size:32px;font-weight:800;margin-top:8px;font-variant-numeric:tabular-nums}
+  .dash .amt small{display:block;font-size:13px;font-weight:400;color:rgba(236,253,245,.85);margin-top:2px}
+  .dash .body{padding:18px 22px}
+  .dash .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .bars{display:flex;align-items:flex-end;gap:9px;height:124px;border-bottom:1px solid var(--line);padding-bottom:1px}
+  .bars .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;height:100%}
+  .bars .v{font-size:9.5px;font-weight:700;color:var(--deep);font-variant-numeric:tabular-nums}
+  .bars .bar{width:100%;border-radius:6px 6px 0 0;height:var(--h);
+    background:linear-gradient(to top,rgba(6,78,59,.85),rgba(16,185,129,.75));
+    transition:height .8s var(--ease)}
+  html.js .dash:not(.in) .bar{height:8px;transition:none}
+  html.js .dash.in .bar{height:var(--h)}
+  .bars .col:nth-child(2) .bar{transition-delay:.08s}
+  .bars .col:nth-child(3) .bar{transition-delay:.16s}
+  .bars .col:nth-child(4) .bar{transition-delay:.24s}
+  .bars .col:nth-child(5) .bar{transition-delay:.32s}
+  .bars .col:nth-child(6) .bar{transition-delay:.4s}
+  .bars .col:last-child .bar{background:linear-gradient(to top,var(--green),#34D399)}
+  .bars .t{font-size:10px;color:var(--muted)}
+  .flow{display:flex;align-items:center;margin-top:16px;background:var(--ground);
+    border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .flow .step{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;color:var(--muted)}
+  .flow .n{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+    font-size:11px;font-weight:800;background:var(--green);color:#fff}
+  .flow .n.now{background:var(--mint);color:var(--deep);box-shadow:0 0 0 2px rgba(15,157,88,.4)}
+  .flow .bar-c{flex:1;height:3px;border-radius:3px;margin:0 6px 16px;background:var(--line);overflow:hidden;position:relative}
+  .flow .bar-c i{position:absolute;inset:0;background:var(--green);transform-origin:left;transform:scaleX(1);transition:transform .7s var(--ease)}
+  html.js .dash:not(.in) .flow .bar-c i{transform:scaleX(0)}
+  .flow .bar-c:nth-of-type(2) i{transition-delay:.5s}
+  .flow .bar-c:nth-of-type(4) i{transition-delay:.65s}
+  .flow .bar-c.off i{background:transparent}
+  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+  .chips div{border:1px solid var(--line);border-radius:12px;padding:9px 6px;text-align:center;background:var(--ground);transition:transform .2s var(--ease), border-color .2s}
+  .chips div:hover{transform:translateY(-2px);border-color:var(--mint-line)}
+  .chips b{display:block;font-size:15px}
+  .chips span{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .dash .tag{position:absolute;left:50%;transform:translateX(-50%);bottom:-16px;white-space:nowrap;
+    background:#fff;border:1px solid var(--line);
+    border-radius:12px;padding:8px 13px;font-size:12px;font-weight:700;display:flex;gap:7px;align-items:center;
+    box-shadow:0 12px 30px -12px rgba(6,78,59,.3)}
+
+  /* About annotation cards */
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .cards3 .card{padding:24px}
+  .cards3 .card:hover{transform:translateY(-5px);border-color:rgba(15,157,88,.4);
+    box-shadow:0 16px 40px -16px rgba(6,78,59,.3)}
+  .cards3 h3{font-size:17px;margin:12px 0 6px}
+  .cards3 p{font-size:14px;color:var(--muted);margin:0}
+  .icn{width:42px;height:42px;border-radius:11px;background:var(--mint);color:var(--deep);
+    display:grid;place-items:center;transition:background .22s, color .22s, transform .22s var(--ease)}
+  .card:hover .icn{background:var(--green);color:#fff;transform:scale(1.06)}
+
+  /* Process diagram */
+  .process{background:linear-gradient(180deg,#fff, var(--mint))}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+  .steps::before{content:"";position:absolute;top:33px;left:11%;right:11%;height:3px;border-radius:3px;
+    background:linear-gradient(90deg,var(--green),var(--emerald));opacity:.35;
+    transform-origin:left;transition:transform 1s var(--ease)}
+  html.js .steps:not(.in)::before{transform:scaleX(0)}
+  .step-c{position:relative;text-align:center;padding:0 6px}
+  .step-c .bubble{width:66px;height:66px;margin:0 auto 14px;border-radius:20px;position:relative;
+    background:linear-gradient(150deg,var(--deep),var(--deep-2));color:#fff;display:grid;place-items:center;
+    box-shadow:0 12px 26px -10px rgba(6,78,59,.5);transition:transform .25s var(--ease), box-shadow .25s}
+  /* Colour shift on hover: bright green overlay fades in under the icon */
+  .step-c .bubble::after{content:"";position:absolute;inset:0;border-radius:20px;
+    background:linear-gradient(150deg,var(--green),#34D399);opacity:0;transition:opacity .25s}
+  .step-c .bubble svg{position:relative;z-index:1}
+  .step-c .bubble .num{z-index:2}
+  .step-c:hover .bubble{transform:translateY(-5px) scale(1.05);box-shadow:0 18px 34px -14px rgba(15,157,88,.65)}
+  .step-c:hover .bubble::after{opacity:1}
+  .step-c .num{position:absolute;top:-7px;right:-7px;width:22px;height:22px;border-radius:50%;
+    background:var(--green);color:#fff;font-size:11.5px;font-weight:800;display:grid;place-items:center;
+    box-shadow:0 0 0 3px var(--ground)}
+  .step-c h3{font-size:15.5px;margin:0 0 5px}
+  .step-c p{font-size:13px;color:var(--muted);margin:0}
+
+  /* Eligibility */
+  .elig{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;padding:0;margin:0}
+  .elig li{list-style:none;display:flex;gap:11px;align-items:flex-start;background:#fff;
+    border:1px solid var(--line);border-radius:13px;padding:14px 16px;font-size:14.5px;
+    transition:transform .2s var(--ease), border-color .2s, box-shadow .2s}
+  .elig li:hover{transform:translateY(-3px);border-color:var(--mint-line);box-shadow:0 12px 28px -16px rgba(6,78,59,.25)}
+  .elig .tick{flex:none;width:22px;height:22px;border-radius:50%;background:var(--ok-bg);color:var(--ok-ink);
+    display:grid;place-items:center;margin-top:1px;font-size:12px}
+  .callout{background:var(--warn-bg);border:1px solid #FDE68A;color:var(--warn-ink);
+    border-radius:14px;padding:16px 20px;font-size:14.5px;margin-top:26px}
+
+  /* FAQ */
+  details{background:#fff;border:1px solid var(--line);border-radius:13px;padding:0 18px;margin-bottom:10px;
+    transition:border-color .2s, box-shadow .2s}
+  details:hover{border-color:var(--mint-line)}
+  details[open]{border-color:rgba(15,157,88,.4);box-shadow:0 10px 26px -16px rgba(6,78,59,.2)}
+  summary{cursor:pointer;font-weight:600;padding:15px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:20px;color:var(--green);font-weight:600;line-height:1;
+    transition:transform .25s var(--ease)}
+  details[open] summary::after{transform:rotate(45deg)}
+  details .a{overflow:hidden}
+  html.js details[open] .a{animation:faqIn .3s var(--ease)}
+  @keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  details p{margin:0 0 15px;color:var(--muted);font-size:14.5px}
+
+  /* CTA band */
+  .band{background:linear-gradient(150deg,var(--deep),var(--deep-2));border-radius:20px;
+    color:#fff;text-align:center;padding:54px 24px;position:relative;overflow:hidden}
+  .band::before,.band::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.06);
+    animation:float 9s ease-in-out infinite}
+  .band::before{width:260px;height:260px;top:-110px;right:-70px}
+  .band::after{width:300px;height:300px;bottom:-140px;left:-90px;animation-delay:4.5s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(16px)}}
+  .band h2{color:#fff}
+  .band p{color:rgba(236,253,245,.85);max-width:52ch;margin:8px auto 26px}
+  .band .btn{background:#fff;color:var(--deep);box-shadow:none}
+  .band .btn:hover{background:var(--mint)}
+
+  /* Footer */
+  footer{background:#fff;border-top:1px solid var(--line);padding:56px 0 32px;margin-top:72px}
+  .foot{display:grid;grid-template-columns:1.1fr .9fr;gap:48px}
+  .flinks{display:flex;flex-wrap:wrap;gap:8px 20px;margin:18px 0 22px;padding:0;list-style:none}
+  .flinks button{background:none;border:0;padding:0;color:var(--muted);font-size:14px;cursor:pointer;
+    font-family:inherit;text-decoration:underline;text-underline-offset:3px;transition:color .15s}
+  .flinks button:hover{color:var(--green)}
+  .fnote{font-size:13px;color:var(--muted);max-width:48ch}
+  .contact-line{margin-top:16px;font-size:14px}
+  form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  label{display:block;font-size:13.5px;font-weight:600;margin:14px 0 6px}
+  label .req{color:var(--err)}
+  input[type=text],input[type=tel],input[type=email],textarea{width:100%;border:1px solid var(--line);
+    border-radius:10px;padding:11px 13px;font:inherit;font-size:14.5px;background:var(--ground);
+    transition:border-color .15s, box-shadow .15s}
+  input:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(15,157,88,.15)}
+  textarea{min-height:96px;resize:vertical}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:13.5px;color:var(--muted)}
+  .consent input{margin-top:3px;accent-color:var(--green);width:16px;height:16px;flex:none;cursor:pointer}
+  .consent input:focus:not(:focus-visible){outline:none}
+  .err-msg{color:var(--err);font-size:12.5px;margin-top:4px;display:none}
+  .form-status{margin-top:14px;font-size:14px;border-radius:10px;padding:11px 14px;display:none}
+  .form-status.ok{display:block;background:var(--ok-bg);color:var(--ok-ink)}
+  .form-status.fail{display:block;background:#FEF2F2;color:#991B1B}
+  .copyright{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
+
+  /* Dialogs */
+  dialog{border:0;border-radius:16px;max-width:560px;width:calc(100% - 40px);padding:0;
+    box-shadow:0 30px 80px -20px rgba(6,78,59,.4)}
+  html.js dialog[open]{animation:dlgIn .3s var(--ease)}
+  @keyframes dlgIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+  dialog::backdrop{background:rgba(6,30,22,.5)}
+  .dlg-head{background:linear-gradient(150deg,var(--deep),var(--deep-2));color:#fff;padding:18px 22px;font-weight:700}
+  .dlg-body{padding:20px 22px;font-size:14.5px;color:var(--muted)}
+  .dlg-body p{margin:0 0 12px}
+  .dlg-close{margin:0 22px 20px;padding:9px 18px;font-size:14px}
+
+  @media (max-width: 880px){
+    .hero .grid{grid-template-columns:1fr}
+    .cards3{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr;gap:26px}
+    .steps::before{display:none}
+    .foot{grid-template-columns:1fr}
+    form .row{grid-template-columns:1fr}
+    section{padding:48px 0}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+    html.js .reveal,html.js [data-stagger] > *{opacity:1;transform:none}
+    html.js .dash:not(.in) .bar{height:var(--h)}
+    html.js .dash:not(.in) .flow .bar-c i{transform:scaleX(1)}
+    html.js .steps:not(.in)::before{transform:scaleX(1)}
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js");</script>
+
+<!-- ======================= EDIT THIS ONE LINE ======================= -->
+<script> const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdfoEQDY4c-DvHBJxKRzUZ7tIr_dgiw_p6zTASYcQ_CKbYtHQ/viewform"; </script>
+<!-- ================================================================== -->
+
+<div class="trustbar">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1M10 21v-4h4v4"/></svg>
+  Created by the founders of a leading IT company from Rajkot, Gujarat, building in this industry for 12+ years
+</div>
+
+<header class="site" id="siteHeader">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Sidecash.ai home">
+      <svg class="logo-svg" viewBox="0 0 365.68 69.59" aria-hidden="true" focusable="false">
+        <g id="brand-logo">
+        <g class="logo-ico"><path fill="#20B776" d="M64.31,12.91V0L23.07,0.02C10.29,0.28,0,10.7,0,23.55c0,6.1,2.34,11.65,6.15,15.83l9.28,10.05H7.24c-4,0-7.24,3.24-7.24,7.24v12.91l41.24-0.02c12.78-0.26,23.07-10.68,23.07-23.53c0-6.1-2.34-11.65-6.15-15.83l-9.28-10.05h8.18C61.07,20.15,64.31,16.91,64.31,12.91z M46.64,36.33c-5.91,2.34-10.58,7.12-12.76,13.1h-2.93c-2.18-5.98-6.85-10.76-12.76-13.1v-3.08c5.91-2.33,10.58-7.11,12.76-13.1h2.93c2.18,5.99,6.85,10.77,12.76,13.1V36.33z"/></g>
+        <g fill="#111827"><path d="M91.38,54.47c-3.08,0-5.9-0.66-8.48-1.97c-2.58-1.31-4.72-3.45-6.42-6.42l6.73-4.28c1,2,2.26,3.46,3.78,4.36c1.52,0.91,3.13,1.36,4.84,1.36c1.81,0,3.24-0.41,4.28-1.22c1.04-0.81,1.56-1.89,1.56-3.22c0-1.3-0.41-2.33-1.22-3.11c-0.82-0.78-1.9-1.41-3.25-1.89c-1.35-0.48-2.83-0.93-4.42-1.33c-3-0.78-5.39-2.07-7.17-3.86c-1.78-1.8-2.67-4.16-2.67-7.09c0-2.33,0.57-4.37,1.72-6.11c1.15-1.74,2.75-3.09,4.81-4.06s4.46-1.45,7.2-1.45c3.04,0,5.58,0.63,7.61,1.89c2.04,1.26,3.78,3.04,5.23,5.34l-6.67,4.11c-0.93-1.52-1.89-2.63-2.89-3.33c-1-0.7-2.22-1.06-3.67-1.06c-1.56,0-2.84,0.39-3.86,1.17c-1.02,0.78-1.53,1.82-1.53,3.11c0,1.45,0.6,2.49,1.81,3.14c1.2,0.65,2.66,1.23,4.36,1.75c1.15,0.37,2.44,0.81,3.86,1.31c1.43,0.5,2.81,1.19,4.14,2.06c1.33,0.87,2.43,2.03,3.28,3.47c0.85,1.45,1.28,3.28,1.28,5.5c0,2.33-0.57,4.39-1.72,6.17c-1.15,1.78-2.78,3.17-4.89,4.17C96.88,53.97,94.34,54.47,91.38,54.47z"/><path d="M112.78,22.45c-1.26,0-2.33-0.43-3.2-1.31c-0.87-0.87-1.31-1.92-1.31-3.14c0-1.19,0.44-2.21,1.31-3.08c0.87-0.87,1.94-1.31,3.2-1.31c1.3,0,2.37,0.44,3.22,1.31c0.85,0.87,1.28,1.9,1.28,3.08c0,1.26-0.43,2.32-1.28,3.17C115.15,22.03,114.08,22.45,112.78,22.45z M109.06,53.75v-28.9h7.5v28.9H109.06z"/><path d="M134.18,54.47c-2.63,0-5.03-0.68-7.2-2.03c-2.17-1.35-3.89-3.17-5.17-5.45c-1.28-2.28-1.92-4.81-1.92-7.59c0-2.08,0.37-4.03,1.11-5.86c0.74-1.83,1.76-3.45,3.06-4.84c1.3-1.39,2.81-2.48,4.53-3.28c1.72-0.8,3.59-1.19,5.59-1.19c2.48,0,4.43,0.46,5.84,1.39c1.41,0.93,2.5,2.15,3.28,3.67V13.17h7.5v40.58h-7.28v-4.72c-0.78,1.63-1.88,2.95-3.31,3.95C138.78,53.97,136.77,54.47,134.18,54.47z M135.4,47.69c1.67,0,3.1-0.38,4.31-1.14c1.2-0.76,2.14-1.77,2.81-3.03c0.67-1.26,1-2.63,1-4.11c0-1.52-0.33-2.91-1-4.17s-1.6-2.28-2.81-3.06c-1.2-0.78-2.64-1.17-4.31-1.17c-1.59,0-2.99,0.38-4.2,1.14c-1.2,0.76-2.14,1.77-2.81,3.03c-0.67,1.26-1,2.65-1,4.17c0,1.45,0.33,2.81,1,4.08s1.6,2.31,2.81,3.08C132.41,47.3,133.81,47.69,135.4,47.69z"/><path d="M169.08,54.47c-2.96,0-5.58-0.69-7.84-2.06c-2.26-1.37-4.01-3.2-5.25-5.47c-1.24-2.28-1.86-4.81-1.86-7.59s0.65-5.33,1.95-7.64c1.3-2.32,3.07-4.16,5.31-5.53c2.24-1.37,4.81-2.06,7.7-2.06c2.89,0,5.44,0.69,7.64,2.06c2.2,1.37,3.93,3.21,5.17,5.53c1.24,2.32,1.86,4.86,1.86,7.64c0,0.41-0.02,0.83-0.06,1.28c-0.04,0.44-0.09,0.91-0.17,1.39h-21.62c0.41,1.7,1.23,3.09,2.47,4.17c1.24,1.08,2.81,1.61,4.7,1.61c1.63,0,3.05-0.37,4.25-1.11c1.2-0.74,2.14-1.67,2.81-2.78l5.84,4.39c-1.15,1.82-2.87,3.3-5.17,4.45C174.51,53.89,171.94,54.47,169.08,54.47z M168.97,30.57c-1.78,0-3.3,0.54-4.56,1.61c-1.26,1.08-2.09,2.48-2.5,4.22h14.28c-0.41-1.59-1.25-2.96-2.53-4.11C172.39,31.14,170.83,30.57,168.97,30.57z"/><path d="M206.49,54.47c-2.89,0-5.57-0.52-8.03-1.56c-2.46-1.04-4.61-2.48-6.45-4.33c-1.83-1.85-3.26-3.99-4.28-6.42c-1.02-2.43-1.53-5.03-1.53-7.81c0-2.78,0.49-5.39,1.47-7.84c0.98-2.45,2.37-4.59,4.17-6.45c1.8-1.85,3.94-3.31,6.42-4.36c2.48-1.06,5.23-1.58,8.23-1.58c3.19,0,5.92,0.5,8.2,1.5c2.28,1,4.29,2.54,6.03,4.61l-5.5,4.78c-2.33-2.45-5.24-3.67-8.73-3.67c-2.48,0-4.64,0.59-6.48,1.78c-1.83,1.19-3.25,2.76-4.25,4.72c-1,1.96-1.5,4.13-1.5,6.5c0,2.37,0.5,4.53,1.5,6.48s2.43,3.5,4.28,4.67c1.85,1.17,4.06,1.75,6.61,1.75c1.89,0,3.56-0.31,5-0.95c1.44-0.63,2.74-1.57,3.89-2.83l5.67,4.83c-1.48,1.78-3.46,3.25-5.92,4.42C212.83,53.89,209.9,54.47,206.49,54.47z"/><path d="M235.39,54.47c-2.63,0-5.03-0.68-7.2-2.03c-2.17-1.35-3.89-3.17-5.17-5.45c-1.28-2.28-1.92-4.81-1.92-7.59c0-2.08,0.37-4.03,1.11-5.86c0.74-1.83,1.76-3.45,3.06-4.84c1.3-1.39,2.81-2.48,4.53-3.28c1.72-0.8,3.59-1.19,5.59-1.19c2.52,0,4.48,0.47,5.89,1.42c1.41,0.95,2.5,2.2,3.28,3.75v-4.56h7.45v28.9h-7.28v-4.72c-0.78,1.63-1.88,2.95-3.31,3.95C240,53.97,237.99,54.47,235.39,54.47z M236.62,47.69c1.67,0,3.1-0.38,4.31-1.14c1.2-0.76,2.14-1.77,2.81-3.03c0.67-1.26,1-2.63,1-4.11c0-1.52-0.33-2.91-1-4.17s-1.6-2.28-2.81-3.06c-1.2-0.78-2.64-1.17-4.31-1.17c-1.59,0-2.99,0.38-4.2,1.14c-1.2,0.76-2.14,1.77-2.81,3.03c-0.67,1.26-1,2.65-1,4.17c0,1.45,0.33,2.81,1,4.08s1.6,2.31,2.81,3.08C233.62,47.3,235.02,47.69,236.62,47.69z"/><path d="M266.35,54.47c-4.85,0-8.86-1.69-12.01-5.06l5.06-4.61c2.11,2.37,4.37,3.56,6.78,3.56c1.3,0,2.29-0.29,2.97-0.86c0.69-0.57,1.03-1.29,1.03-2.14c0-0.52-0.12-0.96-0.36-1.33c-0.24-0.37-0.74-0.72-1.5-1.06c-0.76-0.33-1.9-0.67-3.42-1c-2.59-0.63-4.52-1.41-5.78-2.33c-1.26-0.93-2.09-1.96-2.5-3.11c-0.41-1.15-0.61-2.33-0.61-3.56c0-2.52,0.95-4.62,2.86-6.31c1.91-1.69,4.55-2.53,7.92-2.53c2.33,0,4.34,0.35,6,1.06c1.67,0.7,3.24,2.02,4.72,3.95l-5.45,4.17c-0.7-1.11-1.49-1.91-2.36-2.39c-0.87-0.48-1.79-0.72-2.75-0.72c-1.04,0-1.9,0.2-2.58,0.61c-0.69,0.41-1.03,1.06-1.03,1.95c0,0.48,0.22,0.95,0.67,1.42c0.44,0.46,1.52,0.92,3.22,1.36c2.82,0.7,4.96,1.53,6.45,2.47c1.48,0.95,2.5,2.01,3.06,3.2c0.56,1.19,0.83,2.5,0.83,3.95c0,1.78-0.49,3.37-1.47,4.78c-0.98,1.41-2.32,2.52-4,3.33C270.42,54.06,268.5,54.47,266.35,54.47z"/><path d="M280.52,53.75V13.17h7.5v15.67c1.56-3.11,4.46-4.67,8.73-4.67c2.07,0,3.95,0.48,5.61,1.45s2.98,2.33,3.95,4.11c0.96,1.78,1.45,3.89,1.45,6.34v17.67h-7.5V37.91c0-2.52-0.58-4.34-1.72-5.47c-1.15-1.13-2.65-1.7-4.5-1.7c-1.59,0-2.99,0.57-4.2,1.7c-1.2,1.13-1.81,2.96-1.81,5.47v15.84H280.52z"/><path d="M315.93,54.47c-1.44,0-2.64-0.48-3.58-1.45s-1.42-2.11-1.42-3.45c0-1.3,0.47-2.43,1.42-3.39c0.94-0.96,2.14-1.44,3.58-1.44c1.45,0,2.63,0.48,3.56,1.44c0.93,0.96,1.39,2.09,1.39,3.39c0,1.33-0.46,2.48-1.39,3.45C318.56,53.99,317.38,54.47,315.93,54.47z"/><path d="M336.38,54.47c-2.63,0-5.03-0.68-7.2-2.03c-2.17-1.35-3.89-3.17-5.17-5.45c-1.28-2.28-1.92-4.81-1.92-7.59c0-2.08,0.37-4.03,1.11-5.86c0.74-1.83,1.76-3.45,3.06-4.84c1.3-1.39,2.81-2.48,4.53-3.28c1.72-0.8,3.59-1.19,5.59-1.19c2.52,0,4.48,0.47,5.89,1.42c1.41,0.95,2.5,2.2,3.28,3.75v-4.56H353v28.9h-7.28v-4.72c-0.78,1.63-1.88,2.95-3.31,3.95C340.99,53.97,338.98,54.47,336.38,54.47z M337.61,47.69c1.67,0,3.1-0.38,4.31-1.14c1.2-0.76,2.14-1.77,2.81-3.03c0.67-1.26,1-2.63,1-4.11c0-1.52-0.33-2.91-1-4.17s-1.6-2.28-2.81-3.06c-1.2-0.78-2.64-1.17-4.31-1.17c-1.59,0-2.99,0.38-4.2,1.14c-1.2,0.76-2.14,1.77-2.81,3.03c-0.67,1.26-1,2.65-1,4.17c0,1.45,0.33,2.81,1,4.08s1.6,2.31,2.81,3.08C334.61,47.3,336.01,47.69,337.61,47.69z"/><path d="M361.17,22.45c-1.26,0-2.33-0.43-3.2-1.31c-0.87-0.87-1.31-1.92-1.31-3.14c0-1.19,0.44-2.21,1.31-3.08c0.87-0.87,1.94-1.31,3.2-1.31c1.3,0,2.37,0.44,3.22,1.31c0.85,0.87,1.28,1.9,1.28,3.08c0,1.26-0.43,2.32-1.28,3.17C363.54,22.03,362.47,22.45,361.17,22.45z M357.45,53.75v-28.9h7.5v28.9H357.45z"/></g>
+        </g>
+      </svg>
+    </a>
+    <a class="btn js-form-link" href="#" target="_blank" rel="noopener">Join early access</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <span class="pill"><span class="dot"></span>Pre-registration open &middot; Program starts next month</span>
+        <h1>Get paid for AI data annotation work.</h1>
+        <p class="lead">Real AI data tasks, starting with video annotation. Pre-register now and our team will contact you when your batch opens.</p>
+        <p class="rotator" aria-live="polite"><span id="rotText">Train. Qualify. Work. Track payouts.</span></p>
+        <div class="actions">
+          <a class="btn js-form-link" href="#" target="_blank" rel="noopener">Join the early access list
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn ghost" href="#process">How it works</a>
+        </div>
+        <p class="note">No fees, ever. Your details stay with us for future communication only.</p>
+      </div>
+
+      <!-- DASHBOARD MOCKUP -->
+      <div class="dash reveal" id="dashCard" role="img" aria-label="Preview of the SideCash dashboard showing approved earnings, weekly work, and payout status">
+        <div class="frame">
+          <div class="top">
+            <div class="row"><span>Earnings snapshot</span><span style="border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:2px 9px;letter-spacing:.04em">Illustrative</span></div>
+            <div class="amt">&#8377;<span id="amtNum" data-final="5800">5,800</span><small>Approved this cycle</small></div>
+          </div>
+          <div class="body">
+            <div class="label">Approved work per week &middot; you only earn from approved work</div>
+            <div class="bars" aria-hidden="true">
+              <div class="col"><span class="v">&#8377;620</span><span class="bar" style="--h:38%"></span><span class="t">W1</span></div>
+              <div class="col"><span class="v">&#8377;840</span><span class="bar" style="--h:52%"></span><span class="t">W2</span></div>
+              <div class="col"><span class="v">&#8377;760</span><span class="bar" style="--h:47%"></span><span class="t">W3</span></div>
+              <div class="col"><span class="v">&#8377;1,180</span><span class="bar" style="--h:73%"></span><span class="t">W4</span></div>
+              <div class="col"><span class="v">&#8377;980</span><span class="bar" style="--h:61%"></span><span class="t">W5</span></div>
+              <div class="col"><span class="v">&#8377;1,420</span><span class="bar" style="--h:88%"></span><span class="t">W6</span></div>
+            </div>
+            <div class="flow" aria-hidden="true">
+              <span class="step"><span class="n">&#10003;</span>Submitted</span><span class="bar-c"><i></i></span>
+              <span class="step"><span class="n">&#10003;</span>Reviewed</span><span class="bar-c"><i></i></span>
+              <span class="step"><span class="n">&#10003;</span>Approved</span><span class="bar-c off"><i></i></span>
+              <span class="step"><span class="n now">4</span>Paid</span>
+            </div>
+            <div class="chips" aria-hidden="true">
+              <div><b>94</b><span>Quality score</span></div>
+              <div><b>&#8377;0</b><span>Hidden fees</span></div>
+              <div><b>96%</b><span>Approval rate</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="tag">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#0F9D58" aria-hidden="true"><path fill-rule="evenodd" d="M12 2l8 3.6v5.2c0 5-3.4 9.5-8 11.2-4.6-1.7-8-6.2-8-11.2V5.6L12 2zm4.3 7.5l-1.5-1.5-4 4-1.6-1.6-1.5 1.5 3.1 3.1 5.5-5.5z"/></svg>
+          Every rupee is tracked
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT DATA ANNOTATION -->
+  <section id="about">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">The work</p>
+        <h2>What is data annotation?</h2>
+        <p class="sub">AI systems learn from examples labelled by people. Data annotation is that human work, and it needs focus, not a fancy degree.</p>
+      </div>
+      <div class="cards3 reveal" data-stagger>
+        <div class="card">
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 4h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3zm5 4.8v6.4l5.5-3.2L10 8.8z"/></svg></span>
+          <h3>Watch short videos</h3>
+          <p>You watch clips of everyday activities and understand what is happening in each one.</p>
+        </div>
+        <div class="card">
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.6 2.6a2 2 0 0 1 1.6-.58l5.6.62a2 2 0 0 1 1.76 1.77l.62 5.6a2 2 0 0 1-.58 1.63l-9.1 9.1a2.3 2.3 0 0 1-3.26 0l-5.36-5.36a2.3 2.3 0 0 1 0-3.26l8.7-9.5zM16.2 9.4a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2z"/></svg></span>
+          <h3>Add accurate tags</h3>
+          <p>You label actions with simple tags and timestamps by following clear project instructions.</p>
+        </div>
+        <div class="card">
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2l8 3.6v5.2c0 5-3.4 9.5-8 11.2-4.6-1.7-8-6.2-8-11.2V5.6L12 2zm4.3 7.5l-1.5-1.5-4 4-1.6-1.6-1.5 1.5 3.1 3.1 5.5-5.5z"/></svg></span>
+          <h3>Get reviewed, get paid</h3>
+          <p>Our team checks quality. Approved work is what earns, with a payout status you can always see.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS DIAGRAM -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Simple process</p>
+        <h2>How to join, in four steps</h2>
+        <p class="sub">Pre-registration takes about two minutes.</p>
+      </div>
+      <div class="steps reveal" data-stagger id="stepsRow">
+        <div class="step-c">
+          <div class="bubble"><span class="num">1</span>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5zM8 13.25c0-.41.34-.75.75-.75h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1-.75-.75zm.75 3.25a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5z"/></svg>
+          </div>
+          <h3>Fill the Google Form</h3>
+          <p>Open the early access form from the button on this page.</p>
+        </div>
+        <div class="step-c">
+          <div class="bubble"><span class="num">2</span>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 11.5a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5zM4 20.2c.9-3.9 4.2-6.2 8-6.2s7.1 2.3 8 6.2c.1.4-.2.8-.7.8H4.7c-.5 0-.8-.4-.7-.8z"/></svg>
+          </div>
+          <h3>Enter your details</h3>
+          <p>Name, city, availability, and how to reach you. Two minutes, no fees.</p>
+        </div>
+        <div class="step-c">
+          <div class="bubble"><span class="num">3</span>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 4h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3zm5 4.8v6.4l5.5-3.2L10 8.8z"/></svg>
+          </div>
+          <h3>Learn about the work</h3>
+          <p>We share a short overview of video data annotation so you know exactly what to expect.</p>
+        </div>
+        <div class="step-c">
+          <div class="bubble"><span class="num">4</span>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3.5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2z"/></svg>
+          </div>
+          <h3>Our team contacts you</h3>
+          <p>Once you are on the list, we reach out when your batch opens.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:36px" class="reveal">
+        <a class="btn js-form-link" href="#" target="_blank" rel="noopener">Join the early access list</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELIGIBILITY + PRE-REGISTRATION NOTE -->
+  <section id="eligibility">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Eligibility</p>
+        <h2>Who can join</h2>
+        <p class="sub">Students, working professionals, freelancers, creators, or anyone who meets these simple requirements:</p>
+      </div>
+      <ul class="elig reveal" data-stagger>
+        <li><span class="tick">&#10003;</span>18 years of age or above</li>
+        <li><span class="tick">&#10003;</span>Knows basic English</li>
+        <li><span class="tick">&#10003;</span>Has a computer or laptop</li>
+        <li><span class="tick">&#10003;</span>Has internet access</li>
+        <li><span class="tick">&#10003;</span>Can allocate a minimum of 4 hours</li>
+        <li><span class="tick">&#10003;</span>Willing to follow instructions carefully</li>
+      </ul>
+      <div class="callout reveal">
+        <b>Please note:</b> this is a pre-registration. The actual program starts from the upcoming month.
+        Once you join the early access list, our team will contact you with the next steps. Your details
+        are stored securely for our internal records and future communication only.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap" style="max-width:760px">
+      <div class="reveal">
+        <p class="eyebrow">Questions</p>
+        <h2>Frequently asked questions</h2>
+        <p class="sub">The honest basics.</p>
+      </div>
+      <div class="reveal">
+        <details>
+          <summary>Is SideCash.ai real, and is there any joining fee?</summary>
+          <div class="a"><p>Yes, it is a real AI data work platform, and no, there is never a fee. We never ask you to pay to join, train, or receive work. Anyone asking for money in our name is a fraud.</p></div>
+        </details>
+        <details>
+          <summary>What kind of work will I actually do?</summary>
+          <div class="a"><p>To begin with, video data annotation: watching short clips and adding accurate tags with timestamps by following clear instructions. More project types will be added over time.</p></div>
+        </details>
+        <details>
+          <summary>When does the program start?</summary>
+          <div class="a"><p>The actual program starts from the upcoming month. Pre-registering now puts you on the early access list, and our team contacts you when your batch opens.</p></div>
+        </details>
+        <details>
+          <summary>Do I need experience or a degree?</summary>
+          <div class="a"><p>No. You need focus, honesty, basic English, and the ability to follow instructions. We provide training before any paid work begins.</p></div>
+        </details>
+        <details>
+          <summary>How and when will I get paid?</summary>
+          <div class="a"><p>Work is quality-reviewed first, and only approved work earns. Payouts follow a transparent status you can track. Full payment details are shared when the program starts; we never promise unrealistic income.</p></div>
+        </details>
+        <details>
+          <summary>What happens to my details after I register?</summary>
+          <div class="a"><p>They are kept securely for our internal records and future communication about the program only. We do not sell your data. You can ask us to remove your details at any time by writing to support@sidecash.ai.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="wrap">
+      <div class="band reveal">
+        <h2>Be first in line when the program opens.</h2>
+        <p>Join the early access list today. Pre-registration takes two minutes, costs nothing, and our team will contact you with next steps.</p>
+        <a class="btn js-form-link" href="#" target="_blank" rel="noopener">Join the early access list</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#top" aria-label="Sidecash.ai home">
+          <svg class="logo-svg" viewBox="0 0 365.68 69.59" aria-hidden="true" focusable="false"><use href="#brand-logo"/></svg>
+        </a>
+        <ul class="flinks">
+          <li><button type="button" data-dlg="dlg-trust">Trust &amp; Security</button></li>
+          <li><button type="button" data-dlg="dlg-privacy">Privacy</button></li>
+          <li><button type="button" data-dlg="dlg-terms">Terms</button></li>
+          <li><button type="button" data-dlg="dlg-grievance">Grievance</button></li>
+          <li><button type="button" data-dlg="dlg-dp">Data Protection</button></li>
+        </ul>
+        <p class="fnote">SideCash.ai is an India-first AI data work platform. We keep the information you share on this page for our internal records and future communication about the program only.</p>
+        <p class="contact-line"><b>Contact:</b> <a href="mailto:support@sidecash.ai">support@sidecash.ai</a></p>
+      </div>
+
+      <div>
+        <h3 style="margin:0 0 4px;font-size:17px">Contact us</h3>
+        <p style="font-size:13.5px;color:var(--muted);margin:0 0 6px">We reply within 2 working days.</p>
+        <form id="contactForm" novalidate>
+          <div class="row">
+            <div>
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" autocomplete="name">
+            </div>
+            <div>
+              <label for="cf-phone">Phone <span class="req">*</span></label>
+              <input type="tel" id="cf-phone" name="phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile (India)" required>
+              <p class="err-msg" id="err-phone">Enter a valid 10-digit Indian mobile number.</p>
+            </div>
+          </div>
+          <label for="cf-email">Email <span class="req">*</span></label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          <p class="err-msg" id="err-email">Enter a valid email address.</p>
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" name="message" placeholder="How can we help?"></textarea>
+          <div class="consent">
+            <input type="checkbox" id="cf-consent" name="consent" value="yes" required>
+            <label for="cf-consent" style="margin:0;font-weight:400">I consent to SideCash.ai contacting me about this query and storing this message to handle it.</label>
+          </div>
+          <p class="err-msg" id="err-consent">Please give consent so we can respond to you.</p>
+          <button type="submit" class="btn" id="cf-submit">Send message</button>
+          <div class="form-status" id="cf-status" role="status"></div>
+        </form>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>&copy; <span id="yr">2026</span> SideCash.ai. All rights reserved.</span>
+      <span>Made in India &middot; No fake earning promises</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LEGAL DIALOGS -->
+<dialog id="dlg-trust">
+  <div class="dlg-head">Trust &amp; Security</div>
+  <div class="dlg-body">
+    <p>SideCash.ai is built security-first: role-based access, masked sensitive data, audited actions, and consent-driven data collection.</p>
+    <p>We never charge fees, never ask for OTPs or passwords, and never promise unrealistic income. Full details publish with the main platform.</p>
+  </div>
+  <button class="btn ghost dlg-close" type="button">Close</button>
+</dialog>
+<dialog id="dlg-privacy">
+  <div class="dlg-head">Privacy</div>
+  <div class="dlg-body">
+    <p>Information you share on this page (pre-registration and contact form) is stored securely and used only for our internal records and future communication about the program.</p>
+    <p>We do not sell your data. To access or delete your details, email support@sidecash.ai. The full privacy policy publishes with the main platform and will be reviewed by legal counsel.</p>
+  </div>
+  <button class="btn ghost dlg-close" type="button">Close</button>
+</dialog>
+<dialog id="dlg-terms">
+  <div class="dlg-head">Terms</div>
+  <div class="dlg-body">
+    <p>This page is a pre-registration for an upcoming program. Joining the early access list does not guarantee work, income, or selection; batches open based on project availability.</p>
+    <p>Participation is free. Full terms of service publish with the main platform.</p>
+  </div>
+  <button class="btn ghost dlg-close" type="button">Close</button>
+</dialog>
+<dialog id="dlg-grievance">
+  <div class="dlg-head">Grievance</div>
+  <div class="dlg-body">
+    <p>Have a complaint or concern, including misuse of the SideCash.ai name? Write to support@sidecash.ai with the subject "Grievance" and we will respond within 7 working days.</p>
+    <p>A formal grievance redressal process with a named officer publishes with the main platform.</p>
+  </div>
+  <button class="btn ghost dlg-close" type="button">Close</button>
+</dialog>
+<dialog id="dlg-dp">
+  <div class="dlg-head">Data Protection</div>
+  <div class="dlg-body">
+    <p>We collect only what this page asks for, store it securely, restrict internal access, and retain it for internal records and future communication about the program.</p>
+    <p>You may request correction or deletion at any time via support@sidecash.ai. Our full data protection framework, aligned with Indian data protection law, publishes with the main platform.</p>
+  </div>
+  <button class="btn ghost dlg-close" type="button">Close</button>
+</dialog>
+
+<script>
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // CTA buttons -> Google Form (edit GOOGLE_FORM_URL at top of file)
+  document.querySelectorAll(".js-form-link").forEach(function(a){ a.href = GOOGLE_FORM_URL; });
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Sticky header shadow
+  var hdr = document.getElementById("siteHeader");
+  addEventListener("scroll", function(){ hdr.classList.toggle("scrolled", scrollY > 8); }, {passive:true});
+
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, {rootMargin:"-60px 0px"});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+  // Rotating hero micro-copy (same lines as the main platform)
+  var lines = [
+    "Train. Qualify. Work. Track payouts.",
+    "Built for India's next generation of AI contributors.",
+    "Your side income should feel serious, not suspicious.",
+    "AI work needs human focus. That's where you come in."
+  ];
+  if(!reduceMotion){
+    var ri = 0, rot = document.getElementById("rotText");
+    setInterval(function(){
+      ri = (ri + 1) % lines.length;
+      var s = document.createElement("span");
+      s.textContent = lines[ri];
+      rot.replaceWith(s); s.id = "rotText"; rot = s;
+    }, 3000);
+  }
+
+  // Count-up for the approved amount (runs when the dashboard reveals)
+  (function(){
+    var el = document.getElementById("amtNum");
+    var target = +el.dataset.final;
+    if(reduceMotion || document.visibilityState === "hidden") return;
+    var done = false;
+    new IntersectionObserver(function(entries, obs){
+      if(!entries[0].isIntersecting || done) return;
+      done = true; obs.disconnect();
+      var start = null, dur = 1000;
+      function step(ts){
+        if(start === null) start = ts;
+        var t = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * eased).toLocaleString("en-IN");
+        if(t < 1) requestAnimationFrame(step); else el.textContent = target.toLocaleString("en-IN");
+      }
+      requestAnimationFrame(step);
+      setTimeout(function(){ el.textContent = target.toLocaleString("en-IN"); }, dur + 400);
+    }).observe(el);
+  })();
+
+  // Legal dialogs
+  document.querySelectorAll("[data-dlg]").forEach(function(btn){
+    btn.addEventListener("click", function(){ document.getElementById(btn.dataset.dlg).showModal(); });
+  });
+  document.querySelectorAll(".dlg-close").forEach(function(btn){
+    btn.addEventListener("click", function(){ btn.closest("dialog").close(); });
+  });
+
+  // Contact form: validate, then email support@sidecash.ai via formsubmit.co
+  (function(){
+    var form = document.getElementById("contactForm");
+    var status = document.getElementById("cf-status");
+    function show(id, on){ document.getElementById(id).style.display = on ? "block" : "none"; }
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var phone = document.getElementById("cf-phone").value.trim();
+      var email = document.getElementById("cf-email").value.trim();
+      var consent = document.getElementById("cf-consent").checked;
+      var okPhone = /^[6-9]\d{9}$/.test(phone);
+      var okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+      show("err-phone", !okPhone); show("err-email", !okEmail); show("err-consent", !consent);
+      if(!okPhone || !okEmail || !consent) return;
+
+      var btn = document.getElementById("cf-submit");
+      btn.disabled = true; btn.textContent = "Sending...";
+      status.className = "form-status";
+      fetch("https://formsubmit.co/ajax/support@sidecash.ai", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          _subject: "SideCash.ai landing page enquiry",
+          _template: "table",
+          name: document.getElementById("cf-name").value.trim() || "(not given)",
+          phone: phone,
+          email: email,
+          message: document.getElementById("cf-msg").value.trim() || "(no message)",
+          consent: "Yes, consented to contact and storage"
+        })
+      }).then(function(r){ if(!r.ok) throw new Error(); return r.json(); })
+      .then(function(){
+        status.className = "form-status ok";
+        status.textContent = "Thank you. Your message has been sent, and we will reply within 2 working days.";
+        form.reset();
+      }).catch(function(){
+        status.className = "form-status fail";
+        status.innerHTML = "Could not send right now. Please email us directly at <a href='mailto:support@sidecash.ai'>support@sidecash.ai</a>.";
+      }).finally(function(){
+        btn.disabled = false; btn.textContent = "Send message";
+      });
+    });
+  })();
+</script>
+</body>
+</html>
