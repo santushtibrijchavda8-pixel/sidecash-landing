@@ -267,12 +267,17 @@
   .foot > div:nth-child(2){order:1;background:var(--card);border:1px solid var(--line);
     border-radius:18px;padding:28px 30px;max-width:680px;width:100%;margin:0 auto;
     box-shadow:0 1px 2px rgba(17,24,39,.04),0 14px 36px -18px rgba(6,78,59,.18)}
-  .flinks{display:flex;flex-wrap:wrap;gap:8px 20px;margin:18px 0 22px;padding:0;list-style:none}
-  .flinks button{background:none;border:0;padding:0;color:var(--muted);font-size:14px;cursor:pointer;
-    font-family:inherit;text-decoration:underline;text-underline-offset:3px;transition:color .15s}
-  .flinks button:hover{color:var(--green)}
-  .fnote{font-size:13px;color:var(--muted);max-width:48ch}
-  .contact-line{margin-top:16px;font-size:14px}
+  /* Brand area: three balanced columns (logo+note / legal / contact) */
+  .fbrand{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;align-items:start}
+  .fhead{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+  .flinks-v{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .flinks-v button{background:none;border:0;padding:0;font-family:inherit;font-size:14px;color:var(--ink);
+    cursor:pointer;text-align:left;transition:color .15s}
+  .flinks-v button:hover{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+  .fnote{font-size:13px;color:var(--muted);max-width:44ch;margin:14px 0 0;line-height:1.65}
+  .fmail{margin:0}
+  .fmail a{font-size:14.5px;font-weight:600}
+  @media (max-width:880px){.fbrand{grid-template-columns:1fr;gap:30px}}
   form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   label{display:block;font-size:13.5px;font-weight:600;margin:14px 0 6px}
   label .req{color:var(--err)}
@@ -552,19 +557,30 @@
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div>
-        <a class="logo" href="#top" aria-label="Sidecash.ai home">
-          <svg class="logo-svg" viewBox="0 0 365.68 69.59" aria-hidden="true" focusable="false"><use href="#brand-logo"/></svg>
-        </a>
-        <ul class="flinks">
-          <li><button type="button" data-dlg="dlg-trust">Trust &amp; Security</button></li>
-          <li><button type="button" data-dlg="dlg-privacy">Privacy</button></li>
-          <li><button type="button" data-dlg="dlg-terms">Terms</button></li>
-          <li><button type="button" data-dlg="dlg-grievance">Grievance</button></li>
-          <li><button type="button" data-dlg="dlg-dp">Data Protection</button></li>
-        </ul>
-        <p class="fnote">SideCash.ai is an India-first AI data work platform. We keep the information you share on this page for our internal records and future communication about the program only.</p>
-        <p class="contact-line"><b>Contact:</b> <a href="mailto:support@sidecash.ai">support@sidecash.ai</a></p>
+      <div class="fbrand">
+        <div>
+          <a class="logo" href="#top" aria-label="Sidecash.ai home">
+            <svg class="logo-svg" viewBox="0 0 365.68 69.59" aria-hidden="true" focusable="false"><use href="#brand-logo"/></svg>
+          </a>
+          <p class="fnote">SideCash.ai is an India-first AI data work platform. We keep the information you share on this page for our internal records and future communication about the program only.</p>
+        </div>
+        <nav aria-label="Legal">
+          <h4 class="fhead">Legal</h4>
+          <ul class="flinks-v">
+            <li><button type="button" data-dlg="dlg-trust">Trust &amp; Security</button></li>
+            <li><button type="button" data-dlg="dlg-privacy">Privacy</button></li>
+            <li><button type="button" data-dlg="dlg-terms">Terms</button></li>
+            <li><button type="button" data-dlg="dlg-grievance">Grievance</button></li>
+            <li><button type="button" data-dlg="dlg-dp">Data Protection</button></li>
+          </ul>
+        </nav>
+        <div>
+          <h4 class="fhead">Contact</h4>
+          <p class="fmail"><a href="mailto:support@sidecash.ai">support@sidecash.ai</a></p>
+          <p class="fnote">We reply within 2 working days.</p>
+          <h4 class="fhead" style="margin-top:24px">Get started</h4>
+          <p class="fmail"><a class="js-form-link" href="#" target="_blank" rel="noopener">Join the early access list</a></p>
+        </div>
       </div>
 
       <div>
