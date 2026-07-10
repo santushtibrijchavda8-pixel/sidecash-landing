@@ -129,7 +129,7 @@
     radial-gradient(40rem 22rem at -10% 30%, rgba(32,183,118,.10), transparent 55%),
     linear-gradient(var(--ground),var(--ground));
     padding:76px 0 68px}
-  .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero .grid{display:grid;grid-template-columns:1fr 1.06fr;gap:40px;align-items:center}
   .hero h1{font-size:clamp(34px,5vw,52px);font-weight:800;margin:18px 0 14px}
   .hero p.lead{font-size:18px;color:var(--muted);max-width:54ch;margin:0 0 12px}
   .rotator{min-height:24px;font-size:14.5px;font-weight:600;color:var(--deep);margin:0 0 24px}
@@ -146,7 +146,7 @@
     background:radial-gradient(40rem 20rem at 50% 0%, rgba(16,185,129,.20), transparent 70%)}
   .dash .frame{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fff;
     box-shadow:0 24px 60px -24px rgba(6,78,59,.35)}
-  .dash .top{position:relative;overflow:hidden;background:linear-gradient(150deg,var(--deep),var(--deep-2));color:#fff;padding:18px 22px 20px}
+  .dash .top{position:relative;overflow:hidden;background:linear-gradient(150deg,var(--deep),var(--deep-2));color:#fff;padding:14px 20px 16px}
   .dash .top .row{position:relative;display:flex;justify-content:space-between;align-items:center}
   .dash .who{display:inline-flex;align-items:center;gap:9px;font-size:10.5px;font-weight:600;
     letter-spacing:.14em;text-transform:uppercase;color:var(--pale)}
@@ -154,16 +154,16 @@
     display:grid;place-items:center;color:#D9FBE9;flex:none}
   .dash .illus{border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:2px 10px;
     font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--pale)}
-  .dash .wm{position:absolute;right:-16px;top:-14px;width:118px;height:118px;border-radius:50%;
+  .dash .wm{position:absolute;right:-14px;top:-12px;width:96px;height:96px;border-radius:50%;
     background:rgba(255,255,255,.06);display:grid;place-items:center;
-    font-size:42px;font-weight:700;color:rgba(255,255,255,.14)}
-  .dash .amt{position:relative;font-size:33px;font-weight:800;margin-top:12px;font-variant-numeric:tabular-nums}
-  .dash .amt small{display:block;font-size:13px;font-weight:400;color:rgba(236,253,245,.85);margin-top:2px}
-  .dash .body{padding:16px 22px 18px}
+    font-size:34px;font-weight:700;color:rgba(255,255,255,.14)}
+  .dash .amt{position:relative;font-size:28px;font-weight:800;margin-top:8px;font-variant-numeric:tabular-nums}
+  .dash .amt small{display:block;font-size:12px;font-weight:400;color:rgba(236,253,245,.85);margin-top:2px}
+  .dash .body{padding:12px 20px 14px}
   .dash .ptitle{font-size:13px;color:var(--muted)}
   .dash .ptitle b{color:var(--green)}
-  .dash .psub{font-size:11.5px;color:var(--muted);margin:2px 0 10px}
-  .bars{display:flex;align-items:flex-end;gap:12px;height:138px;border-bottom:1px solid var(--line);padding-bottom:1px}
+  .dash .psub{font-size:11.5px;color:var(--muted);margin:2px 0 8px}
+  .bars{display:flex;align-items:flex-end;gap:12px;height:112px;border-bottom:1px solid var(--line);padding-bottom:1px}
   .bars .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;height:100%}
   .bars .v{font-size:10px;font-weight:700;color:var(--deep);font-variant-numeric:tabular-nums}
   .bars .bar{width:100%;flex-shrink:0;border-radius:8px 8px 0 0;height:var(--h);
@@ -176,29 +176,29 @@
   .bars .col:nth-child(4) .bar{transition-delay:.24s}
   .bars .col:last-child .bar{background:linear-gradient(to top,var(--green),#34D399)}
   .bars .t{font-size:10px;color:var(--muted)}
-  .flow{display:flex;align-items:center;margin-top:12px;background:var(--ground);
-    border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .flow{display:flex;align-items:center;margin-top:10px;background:var(--ground);
+    border:1px solid var(--line);border-radius:12px;padding:9px 12px}
   .flow .step{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:10px;color:var(--muted)}
-  .flow .ic{position:relative;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  .flow .ic{position:relative;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
     background:linear-gradient(150deg,var(--green),#34D399);color:#fff}
   .flow .ic.out{background:#fff;border:2px solid var(--green);color:var(--green);font-weight:800;font-size:14px}
   .flow .ic .ok{position:absolute;right:-4px;bottom:-3px;width:14px;height:14px;border-radius:50%;
     background:var(--deep);color:#fff;font-size:8.5px;font-style:normal;display:grid;place-items:center;
     box-shadow:0 0 0 2px #fff}
-  .flow .ln{flex:1;height:2px;border-radius:2px;margin:0 8px 18px;
+  .flow .ln{flex:1;height:2px;border-radius:2px;margin:0 8px 16px;
     background:linear-gradient(90deg,var(--green),var(--emerald));opacity:.55}
-  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
-  .chips div{display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;
-    border:1px solid var(--line);border-radius:12px;padding:11px 6px;background:var(--ground);
+  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}
+  .chips div{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;
+    border:1px solid var(--line);border-radius:12px;padding:8px 6px;background:var(--ground);
     transition:transform .2s var(--ease), border-color .2s}
   .chips div:hover{transform:translateY(-2px);border-color:var(--mint-line)}
-  .chips .cic{width:30px;height:30px;border-radius:9px;background:var(--mint);color:var(--green);
+  .chips .cic{width:26px;height:26px;border-radius:8px;background:var(--mint);color:var(--green);
     display:grid;place-items:center;margin-bottom:2px}
   .chips b{display:block;font-size:15px}
   .chips span{font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
   .chips em{font-style:normal;font-size:9.5px;font-weight:600;color:var(--green)}
-  .trustline{display:flex;gap:11px;align-items:center;justify-content:center;margin-top:12px;
-    background:var(--mint);border:1px solid var(--mint-line);border-radius:12px;padding:11px 14px}
+  .trustline{display:flex;gap:11px;align-items:center;justify-content:center;margin-top:10px;
+    background:var(--mint);border:1px solid var(--mint-line);border-radius:12px;padding:9px 12px}
   .trustline svg{flex:none}
   .trustline span{font-size:11.5px;color:var(--muted)}
   .trustline b{display:block;font-size:12.5px;color:var(--ink)}
@@ -433,10 +433,10 @@
             <div class="ptitle"><b>Your weekly progress</b> &middot; Real earnings from your approved work</div>
             <div class="psub">Earnings are updated every week after quality review</div>
             <div class="bars" aria-hidden="true">
-              <div class="col"><span class="v">&#8377;8,250</span><span class="bar" style="--h:59px"></span><span class="t">Week 1</span></div>
-              <div class="col"><span class="v">&#8377;9,800</span><span class="bar" style="--h:70px"></span><span class="t">Week 2</span></div>
-              <div class="col"><span class="v">&#8377;11,450</span><span class="bar" style="--h:82px"></span><span class="t">Week 3</span></div>
-              <div class="col"><span class="v">&#8377;13,250</span><span class="bar" style="--h:95px"></span><span class="t">Week 4</span></div>
+              <div class="col"><span class="v">&#8377;8,250</span><span class="bar" style="--h:45px"></span><span class="t">Week 1</span></div>
+              <div class="col"><span class="v">&#8377;9,800</span><span class="bar" style="--h:53px"></span><span class="t">Week 2</span></div>
+              <div class="col"><span class="v">&#8377;11,450</span><span class="bar" style="--h:62px"></span><span class="t">Week 3</span></div>
+              <div class="col"><span class="v">&#8377;13,250</span><span class="bar" style="--h:72px"></span><span class="t">Week 4</span></div>
             </div>
             <div class="flow" aria-hidden="true">
               <span class="step"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5z"/></svg><i class="ok">&#10003;</i></span>Submitted</span>
@@ -568,22 +568,22 @@
       </div>
       <div class="whygrid reveal" data-stagger>
         <div class="card">
-          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9 4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4V4zm2 1h2V4h-2v1zm-8 6.5V9h18v2.5h-7V13h-4v-1.5H3z"/></svg></span>
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9 4h6a2 2 0 0 1 2 2v1h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3V6a2 2 0 0 1 2-2zm0 3h6V6H9v1z"/></svg></span>
           <h3>Founded by experienced technology entrepreneurs</h3>
           <p>12+ years of experience in the IT industry.</p>
         </div>
         <div class="card">
-          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 5a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5zm9 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM5.5 7A1.5 1.5 0 0 1 7 8.5 1.5 1.5 0 0 1 5.5 10V7zm13 0v3A1.5 1.5 0 0 1 17 8.5 1.5 1.5 0 0 1 18.5 7zm0 10A1.5 1.5 0 0 1 17 15.5 1.5 1.5 0 0 1 18.5 14v3zm-13 0v-3A1.5 1.5 0 0 1 7 15.5 1.5 1.5 0 0 1 5.5 17z"/></svg></span>
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 5.5c4.8 0 8.6 3.9 9.9 6.1a.9.9 0 0 1 0 .9c-1.3 2.1-5.1 6-9.9 6s-8.6-3.9-9.9-6a.9.9 0 0 1 0-.9C3.4 9.4 7.2 5.5 12 5.5zm0 2.9a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2z"/></svg></span>
           <h3>Transparent payments</h3>
           <p>Track every approved task and payout status clearly.</p>
         </div>
         <div class="card">
-          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM8.5 7h7v1.8h-2.42c.3.41.53.89.65 1.4H15.5V12h-1.77a4 4 0 0 1-3.88 3.2h-.13l3.63 4.3h-2.35l-3.5-4.15v-1.85h2.35c1 0 1.85-.63 2.17-1.5H8.5v-1.8h3.62c-.32-.87-1.17-1.4-2.17-1.4H8.5V7z"/></svg></span>
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.86 2.59A2 2 0 0 1 14.27 2H20a2 2 0 0 1 2 2v5.73a2 2 0 0 1-.59 1.41l-9.1 9.1a2.2 2.2 0 0 1-3.11 0l-5.44-5.43a2.2 2.2 0 0 1 0-3.12l9.1-9.1zM16.9 8.6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg></span>
           <h3>No joining fees</h3>
           <p>Free to join. No deposits, no hidden charges.</p>
         </div>
         <div class="card">
-          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2a5 5 0 0 1 5 5v3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v3h6V7a3 3 0 0 0-3-3z"/></svg></span>
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2l8 3.6v5.2c0 5-3.4 9.5-8 11.2-4.6-1.7-8-6.2-8-11.2V5.6L12 2zm4.3 7.5l-1.5-1.5-4 4-1.6-1.6-1.5 1.5 3.1 3.1 5.5-5.5z"/></svg></span>
           <h3>Secure onboarding</h3>
           <p>Your information stays protected and is never sold.</p>
         </div>
@@ -601,31 +601,31 @@
       </div>
       <div class="reveal">
         <details>
-          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">Is SideCash.ai genuine? Is there any joining fee?</span></summary>
+          <summary><span class="qi" aria-hidden="true">1</span><span class="qt">Is SideCash.ai genuine? Is there any joining fee?</span></summary>
           <div class="a"><p>No. SideCash.ai is a legitimate AI work platform. Joining is completely free. We never charge registration fees, security deposits, or upfront payments. If anyone asks you for money in the name of SideCash.ai, please report it to us immediately.</p></div>
         </details>
         <details>
-          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">What kind of work will I do?</span></summary>
+          <summary><span class="qi" aria-hidden="true">2</span><span class="qt">What kind of work will I do?</span></summary>
           <div class="a"><p>You'll work on AI video labeling projects by watching short video clips and applying simple labels based on clear project guidelines. Additional AI data projects may become available over time.</p></div>
         </details>
         <details>
-          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">Do I need any experience?</span></summary>
+          <summary><span class="qi" aria-hidden="true">3</span><span class="qt">Do I need any experience?</span></summary>
           <div class="a"><p>No prior experience is required. If you have basic English skills, can use a computer, and follow instructions carefully, we'll guide you through the work before you begin.</p></div>
         </details>
         <details>
-          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">What happens after I pre-register?</span></summary>
+          <summary><span class="qi" aria-hidden="true">4</span><span class="qt">What happens after I pre-register?</span></summary>
           <div class="a"><p>After you complete the registration form, you'll be added to our early access list. When your batch is ready, we'll contact you with onboarding details, qualification requirements, and instructions to begin your first AI video labeling project.</p></div>
         </details>
         <details>
-          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">How much can I earn?</span></summary>
+          <summary><span class="qi" aria-hidden="true">5</span><span class="qt">How much can I earn?</span></summary>
           <div class="a"><p>Your earnings depend on the type of project, the amount of approved work you complete, and your quality score. Before you begin any project, we'll clearly share the payment structure and expected rates.</p></div>
         </details>
         <details>
-          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">How do I get paid?</span></summary>
+          <summary><span class="qi" aria-hidden="true">6</span><span class="qt">How do I get paid?</span></summary>
           <div class="a"><p>Your completed tasks are reviewed, and your earnings are updated in your dashboard. Payment schedules and methods are shared during onboarding.</p></div>
         </details>
         <details>
-          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">What happens to my personal information?</span></summary>
+          <summary><span class="qi" aria-hidden="true">7</span><span class="qt">What happens to my personal information?</span></summary>
           <div class="a"><p>Your information is stored securely and used only for registration, onboarding, and official SideCash communication. We never sell your personal information to third parties. You may request access to or deletion of your information at any time by contacting us.</p></div>
         </details>
       </div>
@@ -656,8 +656,6 @@
           <p class="eyebrow">Contact</p>
           <h2>Have Questions? We're Here to Help.</h2>
           <p class="sub">Have questions about video labeling, eligibility, or the registration process? Send us a message and our team will get back to you within 2 working days.</p>
-          <p class="fmail"><a href="mailto:support@sidecash.ai">support@sidecash.ai</a></p>
-          <p class="fnote">Response within 2 business days.</p>
         </div>
         <div class="card contact-card reveal">
           <form id="contactForm" novalidate>
@@ -701,7 +699,7 @@
             <a href="#" aria-label="SideCash.ai on LinkedIn" title="LinkedIn">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.1h4.56V23H.22V8.1zM8.34 8.1h4.37v2.03h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V23h-4.55v-6.44c0-1.54-.03-3.51-2.14-3.51-2.14 0-2.47 1.67-2.47 3.4V23H8.34V8.1z"/></svg>
             </a>
-            <a href="#" aria-label="SideCash.ai on Instagram" title="Instagram">
+            <a href="https://www.instagram.com/sidecash.ai/" target="_blank" rel="noopener" aria-label="SideCash.ai on Instagram" title="Instagram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
             </a>
             <a href="#" aria-label="SideCash.ai on X" title="X">
