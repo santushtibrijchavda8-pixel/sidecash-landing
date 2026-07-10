@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>sidecash.ai</title>
-<meta name="description" content="Get paid for AI data annotation work. Join the SideCash.ai early access list: free training, quality-reviewed tasks, and transparent payouts. Pre-registration open, program starts next month.">
+<meta name="description" content="Get paid for simple video labeling work. Join the SideCash.ai early access list: guided onboarding, quality-reviewed tasks, and transparent payments. Free to join, no deposits, no hidden charges.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SideCash.ai">
-<meta property="og:title" content="SideCash.ai | Get paid for AI data annotation work">
-<meta property="og:description" content="Join the early access list: free training, quality-reviewed tasks, and transparent payouts. Program starts next month.">
+<meta property="og:title" content="SideCash.ai | Get paid for simple video labeling work">
+<meta property="og:description" content="Help train AI by labeling short videos. Free to join, no deposits, transparent payments. Pre-register for early access.">
 <meta property="og:url" content="https://sidecash.ai/">
 <meta property="og:image" content="https://sidecash.ai/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SideCash.ai | Get paid for AI data annotation work">
-<meta name="twitter:description" content="Join the early access list: free training, quality-reviewed tasks, and transparent payouts.">
+<meta name="twitter:title" content="SideCash.ai | Get paid for simple video labeling work">
+<meta name="twitter:description" content="Help train AI by labeling short videos. Free to join, no deposits, transparent payments.">
 <meta name="twitter:image" content="https://sidecash.ai/og-image.png">
 <!--
   ============================================================================
@@ -185,7 +185,7 @@
     border-radius:12px;padding:8px 13px;font-size:12px;font-weight:700;display:flex;gap:7px;align-items:center;
     box-shadow:0 12px 30px -12px rgba(6,78,59,.3)}
 
-  /* About annotation cards */
+  /* About video labeling cards */
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .cards3 .card{padding:24px}
   .cards3 .card:hover{transform:translateY(-5px);border-color:rgba(15,157,88,.4);
@@ -258,6 +258,10 @@
   .band p{color:rgba(236,253,245,.85);max-width:52ch;margin:8px auto 26px}
   .band .btn{background:#fff;color:var(--deep);box-shadow:none}
   .band .btn:hover{background:var(--mint)}
+  .band .badges{position:relative;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px}
+  .band .badges span{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 15px;
+    font-size:13px;font-weight:600;color:#ECFDF5}
 
   /* Footer */
   footer{background:#fff;border-top:1px solid var(--line);padding:56px 0 32px;margin-top:72px}
@@ -267,17 +271,22 @@
   .foot > div:nth-child(2){order:1;background:var(--card);border:1px solid var(--line);
     border-radius:18px;padding:28px 30px;max-width:680px;width:100%;margin:0 auto;
     box-shadow:0 1px 2px rgba(17,24,39,.04),0 14px 36px -18px rgba(6,78,59,.18)}
-  /* Brand area: three balanced columns (logo+note / legal / contact) */
-  .fbrand{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;align-items:start}
+  /* Brand area: four columns (logo+tagline+social / quick links / legal / support) */
+  .fbrand{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:38px;align-items:start}
   .fhead{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
   .flinks-v{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-  .flinks-v button{background:none;border:0;padding:0;font-family:inherit;font-size:14px;color:var(--ink);
-    cursor:pointer;text-align:left;transition:color .15s}
-  .flinks-v button:hover{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+  .flinks-v button,.flinks-v a{background:none;border:0;padding:0;font-family:inherit;font-size:14px;color:var(--ink);
+    cursor:pointer;text-align:left;text-decoration:none;transition:color .15s}
+  .flinks-v button:hover,.flinks-v a:hover{color:var(--green);text-decoration:underline;text-underline-offset:3px}
   .fnote{font-size:13px;color:var(--muted);max-width:44ch;margin:14px 0 0;line-height:1.65}
   .fmail{margin:0}
   .fmail a{font-size:14.5px;font-weight:600}
-  @media (max-width:880px){.fbrand{grid-template-columns:1fr;gap:30px}}
+  .fsocial{display:flex;gap:10px;margin-top:18px}
+  .fsocial a{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);color:var(--muted);
+    display:grid;place-items:center;transition:color .2s, border-color .2s, transform .2s var(--ease)}
+  .fsocial a:hover{color:var(--green);border-color:var(--mint-line);transform:translateY(-2px)}
+  @media (max-width:880px){.fbrand{grid-template-columns:1fr 1fr;gap:30px}}
+  @media (max-width:560px){.fbrand{grid-template-columns:1fr}}
   form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   label{display:block;font-size:13.5px;font-weight:600;margin:14px 0 6px}
   label .req{color:var(--err)}
@@ -286,9 +295,10 @@
     transition:border-color .15s, box-shadow .15s}
   input:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(15,157,88,.15)}
   textarea{min-height:96px;resize:vertical}
-  .consent{display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:13.5px;color:var(--muted)}
-  .consent input{margin-top:3px;accent-color:var(--green);width:16px;height:16px;flex:none;cursor:pointer}
-  .consent input:focus:not(:focus-visible){outline:none}
+  .consent-note{font-size:13px;color:var(--muted);margin:16px 0}
+  .link-btn{background:none;border:0;padding:0;font:inherit;font-size:inherit;color:var(--green);
+    cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+  .link-btn:hover{color:var(--green-hover)}
   .err-msg{color:var(--err);font-size:12.5px;margin-top:4px;display:none}
   .form-status{margin-top:14px;font-size:14px;border-radius:10px;padding:11px 14px;display:none}
   .form-status.ok{display:block;background:var(--ok-bg);color:var(--ok-ink)}
@@ -334,7 +344,7 @@
 
 <div class="trustbar">
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1M10 21v-4h4v4"/></svg>
-  Created by the founders of a leading IT company from Rajkot, Gujarat, building in this industry for 12+ years
+  Built by founders with 12+ years of experience in the IT industry.
 </div>
 
 <header class="site" id="siteHeader">
@@ -358,16 +368,16 @@
     <div class="wrap grid">
       <div>
         <span class="pill"><span class="dot"></span>Pre-registration open &middot; Program starts next month</span>
-        <h1>Get paid for AI data annotation work.</h1>
-        <p class="lead">Real AI data tasks, starting with video annotation. Pre-register now and our team will contact you when your batch opens.</p>
-        <p class="rotator" aria-live="polite"><span id="rotText">Train. Qualify. Work. Track payouts.</span></p>
+        <h1>Get paid for simple Video Labeling work</h1>
+        <p class="lead">Help train the next generation of AI by labeling short videos. Complete simple tasks, maintain quality, and earn for approved work. Pre-register today and we'll contact you when your batch opens.</p>
+        <p class="rotator" aria-live="polite"><span id="rotText">Simple work. Real projects. Transparent payments.</span></p>
         <div class="actions">
           <a class="btn js-form-link" href="#" target="_blank" rel="noopener">Join the early access list
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a class="btn ghost" href="#process">How it works</a>
         </div>
-        <p class="note">No fees, ever. Your details stay with us for future communication only.</p>
+        <p class="note">Free to join | No deposits required | No hidden charges</p>
       </div>
 
       <!-- DASHBOARD MOCKUP -->
@@ -408,29 +418,29 @@
     </div>
   </section>
 
-  <!-- ABOUT DATA ANNOTATION -->
+  <!-- ABOUT VIDEO LABELING -->
   <section id="about">
     <div class="wrap">
       <div class="reveal">
-        <p class="eyebrow">The work</p>
-        <h2>What is data annotation?</h2>
-        <p class="sub">AI systems learn from examples labelled by people. Data annotation is that human work, and it needs focus, not a fancy degree.</p>
+        <p class="eyebrow">How You'll Work</p>
+        <h2>What is Video Labeling?</h2>
+        <p class="sub">Video labeling is a simple online task where you watch videos and add labels that help train AI systems. No advanced technical skills are required, just attention to detail, basic English, and the ability to follow instructions.</p>
       </div>
       <div class="cards3 reveal" data-stagger>
         <div class="card">
           <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 4h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3zm5 4.8v6.4l5.5-3.2L10 8.8z"/></svg></span>
-          <h3>Watch videos</h3>
+          <h3>Watch &amp; Understand</h3>
           <p>You watch clips of everyday activities and understand what is happening in each one.</p>
         </div>
         <div class="card">
           <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.6 2.6a2 2 0 0 1 1.6-.58l5.6.62a2 2 0 0 1 1.76 1.77l.62 5.6a2 2 0 0 1-.58 1.63l-9.1 9.1a2.3 2.3 0 0 1-3.26 0l-5.36-5.36a2.3 2.3 0 0 1 0-3.26l8.7-9.5zM16.2 9.4a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2z"/></svg></span>
-          <h3>Add accurate tags</h3>
-          <p>You label actions with simple tags and timestamps by following clear project instructions.</p>
+          <h3>Label What You See</h3>
+          <p>Apply simple labels by following clear project instructions. Accuracy matters more than speed.</p>
         </div>
         <div class="card">
           <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2l8 3.6v5.2c0 5-3.4 9.5-8 11.2-4.6-1.7-8-6.2-8-11.2V5.6L12 2zm4.3 7.5l-1.5-1.5-4 4-1.6-1.6-1.5 1.5 3.1 3.1 5.5-5.5z"/></svg></span>
-          <h3>Get reviewed, get paid</h3>
-          <p>Our team checks quality. Approved work is what earns, with a payout status you can always see.</p>
+          <h3>Earn for Approved Work</h3>
+          <p>Complete tasks accurately, pass quality checks, and receive payment for approved work.</p>
         </div>
       </div>
     </div>
@@ -441,37 +451,37 @@
     <div class="wrap">
       <div class="reveal">
         <p class="eyebrow">Simple process</p>
-        <h2>How to join, in four steps</h2>
-        <p class="sub">Pre-registration takes about two minutes.</p>
+        <h2>Start in just four simple steps</h2>
+        <p class="sub">Pre-registration takes less than 2 minutes.</p>
       </div>
       <div class="steps reveal" data-stagger id="stepsRow">
         <div class="step-c">
           <div class="bubble"><span class="num">1</span>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5zM8 13.25c0-.41.34-.75.75-.75h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1-.75-.75zm.75 3.25a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5z"/></svg>
           </div>
-          <h3>Fill the Google Form</h3>
-          <p>Open the early access form from the button on this page.</p>
+          <h3>Complete the Registration Form</h3>
+          <p>Fill out the pre-registration form with your basic details to join the early access list.</p>
         </div>
         <div class="step-c">
           <div class="bubble"><span class="num">2</span>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 11.5a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5zM4 20.2c.9-3.9 4.2-6.2 8-6.2s7.1 2.3 8 6.2c.1.4-.2.8-.7.8H4.7c-.5 0-.8-.4-.7-.8z"/></svg>
           </div>
-          <h3>Enter your details</h3>
-          <p>Name, city, availability, and how to reach you. Two minutes, no fees.</p>
+          <h3>Tell Us About Yourself</h3>
+          <p>Share your contact details and availability so we can match you with suitable opportunities.</p>
         </div>
         <div class="step-c">
           <div class="bubble"><span class="num">3</span>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 4h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3zm5 4.8v6.4l5.5-3.2L10 8.8z"/></svg>
           </div>
-          <h3>Learn about the work</h3>
-          <p>We share a short overview of video data annotation so you know exactly what to expect.</p>
+          <h3>Understand the Work</h3>
+          <p>Learn the basics of video labeling and complete the qualification process before starting paid work.</p>
         </div>
         <div class="step-c">
           <div class="bubble"><span class="num">4</span>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3.5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2z"/></svg>
           </div>
-          <h3>Our team contacts you</h3>
-          <p>Once you are on the list, we reach out when your batch opens.</p>
+          <h3>We'll Contact You</h3>
+          <p>When your batch opens, we'll contact you with everything you need to get started.</p>
         </div>
       </div>
       <div style="text-align:center;margin-top:36px" class="reveal">
@@ -485,21 +495,21 @@
     <div class="wrap">
       <div class="reveal">
         <p class="eyebrow">Eligibility</p>
-        <h2>Who can join</h2>
-        <p class="sub">Students, working professionals, freelancers, creators, or anyone who meets these simple requirements:</p>
+        <h2>Who Can Apply?</h2>
+        <p class="sub">Ideal for students, working professionals, freelancers, creators, and anyone looking for flexible online work who meets these simple requirements.</p>
       </div>
       <ul class="elig reveal" data-stagger>
-        <li><span class="tick">&#10003;</span>18 years of age or above</li>
-        <li><span class="tick">&#10003;</span>Knows basic English</li>
-        <li><span class="tick">&#10003;</span>Has a computer or laptop</li>
-        <li><span class="tick">&#10003;</span>Has internet access</li>
-        <li><span class="tick">&#10003;</span>Can allocate a minimum of 4 hours</li>
-        <li><span class="tick">&#10003;</span>Willing to follow instructions carefully</li>
+        <li><span class="tick">&#10003;</span>18 years or older</li>
+        <li><span class="tick">&#10003;</span>Basic English proficiency</li>
+        <li><span class="tick">&#10003;</span>Computer or laptop</li>
+        <li><span class="tick">&#10003;</span>Reliable internet connection</li>
+        <li><span class="tick">&#10003;</span>At least 4 hours available per day</li>
+        <li><span class="tick">&#10003;</span>Attention to detail and willingness to follow instructions</li>
       </ul>
       <div class="callout reveal">
-        <b>Please note:</b> this is a pre-registration. The actual program starts from the upcoming month.
-        Once you join the early access list, our team will contact you with the next steps. Your details
-        are stored securely for our internal records and future communication only.
+        <b>Good to Know:</b> Pre-registration is now open. Joining the early access list helps us plan
+        upcoming batches. When your batch is ready, we'll contact you with onboarding details and the
+        next steps. Your information is stored securely and never sold to third parties.
       </div>
     </div>
   </section>
@@ -510,32 +520,36 @@
       <div class="reveal">
         <p class="eyebrow">Questions</p>
         <h2>Frequently asked questions</h2>
-        <p class="sub">The honest basics.</p>
+        <p class="sub">Answers to the most common questions.</p>
       </div>
       <div class="reveal">
         <details>
-          <summary>Is SideCash.ai real, and is there any joining fee?</summary>
-          <div class="a"><p>Yes, it is a real AI data work platform, and no, there is never a fee. We never ask you to pay to join, train, or receive work. Anyone asking for money in our name is a fraud.</p></div>
+          <summary>Is SideCash.ai genuine? Is there any joining fee?</summary>
+          <div class="a"><p>No. SideCash.ai is a legitimate AI work platform. Joining is completely free. We never charge registration fees, security deposits, or upfront payments. If anyone asks you for money in the name of SideCash.ai, please report it to us immediately.</p></div>
         </details>
         <details>
-          <summary>What kind of work will I actually do?</summary>
-          <div class="a"><p>To begin with, video data annotation: watching short clips and adding accurate tags with timestamps by following clear instructions. More project types will be added over time.</p></div>
+          <summary>What kind of work will I do?</summary>
+          <div class="a"><p>You'll work on AI video labeling projects by watching short video clips and applying simple labels based on clear project guidelines. Additional AI data projects may become available over time.</p></div>
         </details>
         <details>
-          <summary>When does the program start?</summary>
-          <div class="a"><p>The actual program starts from the upcoming month. Pre-registering now puts you on the early access list, and our team contacts you when your batch opens.</p></div>
+          <summary>Do I need any experience?</summary>
+          <div class="a"><p>No prior experience is required. If you have basic English skills, can use a computer, and follow instructions carefully, we'll guide you through the work before you begin.</p></div>
         </details>
         <details>
-          <summary>Do I need experience or a degree?</summary>
-          <div class="a"><p>No. You need focus, honesty, basic English, and the ability to follow instructions. We provide training before any paid work begins.</p></div>
+          <summary>What happens after I pre-register?</summary>
+          <div class="a"><p>After you complete the registration form, you'll be added to our early access list. When your batch is ready, we'll contact you with onboarding details, qualification requirements, and instructions to begin your first AI video labeling project.</p></div>
         </details>
         <details>
-          <summary>How and when will I get paid?</summary>
-          <div class="a"><p>Work is quality-reviewed first, and only approved work earns. Payouts follow a transparent status you can track. Full payment details are shared when the program starts; we never promise unrealistic income.</p></div>
+          <summary>How much can I earn?</summary>
+          <div class="a"><p>Your earnings depend on the type of project, the amount of approved work you complete, and your quality score. Before you begin any project, we'll clearly share the payment structure and expected rates.</p></div>
         </details>
         <details>
-          <summary>What happens to my details after I register?</summary>
-          <div class="a"><p>They are kept securely for our internal records and future communication about the program only. We do not sell your data. You can ask us to remove your details at any time by writing to support@sidecash.ai.</p></div>
+          <summary>How do I get paid?</summary>
+          <div class="a"><p>Your completed tasks are reviewed, and your earnings are updated in your dashboard. Payment schedules and methods are shared during onboarding.</p></div>
+        </details>
+        <details>
+          <summary>What happens to my personal information?</summary>
+          <div class="a"><p>Your information is stored securely and used only for registration, onboarding, and official SideCash communication. We never sell your personal information to third parties. You may request access to or deletion of your information at any time by contacting us.</p></div>
         </details>
       </div>
     </div>
@@ -545,9 +559,14 @@
   <section>
     <div class="wrap">
       <div class="band reveal">
-        <h2>Be first in line when the program opens.</h2>
-        <p>Join the early access list today. Pre-registration takes two minutes, costs nothing, and our team will contact you with next steps.</p>
+        <h2>Join the Early Access List Today</h2>
+        <p>Join the early access list in just 2 minutes. It's completely free, and we'll contact you as soon as your batch is ready.</p>
         <a class="btn js-form-link" href="#" target="_blank" rel="noopener">Join the early access list</a>
+        <div class="badges">
+          <span>&#9989; Free to Join</span>
+          <span>&#9201;&#65039; 2-Minute Registration</span>
+          <span>&#128274; Your Information Stays Secure</span>
+        </div>
       </div>
     </div>
   </section>
@@ -562,60 +581,76 @@
           <a class="logo" href="#top" aria-label="Sidecash.ai home">
             <svg class="logo-svg" viewBox="0 0 365.68 69.59" aria-hidden="true" focusable="false"><use href="#brand-logo"/></svg>
           </a>
-          <p class="fnote">SideCash.ai is an India-first AI data work platform. We keep the information you share on this page for our internal records and future communication about the program only.</p>
+          <p class="fnote">Connecting people with meaningful AI opportunities through transparent processes, guided onboarding, and real projects.</p>
+          <!-- Social profiles: replace href="#" with the real profile URLs when the accounts exist -->
+          <div class="fsocial">
+            <a href="#" aria-label="SideCash.ai on LinkedIn" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.1h4.56V23H.22V8.1zM8.34 8.1h4.37v2.03h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V23h-4.55v-6.44c0-1.54-.03-3.51-2.14-3.51-2.14 0-2.47 1.67-2.47 3.4V23H8.34V8.1z"/></svg>
+            </a>
+            <a href="#" aria-label="SideCash.ai on Instagram" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="SideCash.ai on X" title="X">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>
+            </a>
+          </div>
         </div>
+        <nav aria-label="Quick links">
+          <h4 class="fhead">Quick Links</h4>
+          <ul class="flinks-v">
+            <li><a href="#top">Home</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#eligibility">Eligibility</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
         <nav aria-label="Legal">
           <h4 class="fhead">Legal</h4>
           <ul class="flinks-v">
-            <li><button type="button" data-dlg="dlg-trust">Trust &amp; Security</button></li>
             <li><button type="button" data-dlg="dlg-privacy">Privacy</button></li>
             <li><button type="button" data-dlg="dlg-terms">Terms</button></li>
-            <li><button type="button" data-dlg="dlg-grievance">Grievance</button></li>
+            <li><button type="button" data-dlg="dlg-trust">Trust &amp; Security</button></li>
             <li><button type="button" data-dlg="dlg-dp">Data Protection</button></li>
+            <li><button type="button" data-dlg="dlg-grievance">Grievance</button></li>
           </ul>
         </nav>
         <div>
-          <h4 class="fhead">Contact</h4>
+          <h4 class="fhead">Support</h4>
           <p class="fmail"><a href="mailto:support@sidecash.ai">support@sidecash.ai</a></p>
-          <p class="fnote">We reply within 2 working days.</p>
-          <h4 class="fhead" style="margin-top:24px">Get started</h4>
-          <p class="fmail"><a class="js-form-link" href="#" target="_blank" rel="noopener">Join the early access list</a></p>
+          <p class="fnote">Response within 2 business days.</p>
         </div>
       </div>
 
-      <div>
-        <h3 style="margin:0 0 4px;font-size:17px">Contact us</h3>
-        <p style="font-size:13.5px;color:var(--muted);margin:0 0 6px">We reply within 2 working days.</p>
+      <div id="contact">
+        <h3 style="margin:0 0 4px;font-size:17px">Have Questions? We're Here to Help.</h3>
+        <p style="font-size:13.5px;color:var(--muted);margin:0 0 6px">Have questions about video labeling, eligibility, or the registration process? Send us a message and our team will get back to you within 2 working days.</p>
         <form id="contactForm" novalidate>
           <div class="row">
             <div>
-              <label for="cf-name">Name</label>
-              <input type="text" id="cf-name" name="name" autocomplete="name">
+              <label for="cf-name">Full Name</label>
+              <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="Please enter your full name">
             </div>
             <div>
-              <label for="cf-phone">Phone <span class="req">*</span></label>
-              <input type="tel" id="cf-phone" name="phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile (India)" required>
+              <label for="cf-phone">Mobile Number <span class="req">*</span></label>
+              <input type="tel" id="cf-phone" name="phone" inputmode="numeric" maxlength="10" placeholder="Enter your 10-digit mobile number" required>
               <p class="err-msg" id="err-phone">Enter a valid 10-digit Indian mobile number.</p>
             </div>
           </div>
-          <label for="cf-email">Email <span class="req">*</span></label>
-          <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          <label for="cf-email">Email Address <span class="req">*</span></label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="Enter your email address" required>
           <p class="err-msg" id="err-email">Enter a valid email address.</p>
           <label for="cf-msg">Message</label>
-          <textarea id="cf-msg" name="message" placeholder="How can we help?"></textarea>
-          <div class="consent">
-            <input type="checkbox" id="cf-consent" name="consent" value="yes" required>
-            <label for="cf-consent" style="margin:0;font-weight:400">I consent to SideCash.ai contacting me about this query and storing this message to handle it.</label>
-          </div>
-          <p class="err-msg" id="err-consent">Please give consent so we can respond to you.</p>
-          <button type="submit" class="btn" id="cf-submit">Send message</button>
+          <textarea id="cf-msg" name="message" placeholder="Tell us how we can help..."></textarea>
+          <p class="consent-note">By sending this message, you agree to our <button type="button" class="link-btn" data-dlg="dlg-terms">Terms of Service</button> and <button type="button" class="link-btn" data-dlg="dlg-privacy">Privacy Policy</button>.</p>
+          <button type="submit" class="btn" id="cf-submit">Send Message</button>
           <div class="form-status" id="cf-status" role="status"></div>
         </form>
       </div>
     </div>
     <div class="copyright">
       <span>&copy; <span id="yr">2026</span> SideCash.ai. All rights reserved.</span>
-      <span>Made in India &middot; No fake earning promises</span>
+      <span>Building India's AI Workforce</span>
     </div>
   </div>
 </footer>
@@ -683,10 +718,10 @@
 
   // Rotating hero micro-copy (same lines as the main platform)
   var lines = [
-    "Train. Qualify. Work. Track payouts.",
-    "Built for India's next generation of AI contributors.",
-    "Your side income should feel serious, not suspicious.",
-    "AI work needs human focus. That's where you come in."
+    "Simple work. Real projects. Transparent payments.",
+    "Contribute to AI by completing guided video labeling tasks.",
+    "Learn. Qualify. Work. Get paid.",
+    "Join thousands of people building the future of AI."
   ];
   if(!reduceMotion){
     var ri = 0, rot = document.getElementById("rotText");
@@ -737,11 +772,10 @@
       e.preventDefault();
       var phone = document.getElementById("cf-phone").value.trim();
       var email = document.getElementById("cf-email").value.trim();
-      var consent = document.getElementById("cf-consent").checked;
       var okPhone = /^[6-9]\d{9}$/.test(phone);
       var okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
-      show("err-phone", !okPhone); show("err-email", !okEmail); show("err-consent", !consent);
-      if(!okPhone || !okEmail || !consent) return;
+      show("err-phone", !okPhone); show("err-email", !okEmail);
+      if(!okPhone || !okEmail) return;
 
       var btn = document.getElementById("cf-submit");
       btn.disabled = true; btn.textContent = "Sending...";
@@ -756,7 +790,7 @@
           phone: phone,
           email: email,
           message: document.getElementById("cf-msg").value.trim() || "(no message)",
-          consent: "Yes, consented to contact and storage"
+          consent: "Agreed to Terms of Service and Privacy Policy by sending this message"
         })
       }).then(function(r){ if(!r.ok) throw new Error(); return r.json(); })
       .then(function(){
@@ -767,7 +801,7 @@
         status.className = "form-status fail";
         status.innerHTML = "Could not send right now. Please email us directly at <a href='mailto:support@sidecash.ai'>support@sidecash.ai</a>.";
       }).finally(function(){
-        btn.disabled = false; btn.textContent = "Send message";
+        btn.disabled = false; btn.textContent = "Send Message";
       });
     });
   })();
