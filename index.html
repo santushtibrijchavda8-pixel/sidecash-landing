@@ -43,7 +43,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --green:#0F9D58; --green-hover:#0C8A4D; --deep:#064E3B; --deep-2:#047857;
+    --green:#20B776; --green-hover:#1BA168; --deep:#064E3B; --deep-2:#047857;
     --emerald:#10B981; --mint:#ECFDF5; --mint-line:#D1FAE5; --pale:#A7F3D0;
     --bright:#6EE7B7; --ground:#F8FAF7; --card:#FFFFFF; --ink:#111827;
     --muted:#6B7280; --line:#E5E7EB;
@@ -67,9 +67,9 @@
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
   .btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;
     border:0;border-radius:12px;padding:14px 26px;font-size:16px;font-weight:600;cursor:pointer;
-    font-family:inherit;text-decoration:none;box-shadow:0 10px 30px -10px rgba(15,157,88,.55);
+    font-family:inherit;text-decoration:none;box-shadow:0 10px 30px -10px rgba(32,183,118,.55);
     transition:transform .18s var(--ease), background .18s, box-shadow .18s}
-  .btn:hover{background:var(--green-hover);transform:translateY(-2px);box-shadow:0 16px 36px -12px rgba(15,157,88,.65)}
+  .btn:hover{background:var(--green-hover);transform:translateY(-2px);box-shadow:0 16px 36px -12px rgba(32,183,118,.65)}
   .btn:active{transform:translateY(0) scale(.97)}
   .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}
   .btn.ghost:hover{background:var(--mint);border-color:var(--mint-line);box-shadow:0 10px 26px -14px rgba(6,78,59,.25)}
@@ -85,6 +85,7 @@
   .sub{color:var(--muted);max-width:62ch;margin:0 0 28px}
   .eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin:0 0 8px}
   section{padding:68px 0}
+  section.alt{background:var(--mint)}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
     box-shadow:0 1px 2px rgba(17,24,39,.04),0 10px 28px -14px rgba(6,78,59,.14);
     transition:transform .22s var(--ease), box-shadow .22s, border-color .22s}
@@ -125,8 +126,8 @@
   /* Hero */
   .hero{background:
     radial-gradient(48rem 26rem at 85% -10%, rgba(16,185,129,.16), transparent 60%),
-    radial-gradient(40rem 22rem at -10% 30%, rgba(15,157,88,.10), transparent 55%),
-    linear-gradient(180deg,#fff 0%, var(--ground) 100%);
+    radial-gradient(40rem 22rem at -10% 30%, rgba(32,183,118,.10), transparent 55%),
+    linear-gradient(var(--ground),var(--ground));
     padding:76px 0 68px}
   .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
   .hero h1{font-size:clamp(34px,5vw,52px);font-weight:800;margin:18px 0 14px}
@@ -145,17 +146,27 @@
     background:radial-gradient(40rem 20rem at 50% 0%, rgba(16,185,129,.20), transparent 70%)}
   .dash .frame{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fff;
     box-shadow:0 24px 60px -24px rgba(6,78,59,.35)}
-  .dash .top{background:linear-gradient(150deg,var(--deep),var(--deep-2));color:#fff;padding:18px 22px}
-  .dash .top .row{display:flex;justify-content:space-between;align-items:center;font-size:11px;
-    letter-spacing:.12em;text-transform:uppercase;color:var(--pale)}
-  .dash .amt{font-size:32px;font-weight:800;margin-top:8px;font-variant-numeric:tabular-nums}
+  .dash .top{position:relative;overflow:hidden;background:linear-gradient(150deg,var(--deep),var(--deep-2));color:#fff;padding:18px 22px 20px}
+  .dash .top .row{position:relative;display:flex;justify-content:space-between;align-items:center}
+  .dash .who{display:inline-flex;align-items:center;gap:9px;font-size:10.5px;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--pale)}
+  .dash .wico{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.12);
+    display:grid;place-items:center;color:#D9FBE9;flex:none}
+  .dash .illus{border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:2px 10px;
+    font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--pale)}
+  .dash .wm{position:absolute;right:-16px;top:-14px;width:118px;height:118px;border-radius:50%;
+    background:rgba(255,255,255,.06);display:grid;place-items:center;
+    font-size:42px;font-weight:700;color:rgba(255,255,255,.14)}
+  .dash .amt{position:relative;font-size:33px;font-weight:800;margin-top:12px;font-variant-numeric:tabular-nums}
   .dash .amt small{display:block;font-size:13px;font-weight:400;color:rgba(236,253,245,.85);margin-top:2px}
-  .dash .body{padding:18px 22px}
-  .dash .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-  .bars{display:flex;align-items:flex-end;gap:9px;height:124px;border-bottom:1px solid var(--line);padding-bottom:1px}
+  .dash .body{padding:16px 22px 18px}
+  .dash .ptitle{font-size:13px;color:var(--muted)}
+  .dash .ptitle b{color:var(--green)}
+  .dash .psub{font-size:11.5px;color:var(--muted);margin:2px 0 10px}
+  .bars{display:flex;align-items:flex-end;gap:12px;height:138px;border-bottom:1px solid var(--line);padding-bottom:1px}
   .bars .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;height:100%}
-  .bars .v{font-size:9.5px;font-weight:700;color:var(--deep);font-variant-numeric:tabular-nums}
-  .bars .bar{width:100%;flex-shrink:0;border-radius:6px 6px 0 0;height:var(--h);
+  .bars .v{font-size:10px;font-weight:700;color:var(--deep);font-variant-numeric:tabular-nums}
+  .bars .bar{width:100%;flex-shrink:0;border-radius:8px 8px 0 0;height:var(--h);
     background:linear-gradient(to top,rgba(6,78,59,.85),rgba(16,185,129,.75));
     transition:height .8s var(--ease)}
   html.js .dash:not(.in) .bar{height:8px;transition:none}
@@ -163,36 +174,39 @@
   .bars .col:nth-child(2) .bar{transition-delay:.08s}
   .bars .col:nth-child(3) .bar{transition-delay:.16s}
   .bars .col:nth-child(4) .bar{transition-delay:.24s}
-  .bars .col:nth-child(5) .bar{transition-delay:.32s}
-  .bars .col:nth-child(6) .bar{transition-delay:.4s}
   .bars .col:last-child .bar{background:linear-gradient(to top,var(--green),#34D399)}
   .bars .t{font-size:10px;color:var(--muted)}
-  .flow{display:flex;align-items:center;margin-top:16px;background:var(--ground);
+  .flow{display:flex;align-items:center;margin-top:12px;background:var(--ground);
     border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-  .flow .step{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;color:var(--muted)}
-  .flow .n{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
-    font-size:11px;font-weight:800;background:var(--green);color:#fff}
-  .flow .n.now{background:var(--mint);color:var(--deep);box-shadow:0 0 0 2px rgba(15,157,88,.4)}
-  .flow .bar-c{flex:1;height:3px;border-radius:3px;margin:0 6px 16px;background:var(--line);overflow:hidden;position:relative}
-  .flow .bar-c i{position:absolute;inset:0;background:var(--green);transform-origin:left;transform:scaleX(1);transition:transform .7s var(--ease)}
-  html.js .dash:not(.in) .flow .bar-c i{transform:scaleX(0)}
-  .flow .bar-c:nth-of-type(2) i{transition-delay:.5s}
-  .flow .bar-c:nth-of-type(4) i{transition-delay:.65s}
-  .flow .bar-c.off i{background:transparent}
-  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
-  .chips div{border:1px solid var(--line);border-radius:12px;padding:9px 6px;text-align:center;background:var(--ground);transition:transform .2s var(--ease), border-color .2s}
+  .flow .step{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:10px;color:var(--muted)}
+  .flow .ic{position:relative;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    background:linear-gradient(150deg,var(--green),#34D399);color:#fff}
+  .flow .ic.out{background:#fff;border:2px solid var(--green);color:var(--green);font-weight:800;font-size:14px}
+  .flow .ic .ok{position:absolute;right:-4px;bottom:-3px;width:14px;height:14px;border-radius:50%;
+    background:var(--deep);color:#fff;font-size:8.5px;font-style:normal;display:grid;place-items:center;
+    box-shadow:0 0 0 2px #fff}
+  .flow .ln{flex:1;height:2px;border-radius:2px;margin:0 8px 18px;
+    background:linear-gradient(90deg,var(--green),var(--emerald));opacity:.55}
+  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
+  .chips div{display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;
+    border:1px solid var(--line);border-radius:12px;padding:11px 6px;background:var(--ground);
+    transition:transform .2s var(--ease), border-color .2s}
   .chips div:hover{transform:translateY(-2px);border-color:var(--mint-line)}
+  .chips .cic{width:30px;height:30px;border-radius:9px;background:var(--mint);color:var(--green);
+    display:grid;place-items:center;margin-bottom:2px}
   .chips b{display:block;font-size:15px}
-  .chips span{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-  .dash .tag{position:absolute;left:50%;transform:translateX(-50%);bottom:-16px;white-space:nowrap;
-    background:#fff;border:1px solid var(--line);
-    border-radius:12px;padding:8px 13px;font-size:12px;font-weight:700;display:flex;gap:7px;align-items:center;
-    box-shadow:0 12px 30px -12px rgba(6,78,59,.3)}
+  .chips span{font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .chips em{font-style:normal;font-size:9.5px;font-weight:600;color:var(--green)}
+  .trustline{display:flex;gap:11px;align-items:center;justify-content:center;margin-top:12px;
+    background:var(--mint);border:1px solid var(--mint-line);border-radius:12px;padding:11px 14px}
+  .trustline svg{flex:none}
+  .trustline span{font-size:11.5px;color:var(--muted)}
+  .trustline b{display:block;font-size:12.5px;color:var(--ink)}
 
   /* About video labeling cards */
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .cards3 .card{padding:24px}
-  .cards3 .card:hover{transform:translateY(-5px);border-color:rgba(15,157,88,.4);
+  .cards3 .card:hover{transform:translateY(-5px);border-color:rgba(32,183,118,.4);
     box-shadow:0 16px 40px -16px rgba(6,78,59,.3)}
   .cards3 h3{font-size:17px;margin:12px 0 6px}
   .cards3 p{font-size:14px;color:var(--muted);margin:0}
@@ -201,7 +215,7 @@
   .card:hover .icn{background:var(--green);color:#fff;transform:scale(1.06)}
 
   /* Process diagram */
-  .process{background:linear-gradient(180deg,#fff, var(--mint))}
+  .process{background:var(--ground)}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
   .steps::before{content:"";position:absolute;top:33px;left:11%;right:11%;height:3px;border-radius:3px;
     background:linear-gradient(90deg,var(--green),var(--emerald));opacity:.35;
@@ -216,13 +230,21 @@
     background:linear-gradient(150deg,var(--green),#34D399);opacity:0;transition:opacity .25s}
   .step-c .bubble svg{position:relative;z-index:1}
   .step-c .bubble .num{z-index:2}
-  .step-c:hover .bubble{transform:translateY(-5px) scale(1.05);box-shadow:0 18px 34px -14px rgba(15,157,88,.65)}
+  .step-c:hover .bubble{transform:translateY(-5px) scale(1.05);box-shadow:0 18px 34px -14px rgba(32,183,118,.65)}
   .step-c:hover .bubble::after{opacity:1}
   .step-c .num{position:absolute;top:-7px;right:-7px;width:22px;height:22px;border-radius:50%;
     background:var(--green);color:#fff;font-size:11.5px;font-weight:800;display:grid;place-items:center;
     box-shadow:0 0 0 3px var(--ground)}
   .step-c h3{font-size:15.5px;margin:0 0 5px}
   .step-c p{font-size:13px;color:var(--muted);margin:0}
+
+  /* Why SideCash */
+  .whygrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .whygrid .card{padding:22px}
+  .whygrid .card:hover{transform:translateY(-5px);border-color:rgba(32,183,118,.4);
+    box-shadow:0 16px 40px -16px rgba(6,78,59,.3)}
+  .whygrid h3{font-size:15.5px;margin:12px 0 6px}
+  .whygrid p{font-size:13.5px;color:var(--muted);margin:0}
 
   /* Eligibility */
   .elig{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;padding:0;margin:0}
@@ -236,19 +258,26 @@
     border-radius:14px;padding:16px 20px;font-size:14.5px;margin-top:26px}
 
   /* FAQ */
-  details{background:#fff;border:1px solid var(--line);border-radius:13px;padding:0 18px;margin-bottom:10px;
-    transition:border-color .2s, box-shadow .2s}
-  details:hover{border-color:var(--mint-line)}
-  details[open]{border-color:rgba(15,157,88,.4);box-shadow:0 10px 26px -16px rgba(6,78,59,.2)}
-  summary{cursor:pointer;font-weight:600;padding:15px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  details{background:#fff;border:1px solid var(--line);border-radius:15px;padding:0 22px;margin-bottom:14px;
+    box-shadow:0 1px 2px rgba(17,24,39,.03);
+    transition:border-color .2s, box-shadow .2s, transform .2s var(--ease)}
+  details:hover{border-color:rgba(32,183,118,.35);transform:translateY(-1px);
+    box-shadow:0 10px 26px -18px rgba(6,78,59,.25)}
+  details[open]{border-color:rgba(32,183,118,.45);box-shadow:0 16px 34px -20px rgba(6,78,59,.3)}
+  summary{cursor:pointer;font-weight:600;padding:17px 0;list-style:none;display:flex;align-items:center;gap:14px}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:20px;color:var(--green);font-weight:600;line-height:1;
-    transition:transform .25s var(--ease)}
+  summary .qi{flex:none;width:32px;height:32px;border-radius:50%;background:var(--mint);
+    border:1px solid var(--mint-line);color:var(--green);font-weight:800;font-size:14px;
+    display:grid;place-items:center;transition:background .2s, color .2s, border-color .2s}
+  details[open] summary .qi{background:linear-gradient(150deg,var(--green),#34D399);color:#fff;border-color:transparent}
+  summary .qt{flex:1}
+  summary::after{content:"+";font-size:21px;color:var(--green);font-weight:600;line-height:1;
+    margin-left:auto;transition:transform .25s var(--ease)}
   details[open] summary::after{transform:rotate(45deg)}
   details .a{overflow:hidden}
   html.js details[open] .a{animation:faqIn .3s var(--ease)}
   @keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-  details p{margin:0 0 15px;color:var(--muted);font-size:14.5px}
+  details p{margin:0 0 17px 46px;color:var(--muted);font-size:14.5px}
 
   /* CTA band */
   .band{background:linear-gradient(150deg,var(--deep),var(--deep-2));border-radius:20px;
@@ -267,14 +296,11 @@
     border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 15px;
     font-size:13px;font-weight:600;color:#ECFDF5}
 
-  /* Footer */
-  footer{background:#fff;border-top:1px solid var(--line);padding:56px 0 32px;margin-top:72px}
-  /* Footer: contact form in its own card container first, brand block below */
-  .foot{display:flex;flex-direction:column;gap:44px}
-  .foot > div:nth-child(1){order:2}
-  .foot > div:nth-child(2){order:1;background:var(--card);border:1px solid var(--line);
-    border-radius:18px;padding:28px 30px;max-width:680px;width:100%;margin:0 auto;
-    box-shadow:0 1px 2px rgba(17,24,39,.04),0 14px 36px -18px rgba(6,78,59,.18)}
+  /* Contact section */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:start}
+  .contact-card{padding:26px 28px}
+  /* Footer: subtly darker than the page so it reads as its own zone */
+  footer{background:#EDF3EF;border-top:1px solid var(--line);padding:56px 0 32px}
   /* Brand area: four columns (logo+tagline+social / quick links / legal / support) */
   .fbrand{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:38px;align-items:start}
   .fhead{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
@@ -297,7 +323,7 @@
   input[type=text],input[type=tel],input[type=email],textarea{width:100%;border:1px solid var(--line);
     border-radius:10px;padding:11px 13px;font:inherit;font-size:14.5px;background:var(--ground);
     transition:border-color .15s, box-shadow .15s}
-  input:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(15,157,88,.15)}
+  input:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(32,183,118,.15)}
   textarea{min-height:96px;resize:vertical}
   .consent-note{font-size:13px;color:var(--muted);margin:16px 0}
   .link-btn{background:none;border:0;padding:0;font:inherit;font-size:inherit;color:var(--green);
@@ -324,17 +350,22 @@
   @media (max-width: 880px){
     .hero .grid{grid-template-columns:1fr}
     .cards3{grid-template-columns:1fr}
+    .whygrid{grid-template-columns:1fr 1fr}
+    .contact-grid{grid-template-columns:1fr;gap:26px}
     .steps{grid-template-columns:1fr 1fr;gap:26px}
     .steps::before{display:none}
     form .row{grid-template-columns:1fr}
     section{padding:48px 0}
+  }
+  @media (max-width:560px){
+    .whygrid{grid-template-columns:1fr}
+    details p{margin-left:0}
   }
   @media (prefers-reduced-motion: reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
     html{scroll-behavior:auto}
     html.js .reveal,html.js [data-stagger] > *{opacity:1;transform:none}
     html.js .dash:not(.in) .bar{height:var(--h)}
-    html.js .dash:not(.in) .flow .bar-c i{transform:scaleX(1)}
     html.js .steps:not(.in)::before{transform:scaleX(1)}
   }
 </style>
@@ -372,8 +403,8 @@
     <div class="wrap grid">
       <div>
         <span class="pill"><span class="dot"></span>Pre-registration open &middot; Program starts next month</span>
-        <h1>Get paid for simple Video Labeling work</h1>
-        <p class="lead">Help train the next generation of AI by labeling short videos. Complete simple tasks, maintain quality, and earn for approved work. Pre-register today and we'll contact you when your batch opens.</p>
+        <h1>Get paid for simple online AI video labeling work.</h1>
+        <p class="lead">Help train the next generation of AI by labeling short videos. Complete simple tasks, maintain quality, and earn for approved work.</p>
         <p class="rotator" aria-live="polite"><span id="rotText">Simple work. Real projects. Transparent payments.</span></p>
         <div class="actions">
           <a class="btn js-form-link" href="#" target="_blank" rel="noopener">Join the early access list
@@ -385,45 +416,54 @@
       </div>
 
       <!-- DASHBOARD MOCKUP -->
-      <div class="dash reveal" id="dashCard" role="img" aria-label="Preview of the SideCash dashboard showing approved earnings, weekly work, and payout status">
+      <div class="dash reveal" id="dashCard" role="img" aria-label="Preview of the SideCash dashboard showing monthly approved earnings, weekly progress, payout status, and quality stats">
         <div class="frame">
           <div class="top">
-            <div class="row"><span>Earnings snapshot</span><span style="border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:2px 9px;letter-spacing:.04em">Illustrative</span></div>
-            <div class="amt">&#8377;<span id="amtNum" data-final="42750">42,750</span><small>Approved this cycle</small></div>
+            <span class="wm" aria-hidden="true">&#8377;</span>
+            <div class="row">
+              <span class="who">
+                <span class="wico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4"/><path d="M21 11h-6a2 2 0 0 0 0 4h6v-4z"/></svg></span>
+                Your earnings
+              </span>
+              <span class="illus">Illustrative</span>
+            </div>
+            <div class="amt">&#8377;<span id="amtNum" data-final="42750">42,750</span><small>Approved and earned this month</small></div>
           </div>
           <div class="body">
-            <div class="label">Approved work per week &middot; you only earn from approved work</div>
+            <div class="ptitle"><b>Your weekly progress</b> &middot; Real earnings from your approved work</div>
+            <div class="psub">Earnings are updated every week after quality review</div>
             <div class="bars" aria-hidden="true">
-              <div class="col"><span class="v">&#8377;4,950</span><span class="bar" style="--h:43px"></span><span class="t">W1</span></div>
-              <div class="col"><span class="v">&#8377;5,830</span><span class="bar" style="--h:50px"></span><span class="t">W2</span></div>
-              <div class="col"><span class="v">&#8377;6,540</span><span class="bar" style="--h:56px"></span><span class="t">W3</span></div>
-              <div class="col"><span class="v">&#8377;7,260</span><span class="bar" style="--h:63px"></span><span class="t">W4</span></div>
-              <div class="col"><span class="v">&#8377;8,420</span><span class="bar" style="--h:73px"></span><span class="t">W5</span></div>
-              <div class="col"><span class="v">&#8377;9,750</span><span class="bar" style="--h:84px"></span><span class="t">W6</span></div>
+              <div class="col"><span class="v">&#8377;8,250</span><span class="bar" style="--h:59px"></span><span class="t">Week 1</span></div>
+              <div class="col"><span class="v">&#8377;9,800</span><span class="bar" style="--h:70px"></span><span class="t">Week 2</span></div>
+              <div class="col"><span class="v">&#8377;11,450</span><span class="bar" style="--h:82px"></span><span class="t">Week 3</span></div>
+              <div class="col"><span class="v">&#8377;13,250</span><span class="bar" style="--h:95px"></span><span class="t">Week 4</span></div>
             </div>
             <div class="flow" aria-hidden="true">
-              <span class="step"><span class="n">&#10003;</span>Submitted</span><span class="bar-c"><i></i></span>
-              <span class="step"><span class="n">&#10003;</span>Reviewed</span><span class="bar-c"><i></i></span>
-              <span class="step"><span class="n">&#10003;</span>Approved</span><span class="bar-c off"><i></i></span>
-              <span class="step"><span class="n now">4</span>Paid</span>
+              <span class="step"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5z"/></svg><i class="ok">&#10003;</i></span>Submitted</span>
+              <span class="ln"></span>
+              <span class="step"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10.5 3a7.5 7.5 0 1 0 4.55 13.46l4.25 4.25 1.4-1.42-4.24-4.24A7.5 7.5 0 0 0 10.5 3zm0 2.2a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6z"/></svg><i class="ok">&#10003;</i></span>Reviewed</span>
+              <span class="ln"></span>
+              <span class="step"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zm-3.7 13.9L7 22l5-2.8L17 22l-1.3-6.1a8 8 0 0 1-7.4 0z"/></svg><i class="ok">&#10003;</i></span>Approved</span>
+              <span class="ln"></span>
+              <span class="step"><span class="ic out">&#8377;</span>Paid</span>
             </div>
             <div class="chips" aria-hidden="true">
-              <div><b>94</b><span>Quality score</span></div>
-              <div><b>&#8377;0</b><span>Hidden fees</span></div>
-              <div><b>96%</b><span>Approval rate</span></div>
+              <div><span class="cic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2l8 3.6v5.2c0 5-3.4 9.5-8 11.2-4.6-1.7-8-6.2-8-11.2V5.6L12 2zm4.3 7.5l-1.5-1.5-4 4-1.6-1.6-1.5 1.5 3.1 3.1 5.5-5.5z"/></svg></span><b>94</b><span>Quality score</span><em>Strong accuracy</em></div>
+              <div><span class="cic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2a5 5 0 0 1 5 5v3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v3h6V7a3 3 0 0 0-3-3z"/></svg></span><b>&#8377;0</b><span>Deductions</span><em>No hidden fees</em></div>
+              <div><span class="cic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2 10h3v11H2zM7.2 21c-.66 0-1.2-.54-1.2-1.2V11l4.6-8.4c.2-.37.59-.6 1.01-.6 1.15 0 2.09.94 2.09 2.1V9h5.9c1.24 0 2.17 1.13 1.97 2.35l-1.27 7.65A2.4 2.4 0 0 1 17.93 21H7.2z"/></svg></span><b>96%</b><span>Approval rate</span><em>Excellent performance</em></div>
+            </div>
+            <div class="trustline">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#20B776" aria-hidden="true"><path fill-rule="evenodd" d="M12 2l8 3.6v5.2c0 5-3.4 9.5-8 11.2-4.6-1.7-8-6.2-8-11.2V5.6L12 2zm4.3 7.5l-1.5-1.5-4 4-1.6-1.6-1.5 1.5 3.1 3.1 5.5-5.5z"/></svg>
+              <span><b>Transparent. Secure. Trustworthy.</b>We value your work. You earn what you deserve.</span>
             </div>
           </div>
-        </div>
-        <div class="tag">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="#0F9D58" aria-hidden="true"><path fill-rule="evenodd" d="M12 2l8 3.6v5.2c0 5-3.4 9.5-8 11.2-4.6-1.7-8-6.2-8-11.2V5.6L12 2zm4.3 7.5l-1.5-1.5-4 4-1.6-1.6-1.5 1.5 3.1 3.1 5.5-5.5z"/></svg>
-          Every rupee is tracked
         </div>
       </div>
     </div>
   </section>
 
   <!-- ABOUT VIDEO LABELING -->
-  <section id="about">
+  <section id="about" class="alt">
     <div class="wrap">
       <div class="reveal">
         <p class="eyebrow">How You'll Work</p>
@@ -495,7 +535,7 @@
   </section>
 
   <!-- ELIGIBILITY + PRE-REGISTRATION NOTE -->
-  <section id="eligibility">
+  <section id="eligibility" class="alt">
     <div class="wrap">
       <div class="reveal">
         <p class="eyebrow">Eligibility</p>
@@ -518,9 +558,42 @@
     </div>
   </section>
 
+  <!-- ABOUT SIDECASH -->
+  <section id="why">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">About SideCash</p>
+        <h2>Why SideCash.ai?</h2>
+        <p class="sub">We're building a trusted community of AI contributors across India.</p>
+      </div>
+      <div class="whygrid reveal" data-stagger>
+        <div class="card">
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9 4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4V4zm2 1h2V4h-2v1zm-8 6.5V9h18v2.5h-7V13h-4v-1.5H3z"/></svg></span>
+          <h3>Founded by experienced technology entrepreneurs</h3>
+          <p>12+ years of experience in the IT industry.</p>
+        </div>
+        <div class="card">
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 5a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5zm9 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM5.5 7A1.5 1.5 0 0 1 7 8.5 1.5 1.5 0 0 1 5.5 10V7zm13 0v3A1.5 1.5 0 0 1 17 8.5 1.5 1.5 0 0 1 18.5 7zm0 10A1.5 1.5 0 0 1 17 15.5 1.5 1.5 0 0 1 18.5 14v3zm-13 0v-3A1.5 1.5 0 0 1 7 15.5 1.5 1.5 0 0 1 5.5 17z"/></svg></span>
+          <h3>Transparent payments</h3>
+          <p>Track every approved task and payout status clearly.</p>
+        </div>
+        <div class="card">
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM8.5 7h7v1.8h-2.42c.3.41.53.89.65 1.4H15.5V12h-1.77a4 4 0 0 1-3.88 3.2h-.13l3.63 4.3h-2.35l-3.5-4.15v-1.85h2.35c1 0 1.85-.63 2.17-1.5H8.5v-1.8h3.62c-.32-.87-1.17-1.4-2.17-1.4H8.5V7z"/></svg></span>
+          <h3>No joining fees</h3>
+          <p>Free to join. No deposits, no hidden charges.</p>
+        </div>
+        <div class="card">
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2a5 5 0 0 1 5 5v3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v3h6V7a3 3 0 0 0-3-3z"/></svg></span>
+          <h3>Secure onboarding</h3>
+          <p>Your information stays protected and is never sold.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
-  <section id="faq">
-    <div class="wrap" style="max-width:760px">
+  <section id="faq" class="alt">
+    <div class="wrap">
       <div class="reveal">
         <p class="eyebrow">Questions</p>
         <h2>Frequently asked questions</h2>
@@ -528,31 +601,31 @@
       </div>
       <div class="reveal">
         <details>
-          <summary>Is SideCash.ai genuine? Is there any joining fee?</summary>
+          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">Is SideCash.ai genuine? Is there any joining fee?</span></summary>
           <div class="a"><p>No. SideCash.ai is a legitimate AI work platform. Joining is completely free. We never charge registration fees, security deposits, or upfront payments. If anyone asks you for money in the name of SideCash.ai, please report it to us immediately.</p></div>
         </details>
         <details>
-          <summary>What kind of work will I do?</summary>
+          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">What kind of work will I do?</span></summary>
           <div class="a"><p>You'll work on AI video labeling projects by watching short video clips and applying simple labels based on clear project guidelines. Additional AI data projects may become available over time.</p></div>
         </details>
         <details>
-          <summary>Do I need any experience?</summary>
+          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">Do I need any experience?</span></summary>
           <div class="a"><p>No prior experience is required. If you have basic English skills, can use a computer, and follow instructions carefully, we'll guide you through the work before you begin.</p></div>
         </details>
         <details>
-          <summary>What happens after I pre-register?</summary>
+          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">What happens after I pre-register?</span></summary>
           <div class="a"><p>After you complete the registration form, you'll be added to our early access list. When your batch is ready, we'll contact you with onboarding details, qualification requirements, and instructions to begin your first AI video labeling project.</p></div>
         </details>
         <details>
-          <summary>How much can I earn?</summary>
+          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">How much can I earn?</span></summary>
           <div class="a"><p>Your earnings depend on the type of project, the amount of approved work you complete, and your quality score. Before you begin any project, we'll clearly share the payment structure and expected rates.</p></div>
         </details>
         <details>
-          <summary>How do I get paid?</summary>
+          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">How do I get paid?</span></summary>
           <div class="a"><p>Your completed tasks are reviewed, and your earnings are updated in your dashboard. Payment schedules and methods are shared during onboarding.</p></div>
         </details>
         <details>
-          <summary>What happens to my personal information?</summary>
+          <summary><span class="qi" aria-hidden="true">?</span><span class="qt">What happens to my personal information?</span></summary>
           <div class="a"><p>Your information is stored securely and used only for registration, onboarding, and official SideCash communication. We never sell your personal information to third parties. You may request access to or deletion of your information at any time by contacting us.</p></div>
         </details>
       </div>
@@ -574,12 +647,49 @@
       </div>
     </div>
   </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="alt">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Have Questions? We're Here to Help.</h2>
+          <p class="sub">Have questions about video labeling, eligibility, or the registration process? Send us a message and our team will get back to you within 2 working days.</p>
+          <p class="fmail"><a href="mailto:support@sidecash.ai">support@sidecash.ai</a></p>
+          <p class="fnote">Response within 2 business days.</p>
+        </div>
+        <div class="card contact-card reveal">
+          <form id="contactForm" novalidate>
+            <div class="row">
+              <div>
+                <label for="cf-name">Full Name</label>
+                <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="Please enter your full name">
+              </div>
+              <div>
+                <label for="cf-phone">Mobile Number <span class="req">*</span></label>
+                <input type="tel" id="cf-phone" name="phone" inputmode="numeric" maxlength="10" placeholder="Enter your 10-digit mobile number" required>
+                <p class="err-msg" id="err-phone">Enter a valid 10-digit Indian mobile number.</p>
+              </div>
+            </div>
+            <label for="cf-email">Email Address <span class="req">*</span></label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="Enter your email address" required>
+            <p class="err-msg" id="err-email">Enter a valid email address.</p>
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" placeholder="Tell us how we can help..."></textarea>
+            <p class="consent-note">By sending this message, you agree to our <button type="button" class="link-btn" data-dlg="dlg-terms">Terms of Service</button> and <button type="button" class="link-btn" data-dlg="dlg-privacy">Privacy Policy</button>.</p>
+            <button type="submit" class="btn" id="cf-submit">Send Message</button>
+            <div class="form-status" id="cf-status" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <div class="foot">
       <div class="fbrand">
         <div>
           <a class="logo" href="#top" aria-label="Sidecash.ai home">
@@ -626,32 +736,6 @@
         </div>
       </div>
 
-      <div id="contact">
-        <h3 style="margin:0 0 4px;font-size:17px">Have Questions? We're Here to Help.</h3>
-        <p style="font-size:13.5px;color:var(--muted);margin:0 0 6px">Have questions about video labeling, eligibility, or the registration process? Send us a message and our team will get back to you within 2 working days.</p>
-        <form id="contactForm" novalidate>
-          <div class="row">
-            <div>
-              <label for="cf-name">Full Name</label>
-              <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="Please enter your full name">
-            </div>
-            <div>
-              <label for="cf-phone">Mobile Number <span class="req">*</span></label>
-              <input type="tel" id="cf-phone" name="phone" inputmode="numeric" maxlength="10" placeholder="Enter your 10-digit mobile number" required>
-              <p class="err-msg" id="err-phone">Enter a valid 10-digit Indian mobile number.</p>
-            </div>
-          </div>
-          <label for="cf-email">Email Address <span class="req">*</span></label>
-          <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="Enter your email address" required>
-          <p class="err-msg" id="err-email">Enter a valid email address.</p>
-          <label for="cf-msg">Message</label>
-          <textarea id="cf-msg" name="message" placeholder="Tell us how we can help..."></textarea>
-          <p class="consent-note">By sending this message, you agree to our <button type="button" class="link-btn" data-dlg="dlg-terms">Terms of Service</button> and <button type="button" class="link-btn" data-dlg="dlg-privacy">Privacy Policy</button>.</p>
-          <button type="submit" class="btn" id="cf-submit">Send Message</button>
-          <div class="form-status" id="cf-status" role="status"></div>
-        </form>
-      </div>
-    </div>
     <div class="copyright">
       <span>&copy; <span id="yr">2026</span> SideCash.ai. All rights reserved.</span>
       <span>Building India's AI Workforce</span>
@@ -758,6 +842,14 @@
       setTimeout(function(){ el.textContent = target.toLocaleString("en-IN"); }, dur + 400);
     }).observe(el);
   })();
+
+  // FAQ accordion: opening one closes the others
+  var faqItems = document.querySelectorAll("#faq details");
+  faqItems.forEach(function(d){
+    d.addEventListener("toggle", function(){
+      if(d.open) faqItems.forEach(function(o){ if(o !== d && o.open) o.open = false; });
+    });
+  });
 
   // Legal dialogs
   document.querySelectorAll("[data-dlg]").forEach(function(btn){
