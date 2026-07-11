@@ -138,6 +138,20 @@
   @keyframes rotIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
   .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
   .hero .note{font-size:13.5px;color:var(--muted)}
+  /* Social proof: 500+ registered */
+  .proof{display:flex;align-items:center;gap:11px;margin:0 0 12px}
+  .avatars{display:flex;flex:none}
+  .avatars i{width:30px;height:30px;border-radius:50%;font-style:normal;font-size:11.5px;font-weight:700;
+    display:grid;place-items:center;color:#fff;border:2px solid #fff;margin-left:-9px;
+    box-shadow:0 2px 6px rgba(6,78,59,.18)}
+  .avatars i:first-child{margin-left:0}
+  .avatars i:nth-child(1){background:var(--deep)}
+  .avatars i:nth-child(2){background:var(--deep-2)}
+  .avatars i:nth-child(3){background:var(--green)}
+  .avatars i:nth-child(4){background:var(--emerald)}
+  .avatars i.more{background:var(--mint);color:var(--deep);font-size:10px}
+  .proof .ptext{font-size:13.5px;color:var(--muted)}
+  .proof .ptext b{color:var(--ink)}
 
   /* Dashboard mockup */
   .dash{position:relative;transition:transform .3s var(--ease)}
@@ -422,6 +436,10 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a class="btn ghost" href="#process">How it works</a>
+        </div>
+        <div class="proof">
+          <span class="avatars" aria-hidden="true"><i>A</i><i>P</i><i>R</i><i>S</i><i class="more">+</i></span>
+          <span class="ptext"><b>500+ already registered.</b> Early registrations get priority when batches open.</span>
         </div>
         <p class="note">Free to join | No deposits required | No hidden charges</p>
       </div>
