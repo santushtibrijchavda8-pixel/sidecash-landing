@@ -237,6 +237,51 @@
     display:grid;place-items:center;transition:background .22s, color .22s, transform .22s var(--ease)}
   .card:hover .icn{background:var(--green);color:#fff;transform:scale(1.06)}
 
+  /* Video labeling task mockup */
+  .labdemo{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    box-shadow:0 1px 2px rgba(17,24,39,.04),0 14px 36px -18px rgba(6,78,59,.18)}
+  .lab-bar{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--ground)}
+  .lab-bar .dots{display:flex;gap:5px}
+  .lab-bar .dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+  .lab-title{font-size:12.5px;font-weight:600;color:var(--muted)}
+  .lab-step{margin-left:auto;font-size:11px;font-weight:700;color:var(--green-ink);background:var(--mint);
+    border:1px solid var(--mint-line);border-radius:99px;padding:3px 10px}
+  .lab-body{display:grid;grid-template-columns:1.55fr 1fr}
+  .lab-video{border-right:1px solid var(--line)}
+  .lab-stage{position:relative;background:#DFF3E7}
+  .lab-stage svg{display:block;width:100%;height:260px}
+  .lab-box{position:absolute;left:24%;top:13%;width:26%;height:72%;border:2px dashed var(--green);border-radius:6px}
+  .lab-box::before,.lab-box::after{content:"";position:absolute;width:8px;height:8px;background:#fff;border:2px solid var(--green)}
+  .lab-box::before{left:-6px;top:-6px}
+  .lab-box::after{right:-6px;bottom:-6px}
+  .lab-box-tag{position:absolute;left:-2px;top:-32px;background:var(--green);color:#fff;font-size:11px;font-weight:700;
+    border-radius:7px;padding:4px 10px;white-space:nowrap;box-shadow:0 6px 14px -6px rgba(6,78,59,.5)}
+  .lab-controls{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff}
+  .lab-play{width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex:none}
+  .lab-track{position:relative;flex:1;height:5px;border-radius:5px;background:var(--line)}
+  .lab-track i{position:absolute;top:0;bottom:0;left:0;right:54%;background:linear-gradient(90deg,var(--green),var(--emerald));border-radius:5px}
+  .lab-track .pin{position:absolute;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;
+    background:#fff;border:3px solid var(--green)}
+  .lab-track .p1{left:22%}
+  .lab-track .p2{left:46%}
+  .lab-time{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;flex:none}
+  .lab-side{padding:18px 20px;display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+  .lab-shead{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .ltag{display:inline-flex;align-items:center;gap:7px;background:var(--mint);border:1px solid var(--mint-line);
+    color:var(--deep);font-size:13px;font-weight:600;border-radius:99px;padding:7px 13px}
+  .ltag .lt-check{color:var(--green-ink);font-weight:800}
+  .ltag.add{background:#fff;border-style:dashed;color:var(--green-ink)}
+  .lab-tip{font-size:12px;color:var(--muted);margin:4px 0 6px}
+  .lab-submit{display:inline-flex;background:var(--green);color:#fff;font-size:13px;font-weight:600;
+    border-radius:10px;padding:9px 16px;box-shadow:0 8px 20px -8px rgba(32,183,118,.55)}
+  .labdemo .ltag,.labdemo .lab-box{transition:opacity .5s var(--ease), transform .5s var(--ease)}
+  html.js .labdemo:not(.in) .ltag,html.js .labdemo:not(.in) .lab-box{opacity:0;transform:translateY(8px)}
+  .labdemo.in .lab-box{transition-delay:.15s}
+  .labdemo.in .t1{transition-delay:.25s}
+  .labdemo.in .t2{transition-delay:.4s}
+  .labdemo.in .t3{transition-delay:.55s}
+  .labdemo.in .add{transition-delay:.7s}
+
   /* Process diagram */
   .process{background:var(--ground)}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
@@ -392,6 +437,8 @@
     .contact-grid{grid-template-columns:1fr;gap:26px}
     .steps{grid-template-columns:1fr 1fr;gap:26px}
     .steps::before{display:none}
+    .lab-body{grid-template-columns:1fr}
+    .lab-video{border-right:0;border-bottom:1px solid var(--line)}
     form .row{grid-template-columns:1fr}
     section{padding:48px 0}
   }
@@ -404,6 +451,7 @@
     *,*::before,*::after{animation:none!important;transition:none!important}
     html{scroll-behavior:auto}
     html.js .reveal,html.js [data-stagger] > *{opacity:1;transform:none}
+    html.js .labdemo:not(.in) .ltag,html.js .labdemo:not(.in) .lab-box{opacity:1;transform:none}
     html.js .dash:not(.in) .bar{height:var(--h)}
     html.js .steps:not(.in)::before{transform:scaleX(1)}
   }
@@ -528,6 +576,55 @@
           <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2l8 3.6v5.2c0 5-3.4 9.5-8 11.2-4.6-1.7-8-6.2-8-11.2V5.6L12 2zm4.3 7.5l-1.5-1.5-4 4-1.6-1.6-1.5 1.5 3.1 3.1 5.5-5.5z"/></svg></span>
           <h3>Earn for Approved Work</h3>
           <p>Complete tasks accurately, pass quality checks, and receive payment for approved work.</p>
+        </div>
+      </div>
+
+      <!-- EXAMPLE TASK MOCKUP -->
+      <div class="labdemo reveal" id="labDemo" role="img" aria-label="Example of a video labeling task: watch a short clip of a person walking with a bag, a box is drawn around the person, labels such as person walking, carrying a bag and outdoor scene are added, then the task is submitted for review">
+        <div class="lab-bar" aria-hidden="true">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span class="lab-title">Example task &middot; Label this clip</span>
+          <span class="lab-step">Task 3 of 12</span>
+        </div>
+        <div class="lab-body" aria-hidden="true">
+          <div class="lab-video">
+            <div class="lab-stage">
+              <svg viewBox="0 0 520 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="520" height="260" fill="#DFF3E7"/>
+                <circle cx="446" cy="50" r="24" fill="#FDE68A"/>
+                <ellipse cx="60" cy="212" rx="90" ry="30" fill="#BFE8CF"/>
+                <ellipse cx="470" cy="220" rx="110" ry="34" fill="#BFE8CF"/>
+                <rect x="380" y="120" width="10" height="60" rx="3" fill="#8A6B4F"/>
+                <circle cx="385" cy="106" r="34" fill="#9FD9B4"/>
+                <rect y="208" width="520" height="52" fill="#A7DDBC"/>
+                <rect y="222" width="520" height="12" fill="#8FD1A8" opacity=".55"/>
+                <circle cx="200" cy="76" r="16" fill="#8C5A3C"/>
+                <path d="M184 72c2-12 12-18 20-17 8 1 13 8 12 15-8-4-24-3-32 2z" fill="#3B2A1E"/>
+                <rect x="182" y="94" width="36" height="54" rx="15" fill="#0E9F6E"/>
+                <path d="M190 146l-10 44h10l9-34z" fill="#1F2937"/>
+                <path d="M208 146l6 44h10l-6-44z" fill="#1F2937"/>
+                <path d="M214 104l16 30" stroke="#8C5A3C" stroke-width="8" stroke-linecap="round" fill="none"/>
+                <rect x="222" y="132" width="24" height="28" rx="5" fill="#F59E0B"/>
+                <path d="M226 132v-6a8 8 0 0 1 16 0v6" stroke="#B45309" stroke-width="3" fill="none"/>
+                <path d="M186 104l-14 26" stroke="#8C5A3C" stroke-width="8" stroke-linecap="round" fill="none"/>
+              </svg>
+              <div class="lab-box"><span class="lab-box-tag">Person walking</span></div>
+            </div>
+            <div class="lab-controls">
+              <span class="lab-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5L7 4.5z"/></svg></span>
+              <span class="lab-track"><i></i><b class="pin p1"></b><b class="pin p2"></b></span>
+              <span class="lab-time">0:07 / 0:15</span>
+            </div>
+          </div>
+          <div class="lab-side">
+            <span class="lab-shead">Your labels</span>
+            <span class="ltag t1"><span class="lt-check">&#10003;</span>Person walking</span>
+            <span class="ltag t2"><span class="lt-check">&#10003;</span>Carrying a bag</span>
+            <span class="ltag t3"><span class="lt-check">&#10003;</span>Outdoor scene</span>
+            <span class="ltag add">+ Add another label</span>
+            <p class="lab-tip">Label only what you can clearly see in the clip. Accuracy matters more than speed.</p>
+            <span class="lab-submit">Submit for review</span>
+          </div>
         </div>
       </div>
     </div>
