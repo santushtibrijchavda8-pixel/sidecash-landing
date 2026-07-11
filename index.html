@@ -248,14 +248,17 @@
     border:1px solid var(--mint-line);border-radius:99px;padding:3px 10px}
   .lab-body{display:grid;grid-template-columns:1.55fr 1fr}
   .lab-video{border-right:1px solid var(--line)}
-  .lab-stage{position:relative;background:#DFF3E7}
-  .lab-stage svg{display:block;width:100%;height:260px}
-  .lab-box{position:absolute;left:24%;top:13%;width:26%;height:72%;border:2px dashed var(--green);border-radius:6px}
+  .lab-stage{position:relative;background:#DFF3E7;overflow:hidden}
+  .lab-stage img{display:block;width:100%;height:260px;object-fit:cover}
+  .lab-box,.lab-box2{position:absolute;border:2px dashed var(--green);border-radius:6px}
+  .lab-box{left:37.5%;top:7%;width:39%;height:86%}
+  .lab-box2{left:12%;top:60%;width:27%;height:32%;border-color:#F59E0B;border-width:2px}
   .lab-box::before,.lab-box::after{content:"";position:absolute;width:8px;height:8px;background:#fff;border:2px solid var(--green)}
   .lab-box::before{left:-6px;top:-6px}
   .lab-box::after{right:-6px;bottom:-6px}
-  .lab-box-tag{position:absolute;left:-2px;top:-32px;background:var(--green);color:#fff;font-size:11px;font-weight:700;
+  .lab-box-tag{position:absolute;left:-2px;top:-30px;background:var(--green);color:#fff;font-size:11px;font-weight:700;
     border-radius:7px;padding:4px 10px;white-space:nowrap;box-shadow:0 6px 14px -6px rgba(6,78,59,.5)}
+  .lab-box-tag.t2{background:#F59E0B;top:-28px}
   .lab-controls{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff}
   .lab-play{width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex:none}
   .lab-track{position:relative;flex:1;height:5px;border-radius:5px;background:var(--line)}
@@ -274,9 +277,10 @@
   .lab-tip{font-size:12px;color:var(--muted);margin:4px 0 6px}
   .lab-submit{display:inline-flex;background:var(--green);color:#fff;font-size:13px;font-weight:600;
     border-radius:10px;padding:9px 16px;box-shadow:0 8px 20px -8px rgba(32,183,118,.55)}
-  .labdemo .ltag,.labdemo .lab-box{transition:opacity .5s var(--ease), transform .5s var(--ease)}
-  html.js .labdemo:not(.in) .ltag,html.js .labdemo:not(.in) .lab-box{opacity:0;transform:translateY(8px)}
+  .labdemo .ltag,.labdemo .lab-box,.labdemo .lab-box2{transition:opacity .5s var(--ease), transform .5s var(--ease)}
+  html.js .labdemo:not(.in) .ltag,html.js .labdemo:not(.in) .lab-box,html.js .labdemo:not(.in) .lab-box2{opacity:0;transform:translateY(8px)}
   .labdemo.in .lab-box{transition-delay:.15s}
+  .labdemo.in .lab-box2{transition-delay:.45s}
   .labdemo.in .t1{transition-delay:.25s}
   .labdemo.in .t2{transition-delay:.4s}
   .labdemo.in .t3{transition-delay:.55s}
@@ -451,7 +455,7 @@
     *,*::before,*::after{animation:none!important;transition:none!important}
     html{scroll-behavior:auto}
     html.js .reveal,html.js [data-stagger] > *{opacity:1;transform:none}
-    html.js .labdemo:not(.in) .ltag,html.js .labdemo:not(.in) .lab-box{opacity:1;transform:none}
+    html.js .labdemo:not(.in) .ltag,html.js .labdemo:not(.in) .lab-box,html.js .labdemo:not(.in) .lab-box2{opacity:1;transform:none}
     html.js .dash:not(.in) .bar{height:var(--h)}
     html.js .steps:not(.in)::before{transform:scaleX(1)}
   }
@@ -580,7 +584,7 @@
       </div>
 
       <!-- EXAMPLE TASK MOCKUP -->
-      <div class="labdemo reveal" id="labDemo" role="img" aria-label="Example of a video labeling task: watch a short clip of a person walking with a bag, a box is drawn around the person, labels such as person walking, carrying a bag and outdoor scene are added, then the task is submitted for review">
+      <div class="labdemo reveal" id="labDemo" role="img" aria-label="Example of a video labeling task: a real video frame shows a person walking on a street, boxes are drawn around the person and a car in the background, labels such as person walking, car in background and outdoor daylight are added, then the task is submitted for review">
         <div class="lab-bar" aria-hidden="true">
           <span class="dots"><i></i><i></i><i></i></span>
           <span class="lab-title">Example task &middot; Label this clip</span>
@@ -589,26 +593,9 @@
         <div class="lab-body" aria-hidden="true">
           <div class="lab-video">
             <div class="lab-stage">
-              <svg viewBox="0 0 520 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <rect width="520" height="260" fill="#DFF3E7"/>
-                <circle cx="446" cy="50" r="24" fill="#FDE68A"/>
-                <ellipse cx="60" cy="212" rx="90" ry="30" fill="#BFE8CF"/>
-                <ellipse cx="470" cy="220" rx="110" ry="34" fill="#BFE8CF"/>
-                <rect x="380" y="120" width="10" height="60" rx="3" fill="#8A6B4F"/>
-                <circle cx="385" cy="106" r="34" fill="#9FD9B4"/>
-                <rect y="208" width="520" height="52" fill="#A7DDBC"/>
-                <rect y="222" width="520" height="12" fill="#8FD1A8" opacity=".55"/>
-                <circle cx="200" cy="76" r="16" fill="#8C5A3C"/>
-                <path d="M184 72c2-12 12-18 20-17 8 1 13 8 12 15-8-4-24-3-32 2z" fill="#3B2A1E"/>
-                <rect x="182" y="94" width="36" height="54" rx="15" fill="#0E9F6E"/>
-                <path d="M190 146l-10 44h10l9-34z" fill="#1F2937"/>
-                <path d="M208 146l6 44h10l-6-44z" fill="#1F2937"/>
-                <path d="M214 104l16 30" stroke="#8C5A3C" stroke-width="8" stroke-linecap="round" fill="none"/>
-                <rect x="222" y="132" width="24" height="28" rx="5" fill="#F59E0B"/>
-                <path d="M226 132v-6a8 8 0 0 1 16 0v6" stroke="#B45309" stroke-width="3" fill="none"/>
-                <path d="M186 104l-14 26" stroke="#8C5A3C" stroke-width="8" stroke-linecap="round" fill="none"/>
-              </svg>
+              <img src="task-frame.jpg" alt="" width="1200" height="520" loading="lazy">
               <div class="lab-box"><span class="lab-box-tag">Person walking</span></div>
+              <div class="lab-box2"><span class="lab-box-tag t2">Car</span></div>
             </div>
             <div class="lab-controls">
               <span class="lab-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5L7 4.5z"/></svg></span>
@@ -619,8 +606,8 @@
           <div class="lab-side">
             <span class="lab-shead">Your labels</span>
             <span class="ltag t1"><span class="lt-check">&#10003;</span>Person walking</span>
-            <span class="ltag t2"><span class="lt-check">&#10003;</span>Carrying a bag</span>
-            <span class="ltag t3"><span class="lt-check">&#10003;</span>Outdoor scene</span>
+            <span class="ltag t2"><span class="lt-check">&#10003;</span>Car in background</span>
+            <span class="ltag t3"><span class="lt-check">&#10003;</span>Outdoor daylight</span>
             <span class="ltag add">+ Add another label</span>
             <p class="lab-tip">Label only what you can clearly see in the clip. Accuracy matters more than speed.</p>
             <span class="lab-submit">Submit for review</span>
