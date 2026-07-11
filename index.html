@@ -141,15 +141,12 @@
   /* Social proof: 500+ registered */
   .proof{display:flex;align-items:center;gap:11px;margin:0 0 12px}
   .avatars{display:flex;flex:none}
-  .avatars i{width:30px;height:30px;border-radius:50%;font-style:normal;font-size:11.5px;font-weight:700;
-    display:grid;place-items:center;color:#fff;border:2px solid #fff;margin-left:-9px;
+  .avatars img,.avatars i{width:30px;height:30px;border-radius:50%;border:2px solid #fff;margin-left:-9px;
     box-shadow:0 2px 6px rgba(6,78,59,.18)}
-  .avatars i:first-child{margin-left:0}
-  .avatars i:nth-child(1){background:var(--deep)}
-  .avatars i:nth-child(2){background:var(--deep-2)}
-  .avatars i:nth-child(3){background:var(--green)}
-  .avatars i:nth-child(4){background:var(--emerald)}
-  .avatars i.more{background:var(--mint);color:var(--deep);font-size:10px}
+  .avatars img{object-fit:cover;display:block}
+  .avatars > :first-child{margin-left:0}
+  .avatars i.more{font-style:normal;font-size:10px;font-weight:700;display:grid;place-items:center;
+    background:var(--mint);color:var(--deep)}
   .proof .ptext{font-size:13.5px;color:var(--muted)}
   .proof .ptext b{color:var(--ink)}
 
@@ -438,7 +435,7 @@
           <a class="btn ghost" href="#process">How it works</a>
         </div>
         <div class="proof">
-          <span class="avatars" aria-hidden="true"><i>A</i><i>P</i><i>R</i><i>S</i><i class="more">+</i></span>
+          <span class="avatars" aria-hidden="true"><img src="avatars/a1.jpg" width="30" height="30" alt=""><img src="avatars/a2.jpg" width="30" height="30" alt=""><img src="avatars/a3.jpg" width="30" height="30" alt=""><img src="avatars/a4.jpg" width="30" height="30" alt=""><i class="more">+</i></span>
           <span class="ptext"><b>500+ already registered.</b> Early registrations get priority when batches open.</span>
         </div>
         <p class="note">Free to join | No deposits required | No hidden charges</p>
