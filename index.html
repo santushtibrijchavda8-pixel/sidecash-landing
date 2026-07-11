@@ -248,17 +248,18 @@
     border:1px solid var(--mint-line);border-radius:99px;padding:3px 10px}
   .lab-body{display:grid;grid-template-columns:1.55fr 1fr}
   .lab-video{border-right:1px solid var(--line)}
-  .lab-stage{position:relative;background:#DFF3E7;overflow:hidden}
-  .lab-stage img{display:block;width:100%;height:260px;object-fit:cover}
-  .lab-box,.lab-box2{position:absolute;border:2px dashed var(--green);border-radius:6px}
-  .lab-box{left:37.5%;top:7%;width:39%;height:86%}
-  .lab-box2{left:12%;top:60%;width:27%;height:32%;border-color:#F59E0B;border-width:2px}
+  .lab-stage{position:relative;background:#101613;overflow:hidden}
+  .lab-stage video{display:block;width:100%;height:260px;object-fit:cover}
+  .lab-box,.lab-box2{position:absolute;border:2px dashed var(--green);border-radius:6px;
+    box-shadow:0 0 0 3px rgba(32,183,118,.12)}
+  .lab-box{left:45%;top:9%;width:19%;height:74%}
+  .lab-box2{left:26%;top:78%;width:48%;height:19%;border-color:#F59E0B;box-shadow:0 0 0 3px rgba(245,158,11,.12)}
   .lab-box::before,.lab-box::after{content:"";position:absolute;width:8px;height:8px;background:#fff;border:2px solid var(--green)}
   .lab-box::before{left:-6px;top:-6px}
   .lab-box::after{right:-6px;bottom:-6px}
-  .lab-box-tag{position:absolute;left:-2px;top:-30px;background:var(--green);color:#fff;font-size:11px;font-weight:700;
-    border-radius:7px;padding:4px 10px;white-space:nowrap;box-shadow:0 6px 14px -6px rgba(6,78,59,.5)}
-  .lab-box-tag.t2{background:#F59E0B;top:-28px}
+  .lab-box-tag{position:absolute;left:6px;top:6px;background:var(--green);color:#fff;font-size:11px;font-weight:700;
+    border-radius:6px;padding:3px 9px;white-space:nowrap;box-shadow:0 6px 14px -6px rgba(6,78,59,.5)}
+  .lab-box-tag.t2{background:#F59E0B}
   .lab-controls{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff}
   .lab-play{width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex:none}
   .lab-track{position:relative;flex:1;height:5px;border-radius:5px;background:var(--line)}
@@ -584,7 +585,7 @@
       </div>
 
       <!-- EXAMPLE TASK MOCKUP -->
-      <div class="labdemo reveal" id="labDemo" role="img" aria-label="Example of a video labeling task: a real video frame shows a person walking on a street, boxes are drawn around the person and a car in the background, labels such as person walking, car in background and outdoor daylight are added, then the task is submitted for review">
+      <div class="labdemo reveal" id="labDemo" role="img" aria-label="Example of a video labeling task: a short video clip shows a person walking along a dirt path, tracking boxes mark the person and the path, labels such as person walking, dirt path and outdoor daylight are added, then the task is submitted for review">
         <div class="lab-bar" aria-hidden="true">
           <span class="dots"><i></i><i></i><i></i></span>
           <span class="lab-title">Example task &middot; Label this clip</span>
@@ -593,9 +594,9 @@
         <div class="lab-body" aria-hidden="true">
           <div class="lab-video">
             <div class="lab-stage">
-              <img src="task-frame.jpg" alt="" width="1200" height="520" loading="lazy">
+              <video id="labVid" src="task-clip.mp4" poster="task-poster.jpg" muted loop playsinline preload="metadata" width="1280" height="720"></video>
               <div class="lab-box"><span class="lab-box-tag">Person walking</span></div>
-              <div class="lab-box2"><span class="lab-box-tag t2">Car</span></div>
+              <div class="lab-box2"><span class="lab-box-tag t2">Dirt path</span></div>
             </div>
             <div class="lab-controls">
               <span class="lab-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5L7 4.5z"/></svg></span>
@@ -606,7 +607,7 @@
           <div class="lab-side">
             <span class="lab-shead">Your labels</span>
             <span class="ltag t1"><span class="lt-check">&#10003;</span>Person walking</span>
-            <span class="ltag t2"><span class="lt-check">&#10003;</span>Car in background</span>
+            <span class="ltag t2"><span class="lt-check">&#10003;</span>Dirt path</span>
             <span class="ltag t3"><span class="lt-check">&#10003;</span>Outdoor daylight</span>
             <span class="ltag add">+ Add another label</span>
             <p class="lab-tip">Label only what you can clearly see in the clip. Accuracy matters more than speed.</p>
@@ -993,6 +994,18 @@
       requestAnimationFrame(step);
       setTimeout(function(){ el.textContent = target.toLocaleString("en-IN"); }, dur + 400);
     }).observe(el);
+  })();
+
+  // Example-task clip: play only while visible; stays on the poster with reduced motion
+  (function(){
+    var lv = document.getElementById("labVid");
+    if(!lv || reduceMotion) return;
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting) lv.play().catch(function(){});
+        else lv.pause();
+      });
+    }, {threshold:.2}).observe(lv);
   })();
 
   // FAQ accordion: opening one closes the others
