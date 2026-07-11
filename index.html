@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>sidecash.ai</title>
 <meta name="description" content="Get paid for simple video labeling work. Join the SideCash.ai early access list: guided onboarding, quality-reviewed tasks, and transparent payments. Free to join, no deposits, no hidden charges.">
+<link rel="canonical" href="https://sidecash.ai/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SideCash.ai">
 <meta property="og:title" content="SideCash.ai | Get paid for simple video labeling work">
@@ -20,18 +21,15 @@
 <!--
   ============================================================================
   SideCash.ai pre-registration landing page (single file)
-  ----------------------------------------------------------------------------
-  BEFORE UPLOADING, EDIT ONE LINE:
-    Search for GOOGLE_FORM_URL below and paste your real Google Form link.
-
-  CONTACT FORM EMAIL:
-    The footer form sends to support@sidecash.ai via formsubmit.co.
-    First submission triggers a one-time activation email to that mailbox -
-    open it and click Activate. The mailbox support@sidecash.ai must exist.
-
-  HOSTING: upload this file as index.html into public_html (cPanel / FTP).
-  Fonts: loads Inter from Google Fonts when online; falls back to the system
-  font when viewed offline.
+  ============================================================================
+  Hosting: GitHub Pages (repo sidecash-landing, branch main). Every push to
+  main auto-deploys to https://sidecash.ai in about a minute.
+  CTA links: every .js-form-link button carries the Google Form URL in its
+  href (works without JS) and the script below re-applies GOOGLE_FORM_URL,
+  so that constant stays the single place to change the form link.
+  Contact form: sends to support@sidecash.ai via formsubmit.co and includes
+  an invisible _honey honeypot field that silently drops bot submissions.
+  Fonts: Inter from Google Fonts when online; system font fallback offline.
   ============================================================================
 -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -41,9 +39,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"SideCash.ai","url":"https://sidecash.ai/","logo":"https://sidecash.ai/favicon-192.png","email":"support@sidecash.ai","description":"India-first AI data work platform. Get paid for simple online video labeling work.","sameAs":["https://www.instagram.com/sidecash.ai/"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is SideCash.ai genuine? Is there any joining fee?","acceptedAnswer":{"@type":"Answer","text":"No. SideCash.ai is a legitimate AI work platform. Joining is completely free. We never charge registration fees, security deposits, or upfront payments. If anyone asks you for money in the name of SideCash.ai, please report it to us immediately."}},
+{"@type":"Question","name":"What kind of work will I do?","acceptedAnswer":{"@type":"Answer","text":"You'll work on AI video labeling projects by watching short video clips and applying simple labels based on clear project guidelines. Additional AI data projects may become available over time."}},
+{"@type":"Question","name":"Do I need any experience?","acceptedAnswer":{"@type":"Answer","text":"No prior experience is required. If you have basic English skills, can use a computer, and follow instructions carefully, we'll guide you through the work before you begin."}},
+{"@type":"Question","name":"What happens after I pre-register?","acceptedAnswer":{"@type":"Answer","text":"After you complete the registration form, you'll be added to our early access list. When your batch is ready, we'll contact you with onboarding details, qualification requirements, and instructions to begin your first AI video labeling project."}},
+{"@type":"Question","name":"How much can I earn?","acceptedAnswer":{"@type":"Answer","text":"Your earnings depend on the type of project, the amount of approved work you complete, and your quality score. Before you begin any project, we'll clearly share the payment structure and expected rates."}},
+{"@type":"Question","name":"How do I get paid?","acceptedAnswer":{"@type":"Answer","text":"Your completed tasks are reviewed, and your earnings are updated in your dashboard. Payment schedules and methods are shared during onboarding."}},
+{"@type":"Question","name":"What happens to my personal information?","acceptedAnswer":{"@type":"Answer","text":"Your information is stored securely and used only for registration, onboarding, and official SideCash communication. We never sell your personal information to third parties. You may request access to or deletion of your information at any time by contacting us."}}
+]}
+</script>
 <style>
   :root{
-    --green:#20B776; --green-hover:#1BA168; --deep:#064E3B; --deep-2:#047857;
+    --green:#20B776; --green-hover:#1BA168; --green-ink:#047857; --deep:#064E3B; --deep-2:#047857;
     --emerald:#10B981; --mint:#ECFDF5; --mint-line:#D1FAE5; --pale:#A7F3D0;
     --bright:#6EE7B7; --ground:#F8FAF7; --card:#FFFFFF; --ink:#111827;
     --muted:#6B7280; --line:#E5E7EB;
@@ -63,7 +75,7 @@
   .band::selection,.band ::selection,.dlg-head::selection,.dlg-head ::selection{
     background:#ECFDF5;color:var(--deep)}
   img,svg{max-width:100%}
-  a{color:var(--green)}
+  a{color:var(--green-ink)}
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
   .btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;
     border:0;border-radius:12px;padding:14px 26px;font-size:16px;font-weight:600;cursor:pointer;
@@ -83,7 +95,7 @@
   h1,h2,h3{letter-spacing:-.022em;line-height:1.12;text-wrap:balance;font-weight:700}
   h2{font-size:clamp(25px,3.5vw,34px);margin:0 0 8px}
   .sub{color:var(--muted);margin:0 0 28px}
-  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin:0 0 8px}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green-ink);margin:0 0 8px}
   section{padding:68px 0}
   section.alt{background:var(--mint)}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
@@ -172,7 +184,7 @@
   .dash .amt small{display:block;font-size:12px;font-weight:400;color:rgba(236,253,245,.85);margin-top:2px}
   .dash .body{padding:12px 20px 14px}
   .dash .ptitle{font-size:13px;color:var(--muted)}
-  .dash .ptitle b{color:var(--green)}
+  .dash .ptitle b{color:var(--green-ink)}
   .dash .psub{font-size:11.5px;color:var(--muted);margin:2px 0 8px}
   .bars{display:flex;align-items:flex-end;gap:12px;height:112px;border-bottom:1px solid var(--line);padding-bottom:1px}
   .bars .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;height:100%}
@@ -207,7 +219,7 @@
     display:grid;place-items:center;margin-bottom:2px}
   .chips b{display:block;font-size:15px}
   .chips span{font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-  .chips em{font-style:normal;font-size:9.5px;font-weight:600;color:var(--green)}
+  .chips em{font-style:normal;font-size:9.5px;font-weight:600;color:var(--green-ink)}
   .trustline{display:flex;gap:11px;align-items:center;justify-content:center;margin-top:10px;
     background:var(--mint);border:1px solid var(--mint-line);border-radius:12px;padding:9px 12px}
   .trustline svg{flex:none}
@@ -258,13 +270,16 @@
   .whygrid p{font-size:13.5px;color:var(--muted);margin:0}
 
   /* Eligibility */
-  .elig{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;padding:0;margin:0}
-  .elig li{list-style:none;display:flex;gap:11px;align-items:flex-start;background:#fff;
-    border:1px solid var(--line);border-radius:13px;padding:14px 16px;font-size:14.5px;
+  .elig{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0;margin:0}
+  .elig li{list-style:none;display:flex;gap:14px;align-items:center;background:#fff;
+    border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:14.5px;font-weight:500;
+    box-shadow:0 1px 2px rgba(17,24,39,.03);
     transition:transform .2s var(--ease), border-color .2s, box-shadow .2s}
-  .elig li:hover{transform:translateY(-3px);border-color:var(--mint-line);box-shadow:0 12px 28px -16px rgba(6,78,59,.25)}
-  .elig .tick{flex:none;width:22px;height:22px;border-radius:50%;background:var(--ok-bg);color:var(--ok-ink);
-    display:grid;place-items:center;margin-top:1px;font-size:12px}
+  .elig li:hover{transform:translateY(-3px);border-color:rgba(32,183,118,.4);box-shadow:0 14px 30px -18px rgba(6,78,59,.3)}
+  .elig .eic{flex:none;width:40px;height:40px;border-radius:11px;background:var(--mint);color:var(--deep);
+    display:grid;place-items:center;font-weight:800;font-size:13px;
+    transition:background .22s, color .22s, transform .22s var(--ease)}
+  .elig li:hover .eic{background:var(--green);color:#fff;transform:scale(1.06)}
   .callout{background:var(--warn-bg);border:1px solid #FDE68A;color:var(--warn-ink);
     border-radius:14px;padding:16px 20px;font-size:14.5px;margin-top:26px}
 
@@ -278,11 +293,11 @@
   summary{cursor:pointer;font-weight:600;padding:17px 0;list-style:none;display:flex;align-items:center;gap:14px}
   summary::-webkit-details-marker{display:none}
   summary .qi{flex:none;width:32px;height:32px;border-radius:50%;background:var(--mint);
-    border:1px solid var(--mint-line);color:var(--green);font-weight:800;font-size:14px;
+    border:1px solid var(--mint-line);color:var(--green-ink);font-weight:800;font-size:14px;
     display:grid;place-items:center;transition:background .2s, color .2s, border-color .2s}
   details[open] summary .qi{background:linear-gradient(150deg,var(--green),#34D399);color:#fff;border-color:transparent}
   summary .qt{flex:1}
-  summary::after{content:"+";font-size:21px;color:var(--green);font-weight:600;line-height:1;
+  summary::after{content:"+";font-size:21px;color:var(--green-ink);font-weight:600;line-height:1;
     margin-left:auto;transition:transform .25s var(--ease)}
   details[open] summary::after{transform:rotate(45deg)}
   details .a{overflow:hidden}
@@ -318,7 +333,7 @@
   .flinks-v{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
   .flinks-v button,.flinks-v a{background:none;border:0;padding:0;font-family:inherit;font-size:14px;color:var(--ink);
     cursor:pointer;text-align:left;text-decoration:none;transition:color .15s}
-  .flinks-v button:hover,.flinks-v a:hover{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+  .flinks-v button:hover,.flinks-v a:hover{color:var(--green-ink);text-decoration:underline;text-underline-offset:3px}
   .fnote{font-size:13px;color:var(--muted);max-width:44ch;margin:14px 0 0;line-height:1.65}
   .fmail{margin:0}
   .fmail a{font-size:14.5px;font-weight:600}
@@ -337,9 +352,9 @@
   input:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(32,183,118,.15)}
   textarea{min-height:96px;resize:vertical}
   .consent-note{font-size:13px;color:var(--muted);margin:16px 0}
-  .link-btn{background:none;border:0;padding:0;font:inherit;font-size:inherit;color:var(--green);
+  .link-btn{background:none;border:0;padding:0;font:inherit;font-size:inherit;color:var(--green-ink);
     cursor:pointer;text-decoration:underline;text-underline-offset:2px}
-  .link-btn:hover{color:var(--green-hover)}
+  .link-btn:hover{color:var(--deep)}
   .err-msg{color:var(--err);font-size:12.5px;margin-top:4px;display:none}
   .form-status{margin-top:14px;font-size:14px;border-radius:10px;padding:11px 14px;display:none}
   .form-status.ok{display:block;background:var(--ok-bg);color:var(--ok-ink)}
@@ -373,6 +388,7 @@
     .hero .grid{grid-template-columns:1fr}
     .cards3{grid-template-columns:1fr}
     .whygrid{grid-template-columns:1fr 1fr}
+    .elig{grid-template-columns:1fr 1fr}
     .contact-grid{grid-template-columns:1fr;gap:26px}
     .steps{grid-template-columns:1fr 1fr;gap:26px}
     .steps::before{display:none}
@@ -381,6 +397,7 @@
   }
   @media (max-width:560px){
     .whygrid{grid-template-columns:1fr}
+    .elig{grid-template-columns:1fr}
     details p{margin-left:0}
   }
   @media (prefers-reduced-motion: reduce){
@@ -414,7 +431,7 @@
         </g>
       </svg>
     </a>
-    <a class="btn js-form-link" href="#" target="_blank" rel="noopener">Join early access</a>
+    <a class="btn js-form-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdfoEQDY4c-DvHBJxKRzUZ7tIr_dgiw_p6zTASYcQ_CKbYtHQ/viewform" target="_blank" rel="noopener">Join early access</a>
   </div>
 </header>
 
@@ -429,7 +446,7 @@
         <p class="lead">Help train the next generation of AI by labeling short videos. Complete simple tasks, maintain quality, and earn for approved work.</p>
         <p class="rotator" aria-live="polite"><span id="rotText">Simple work. Real projects. Transparent payments.</span></p>
         <div class="actions">
-          <a class="btn js-form-link" href="#" target="_blank" rel="noopener">Join the early access list
+          <a class="btn js-form-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdfoEQDY4c-DvHBJxKRzUZ7tIr_dgiw_p6zTASYcQ_CKbYtHQ/viewform" target="_blank" rel="noopener">Join the early access list
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a class="btn ghost" href="#process">How it works</a>
@@ -566,12 +583,12 @@
         <p class="sub">Ideal for students, working professionals, freelancers, creators, and anyone looking for flexible online work who meets these simple requirements.</p>
       </div>
       <ul class="elig reveal" data-stagger>
-        <li><span class="tick">&#10003;</span>18 years or older</li>
-        <li><span class="tick">&#10003;</span>Basic English proficiency</li>
-        <li><span class="tick">&#10003;</span>Computer or laptop</li>
-        <li><span class="tick">&#10003;</span>Reliable internet connection</li>
-        <li><span class="tick">&#10003;</span>At least 4 hours available per day</li>
-        <li><span class="tick">&#10003;</span>Attention to detail and willingness to follow instructions</li>
+        <li><span class="eic" aria-hidden="true">18+</span>18 years or older</li>
+        <li><span class="eic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M6 3h12a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-7.6L5 21.5V17.7A3 3 0 0 1 3 14.9V6a3 3 0 0 1 3-3zm2.05 10.4h2.1l.55-1.55h2.6l.55 1.55h2.1L13.3 6.6h-2.6L8.05 13.4zm3.15-3.1.75-2.1.75 2.1h-1.5z"/></svg></span>Basic English proficiency</li>
+        <li><span class="eic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M5 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v9H5V5zm2 .8V12h10V5.8H7zM2 16h20l-.85 2.55A2 2 0 0 1 19.25 20H4.75a2 2 0 0 1-1.9-1.45L2 16z"/></svg></span>Computer or laptop</li>
+        <li><span class="eic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.4a1.9 1.9 0 1 1 0-3.8 1.9 1.9 0 0 1 0 3.8zM4.9 13.6a10 10 0 0 1 14.2 0l-1.85 1.85a7.4 7.4 0 0 0-10.5 0L4.9 13.6zM1.3 10a15 15 0 0 1 21.4 0l-1.85 1.85a12.4 12.4 0 0 0-17.7 0L1.3 10z"/></svg></span>Reliable internet connection</li>
+        <li><span class="eic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.9 4.5v5.13l3.6 2.16-.93 1.53-4.47-2.72V6.5h1.8z"/></svg></span>At least 4 hours available per day</li>
+        <li><span class="eic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3.2a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0-13.6zm0 3.4a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8z"/></svg></span>Attention to detail and willingness to follow instructions</li>
       </ul>
     </div>
   </section>
@@ -656,7 +673,7 @@
       <div class="band reveal">
         <h2>Join the Early Access List Today</h2>
         <p>Join the early access list in just 2 minutes. It's completely free, and we'll contact you as soon as your batch is ready.</p>
-        <a class="btn js-form-link" href="#" target="_blank" rel="noopener">Join the early access list</a>
+        <a class="btn js-form-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdfoEQDY4c-DvHBJxKRzUZ7tIr_dgiw_p6zTASYcQ_CKbYtHQ/viewform" target="_blank" rel="noopener">Join the early access list</a>
         <div class="badges">
           <span>&#9989; Free to Join</span>
           <span>&#9201;&#65039; 2-Minute Registration</span>
@@ -682,6 +699,7 @@
         </div>
         <div class="card contact-card reveal">
           <form id="contactForm" novalidate>
+            <input type="text" id="cf-honey" name="_honey" value="" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="row">
               <div>
                 <label for="cf-name">Full Name</label>
@@ -731,7 +749,7 @@
           </div>
         </div>
         <nav aria-label="Quick links">
-          <h4 class="fhead">Quick Links</h4>
+          <h3 class="fhead">Quick Links</h3>
           <ul class="flinks-v">
             <li><a href="#top">Home</a></li>
             <li><a href="#process">How It Works</a></li>
@@ -741,7 +759,7 @@
           </ul>
         </nav>
         <nav aria-label="Legal">
-          <h4 class="fhead">Legal</h4>
+          <h3 class="fhead">Legal</h3>
           <ul class="flinks-v">
             <li><button type="button" data-dlg="dlg-privacy">Privacy</button></li>
             <li><button type="button" data-dlg="dlg-terms">Terms</button></li>
@@ -751,7 +769,7 @@
           </ul>
         </nav>
         <div>
-          <h4 class="fhead">Support</h4>
+          <h3 class="fhead">Support</h3>
           <p class="fmail"><a href="mailto:support@sidecash.ai">support@sidecash.ai</a></p>
           <p class="fnote">Response within 2 business days.</p>
         </div>
@@ -859,7 +877,7 @@
     "Simple work. Real projects. Transparent payments.",
     "Contribute to AI by completing guided video labeling tasks.",
     "Learn. Qualify. Work. Get paid.",
-    "Join thousands of people building the future of AI."
+    "500+ early registrations and growing."
   ];
   if(!reduceMotion){
     var ri = 0, rot = document.getElementById("rotText");
@@ -931,6 +949,7 @@
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({
           _subject: "SideCash.ai landing page enquiry",
+          _honey: document.getElementById("cf-honey").value,
           _template: "table",
           name: document.getElementById("cf-name").value.trim() || "(not given)",
           phone: phone,
