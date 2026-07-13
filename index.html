@@ -253,7 +253,12 @@
   .lab-controls{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff}
   .lab-play{width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex:none}
   .lab-track{position:relative;flex:1;height:5px;border-radius:5px;background:var(--line)}
-  .lab-track i{position:absolute;top:0;bottom:0;left:0;right:54%;background:linear-gradient(90deg,var(--green),var(--emerald));border-radius:5px}
+  .lab-track{cursor:pointer}
+  .lab-track i{position:absolute;top:0;bottom:0;left:0;width:0;background:linear-gradient(90deg,var(--green),var(--emerald));border-radius:5px}
+  .lab-play{cursor:pointer}
+  .lab-play .ic-pause{display:none}
+  .lab-play.playing .ic-play{display:none}
+  .lab-play.playing .ic-pause{display:block}
   .lab-track .pin{position:absolute;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;
     background:#fff;border:3px solid var(--green)}
   .lab-track .p1{left:22%}
@@ -585,9 +590,9 @@
               <video id="labVid" src="task-clip2.mp4" poster="task-poster2.jpg" muted loop playsinline preload="metadata" width="1280" height="720"></video>
             </div>
             <div class="lab-controls">
-              <span class="lab-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5L7 4.5z"/></svg></span>
-              <span class="lab-track"><i></i><b class="pin p1"></b><b class="pin p2"></b></span>
-              <span class="lab-time">0:07 / 0:15</span>
+              <span class="lab-play" id="labPlay"><svg class="ic-play" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5L7 4.5z"/></svg><svg class="ic-pause" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></span>
+              <span class="lab-track" id="labTrack"><i id="labProg"></i><b class="pin p1"></b><b class="pin p2"></b></span>
+              <span class="lab-time" id="labTime">0:00 / 0:10</span>
             </div>
           </div>
           <div class="lab-side">
@@ -982,12 +987,40 @@
     }).observe(el);
   })();
 
-  // Example-task clip: the tracking boxes are burned into the footage itself
-  // (rendered frame-accurately with ffmpeg), so nothing here can drift. This
-  // only starts playback while visible and leaves the poster for reduced motion.
+  // Example-task clip: the tracking boxes are burned into the footage itself,
+  // so nothing can drift. The controls below the clip are real: the progress
+  // bar and time readout follow the video clock, the round button toggles
+  // play/pause, and clicking the bar seeks. Autoplay-when-visible is skipped
+  // for reduced-motion users, but manual play still works for them.
   (function(){
     var lv = document.getElementById("labVid");
-    if(!lv || reduceMotion) return;
+    if(!lv) return;
+    var prog = document.getElementById("labProg");
+    var time = document.getElementById("labTime");
+    var play = document.getElementById("labPlay");
+    var track = document.getElementById("labTrack");
+    function fmt(s){ s = Math.max(0, Math.round(s || 0)); return Math.floor(s/60) + ":" + ("0" + (s % 60)).slice(-2); }
+    function paint(){
+      var d = lv.duration || 0;
+      if(d){ prog.style.width = (lv.currentTime / d * 100) + "%"; }
+      time.textContent = fmt(lv.currentTime) + " / " + fmt(d);
+    }
+    function loop(){ paint(); if(!lv.paused && !lv.ended) requestAnimationFrame(loop); }
+    lv.addEventListener("play", function(){ play.classList.add("playing"); requestAnimationFrame(loop); });
+    lv.addEventListener("pause", function(){ play.classList.remove("playing"); paint(); });
+    lv.addEventListener("loadedmetadata", paint);
+    lv.addEventListener("timeupdate", paint);
+    play.addEventListener("click", function(){
+      if(lv.paused) lv.play().catch(function(){}); else lv.pause();
+    });
+    track.addEventListener("click", function(e){
+      if(!lv.duration) return;
+      var r = track.getBoundingClientRect();
+      lv.currentTime = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1) * lv.duration;
+      paint();
+    });
+    paint();
+    if(reduceMotion) return;
     new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if(e.isIntersecting) lv.play().catch(function(){});
