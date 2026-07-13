@@ -250,16 +250,6 @@
   .lab-video{border-right:1px solid var(--line)}
   .lab-stage{position:relative;background:#101613;overflow:hidden}
   .lab-stage video{display:block;width:100%;height:260px;object-fit:cover}
-  .lab-box,.lab-box2{position:absolute;border:2px dashed var(--green);border-radius:6px;
-    box-shadow:0 0 0 3px rgba(32,183,118,.12)}
-  .lab-box{left:16%;top:1%;width:12%;height:98%}
-  .lab-box2{left:28%;top:56%;width:17%;height:43%;border-color:#F59E0B;box-shadow:0 0 0 3px rgba(245,158,11,.12)}
-  .lab-box::before,.lab-box::after{content:"";position:absolute;width:8px;height:8px;background:#fff;border:2px solid var(--green)}
-  .lab-box::before{left:-6px;top:-6px}
-  .lab-box::after{right:-6px;bottom:-6px}
-  .lab-box-tag{position:absolute;left:4px;top:4px;background:var(--green);color:#fff;font-size:11px;font-weight:700;
-    border-radius:6px;padding:3px 9px;white-space:nowrap;box-shadow:0 6px 14px -6px rgba(6,78,59,.5)}
-  .lab-box-tag.t2{background:#F59E0B}
   .lab-controls{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff}
   .lab-play{width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex:none}
   .lab-track{position:relative;flex:1;height:5px;border-radius:5px;background:var(--line)}
@@ -278,10 +268,8 @@
   .lab-tip{font-size:12px;color:var(--muted);margin:4px 0 6px}
   .lab-submit{display:inline-flex;background:var(--green);color:#fff;font-size:13px;font-weight:600;
     border-radius:10px;padding:9px 16px;box-shadow:0 8px 20px -8px rgba(32,183,118,.55)}
-  .labdemo .ltag,.labdemo .lab-box,.labdemo .lab-box2{transition:opacity .5s var(--ease), transform .5s var(--ease)}
-  html.js .labdemo:not(.in) .ltag,html.js .labdemo:not(.in) .lab-box,html.js .labdemo:not(.in) .lab-box2{opacity:0;transform:translateY(8px)}
-  .labdemo.in .lab-box{transition-delay:.15s}
-  .labdemo.in .lab-box2{transition-delay:.45s}
+  .labdemo .ltag{transition:opacity .5s var(--ease), transform .5s var(--ease)}
+  html.js .labdemo:not(.in) .ltag{opacity:0;transform:translateY(8px)}
   .labdemo.in .t1{transition-delay:.25s}
   .labdemo.in .t2{transition-delay:.4s}
   .labdemo.in .t3{transition-delay:.55s}
@@ -456,7 +444,7 @@
     *,*::before,*::after{animation:none!important;transition:none!important}
     html{scroll-behavior:auto}
     html.js .reveal,html.js [data-stagger] > *{opacity:1;transform:none}
-    html.js .labdemo:not(.in) .ltag,html.js .labdemo:not(.in) .lab-box,html.js .labdemo:not(.in) .lab-box2{opacity:1;transform:none}
+    html.js .labdemo:not(.in) .ltag{opacity:1;transform:none}
     html.js .dash:not(.in) .bar{height:var(--h)}
     html.js .steps:not(.in)::before{transform:scaleX(1)}
   }
@@ -595,8 +583,6 @@
           <div class="lab-video">
             <div class="lab-stage">
               <video id="labVid" src="task-clip.mp4" poster="task-poster.jpg" muted loop playsinline preload="metadata" width="1280" height="720"></video>
-              <div class="lab-box"><span class="lab-box-tag">Person</span></div>
-              <div class="lab-box2"><span class="lab-box-tag t2">Dog</span></div>
             </div>
             <div class="lab-controls">
               <span class="lab-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5L7 4.5z"/></svg></span>
@@ -996,67 +982,12 @@
     }).observe(el);
   })();
 
-  // Example-task clip: plays only while visible, and the "Person walking" box
-  // tracks the walker. His frame position was measured second by second; the
-  // box interpolates between those keyframes from video.currentTime, mapped
-  // through the same object-fit:cover math the browser uses to draw the video.
+  // Example-task clip: the tracking boxes are burned into the footage itself
+  // (rendered frame-accurately with ffmpeg), so nothing here can drift. This
+  // only starts playback while visible and leaves the poster for reduced motion.
   (function(){
     var lv = document.getElementById("labVid");
-    if(!lv) return;
-    var stage = lv.parentElement;
-    var boxP = stage.querySelector(".lab-box");
-    var boxD = stage.querySelector(".lab-box2");
-    // [seconds, x, y, w, h] as fractions of the full 1280x720 frame,
-    // measured every half second for the woman and the husky
-    var KP = [
-      [0, .155, .11, .13, .82], [0.5, .205, .11, .13, .81], [1, .215, .11, .13, .80],
-      [1.5, .345, .09, .13, .82], [2, .375, .09, .13, .84], [2.5, .395, .09, .13, .82],
-      [3, .285, .09, .14, .84], [3.5, .335, .09, .14, .84], [4, .215, .11, .14, .84],
-      [4.5, .195, .09, .14, .84], [5, .195, .11, .14, .84], [5.5, .195, .09, .15, .86],
-      [6, .075, .09, .13, .84], [6.5, .175, .11, .13, .82], [7, .105, .11, .14, .84],
-      [7.5, .155, .11, .13, .82], [8, .095, .11, .15, .84], [8.5, .115, .11, .15, .82],
-      [9, .095, .13, .15, .82], [9.5, .115, .11, .15, .84], [10, .125, .11, .16, .84],
-      [10.5, .165, .11, .16, .84], [11, .095, .11, .16, .84], [12, .095, .11, .16, .84]
-    ];
-    var KD = [
-      [0, .275, .54, .18, .35], [0.5, .335, .55, .18, .32], [1, .375, .55, .18, .34],
-      [1.5, .425, .55, .18, .34], [2, .445, .59, .19, .34], [2.5, .485, .59, .19, .34],
-      [3, .425, .61, .20, .34], [3.5, .465, .59, .19, .34], [4, .355, .59, .21, .34],
-      [4.5, .395, .59, .21, .36], [5, .355, .61, .23, .34], [5.5, .415, .59, .21, .36],
-      [6, .235, .57, .23, .34], [6.5, .325, .57, .22, .36], [7, .275, .57, .23, .36],
-      [7.5, .335, .57, .23, .36], [8, .315, .57, .23, .36], [8.5, .355, .57, .23, .38],
-      [9, .295, .59, .23, .36], [9.5, .355, .57, .24, .38], [10, .335, .54, .25, .41],
-      [10.5, .395, .54, .25, .41], [11, .295, .54, .27, .41], [12, .295, .54, .27, .41]
-    ];
-    function rectAt(K, t){
-      var i = 1;
-      while(i < K.length - 1 && K[i][0] < t) i++;
-      var a = K[i-1], b = K[i];
-      var f = Math.min(Math.max((t - a[0]) / (b[0] - a[0]), 0), 1);
-      return [a[1]+(b[1]-a[1])*f, a[2]+(b[2]-a[2])*f, a[3]+(b[3]-a[3])*f, a[4]+(b[4]-a[4])*f];
-    }
-    function place(el, r){
-      var vw = lv.videoWidth || 1280, vh = lv.videoHeight || 720;
-      var sw = stage.clientWidth, sh = stage.clientHeight;
-      if(!sw || !sh) return;
-      var s = Math.max(sw/vw, sh/vh);
-      var dw = vw*s, dh = vh*s, ox = (sw-dw)/2, oy = (sh-dh)/2;
-      el.style.left = (ox + r[0]*dw) + "px";
-      el.style.top = (oy + r[1]*dh) + "px";
-      el.style.width = (r[2]*dw) + "px";
-      el.style.height = (r[3]*dh) + "px";
-    }
-    function tick(){
-      place(boxP, rectAt(KP, lv.currentTime));
-      place(boxD, rectAt(KD, lv.currentTime));
-      if(!lv.paused && !lv.ended) requestAnimationFrame(tick);
-    }
-    lv.addEventListener("play", function(){ requestAnimationFrame(tick); });
-    lv.addEventListener("seeked", tick);
-    lv.addEventListener("loadedmetadata", tick);
-    addEventListener("resize", tick);
-    tick();
-    if(reduceMotion) return;
+    if(!lv || reduceMotion) return;
     new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if(e.isIntersecting) lv.play().catch(function(){});
