@@ -242,6 +242,14 @@
   .labdemo{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;
     box-shadow:0 1px 2px rgba(17,24,39,.04),0 14px 36px -18px rgba(6,78,59,.18)}
   .lab-shot{display:block;width:100%;height:auto;aspect-ratio:16/9}
+  .worktool{display:grid;grid-template-columns:1.55fr 1fr;gap:34px;align-items:center;margin-top:26px}
+  .worktool .labdemo{margin-top:0}
+  .wt-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-ink);margin-bottom:16px}
+  .wt-steps ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+  .wt-steps li{display:flex;gap:14px;align-items:flex-start}
+  .wt-n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--green-ink);border:1px solid var(--mint-line);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
+  .wt-steps li > div{font-size:15px;line-height:1.55;color:var(--muted)}
+  .wt-steps li b{color:var(--ink);font-weight:600}
   .lab-bar{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--ground)}
   .lab-bar .dots{display:flex;gap:5px}
   .lab-bar .dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
@@ -439,6 +447,7 @@
     .steps::before{display:none}
     .lab-body{grid-template-columns:1fr}
     .lab-video{border-right:0;border-bottom:1px solid var(--line)}
+    .worktool{grid-template-columns:1fr;gap:24px}
     form .row{grid-template-columns:1fr}
     section{padding:48px 0}
   }
@@ -579,9 +588,20 @@
         </div>
       </div>
 
-      <!-- EXAMPLE TASK: real annotation tool -->
-      <div class="labdemo reveal" id="labDemo">
-        <img class="lab-shot" src="annotation-tool.jpg" width="1920" height="1080" loading="lazy" decoding="async" alt="The SideCash.ai annotation workspace: a video plays on the left while a panel on the right lists six clips, each with its own start and end time and a box to write a short caption. A timeline below the video shows the six clips laid end to end.">
+      <!-- EXAMPLE TASK: real annotation tool + step list -->
+      <div class="worktool reveal" data-stagger>
+        <div class="labdemo" id="labDemo">
+          <img class="lab-shot" src="annotation-tool.jpg" width="1920" height="1080" loading="lazy" decoding="async" alt="The SideCash.ai annotation workspace: a video plays on the left while a panel on the right lists six clips, each with its own start and end time and a box to write a short caption. A timeline below the video shows the six clips laid end to end.">
+        </div>
+        <div class="wt-steps">
+          <span class="wt-eyebrow">Inside a task</span>
+          <ul>
+            <li><span class="wt-n">1</span><div><b>Watch the video.</b> Play it through and understand what is happening from start to finish.</div></li>
+            <li><span class="wt-n">2</span><div><b>Slice it into clips.</b> Split the video into short clips, one for each action or moment.</div></li>
+            <li><span class="wt-n">3</span><div><b>Caption every clip.</b> Write a short, clear caption describing what happens in each clip.</div></li>
+            <li><span class="wt-n">4</span><div><b>Save and submit.</b> Send your work for review. Approved work becomes payable.</div></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
