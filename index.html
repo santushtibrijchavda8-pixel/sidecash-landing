@@ -475,6 +475,53 @@
     html.js .dash:not(.in) .bar{height:var(--h)}
     html.js .steps:not(.in)::before{transform:scaleX(1)}
   }
+  /* ---- Rate campaign + earnings calculator ---- */
+  .rate{background:var(--mint);border-top:1px solid var(--mint-line);border-bottom:1px solid var(--mint-line)}
+  .ratehero{display:grid;place-items:center;margin:0 0 26px}
+  .rateno{display:inline-flex;align-items:baseline;gap:4px;font-weight:800;letter-spacing:-.02em;
+    font-size:clamp(56px,11vw,104px);line-height:1;color:var(--deep);position:relative}
+  .rateno span{font-size:.5em;font-weight:700}
+  .rateno small{position:absolute;left:50%;transform:translateX(-50%);bottom:-26px;white-space:nowrap;
+    font-size:14px;font-weight:600;color:var(--green-ink);letter-spacing:.02em}
+  .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:52px 0 0}
+  .plan{background:var(--card);border:1px solid var(--mint-line);border-radius:18px;padding:22px 22px 20px;position:relative}
+  .plan.best{border-color:var(--green);box-shadow:0 10px 30px rgba(32,183,118,.16)}
+  .ptag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--green-ink);background:var(--mint);border:1px solid var(--mint-line);border-radius:999px;padding:4px 10px}
+  .plan.best .ptag{background:var(--green);color:#fff;border-color:transparent}
+  .plan h3{margin:12px 0 6px;font-size:20px}
+  .pmath{color:var(--muted);font-size:14px;margin:0 0 10px}
+  .pmath b{color:var(--ink)}
+  .pamt{font-size:38px;font-weight:800;letter-spacing:-.02em;color:var(--deep);line-height:1.1}
+  .pamt small{display:block;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0;margin-top:2px}
+  .pnote{margin:10px 0 0;font-size:13px;color:var(--muted)}
+  .calc{margin:28px 0 0;background:var(--card);border:1px solid var(--mint-line);border-radius:18px;overflow:hidden}
+  .calc-head{background:linear-gradient(150deg,var(--deep),var(--deep-2));color:#fff;padding:16px 22px}
+  .calc-head b{display:block;font-size:17px}
+  .calc-head span{font-size:13px;color:#A7F3D0}
+  .calc-body{padding:20px 22px 22px}
+  .calc-body label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin:0 0 10px}
+  .calc-body label b{color:var(--green-ink);font-size:15px}
+  #hrs{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;outline:none;
+    background:linear-gradient(90deg,var(--green) 0%,var(--green) var(--pct,27%),var(--mint-line) var(--pct,27%),var(--mint-line) 100%)}
+  #hrs::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;
+    background:#fff;border:3px solid var(--green);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+  #hrs::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--green);cursor:pointer}
+  #hrs:focus-visible{box-shadow:0 0 0 4px rgba(32,183,118,.28)}
+  .calc-scale{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin:6px 0 18px}
+  .calc-out{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:12px}
+  .calc-out>div{background:var(--ground);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+  .calc-out span{display:block;font-size:12px;color:var(--muted);margin-bottom:2px}
+  .calc-out b{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .calc-out .big{background:linear-gradient(150deg,var(--deep),var(--deep-2));border-color:transparent}
+  .calc-out .big span{color:#A7F3D0}
+  .calc-out .big b{color:#fff;font-size:30px}
+  .calc-note{margin:16px 0 0;font-size:12px;color:var(--muted);line-height:1.6}
+  @media (max-width:760px){
+    .plans{grid-template-columns:1fr}
+    .calc-out{grid-template-columns:1fr}
+    .calc-out .big b{font-size:28px}
+  }
 </style>
 </head>
 <body>
@@ -517,7 +564,7 @@
           <a class="btn js-form-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdfoEQDY4c-DvHBJxKRzUZ7tIr_dgiw_p6zTASYcQ_CKbYtHQ/viewform" target="_blank" rel="noopener">Join the early access list
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn ghost" href="#process">How it works</a>
+          <a class="btn ghost" href="#earnings">See what you can earn</a>
         </div>
         <div class="proof">
           <span class="avatars" aria-hidden="true"><img src="avatars/p1.jpg" width="38" height="38" alt=""><img src="avatars/p2.jpg" width="38" height="38" alt=""><img src="avatars/p3.jpg" width="38" height="38" alt=""><img src="avatars/p4.jpg" width="38" height="38" alt=""><i class="more">+</i></span>
@@ -538,16 +585,16 @@
               </span>
               <span class="illus">Illustrative</span>
             </div>
-            <div class="amt">&#8377;<span id="amtNum" data-final="42750">42,750</span><small>Approved and earned this month</small></div>
+            <div class="amt">&#8377;<span id="amtNum" data-final="35750">35,750</span><small>Approved and earned this month</small></div>
           </div>
           <div class="body">
             <div class="ptitle"><b>Your weekly progress</b> &middot; Real earnings from your approved work</div>
             <div class="psub">Earnings are updated every week after quality review</div>
             <div class="bars" aria-hidden="true">
-              <div class="col"><span class="v">&#8377;8,250</span><span class="bar" style="--h:45px"></span><span class="t">Week 1</span></div>
-              <div class="col"><span class="v">&#8377;9,800</span><span class="bar" style="--h:53px"></span><span class="t">Week 2</span></div>
-              <div class="col"><span class="v">&#8377;11,450</span><span class="bar" style="--h:62px"></span><span class="t">Week 3</span></div>
-              <div class="col"><span class="v">&#8377;13,250</span><span class="bar" style="--h:72px"></span><span class="t">Week 4</span></div>
+              <div class="col"><span class="v">&#8377;7,200</span><span class="bar" style="--h:45px"></span><span class="t">Week 1</span></div>
+              <div class="col"><span class="v">&#8377;8,400</span><span class="bar" style="--h:52px"></span><span class="t">Week 2</span></div>
+              <div class="col"><span class="v">&#8377;9,600</span><span class="bar" style="--h:60px"></span><span class="t">Week 3</span></div>
+              <div class="col"><span class="v">&#8377;10,550</span><span class="bar" style="--h:66px"></span><span class="t">Week 4</span></div>
             </div>
             <div class="flow" aria-hidden="true">
               <span class="step"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5z"/></svg><i class="ok">&#10003;</i></span>Submitted</span>
@@ -568,6 +615,57 @@
               <span><b>Transparent. Secure. Trustworthy.</b>We value your work. You earn what you deserve.</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATE CAMPAIGN + EARNINGS CALCULATOR -->
+  <section id="earnings" class="rate">
+    <div class="wrap">
+      <div class="reveal" style="text-align:center">
+        <p class="eyebrow">What you earn</p>
+        <h2>&#8377;150 for every approved hour</h2>
+        <p class="sub">One clear rate. No deposits, no deductions, no hidden charges. You decide how many hours you work each day.</p>
+      </div>
+
+      <div class="ratehero reveal">
+        <div class="rateno"><span>&#8377;</span>150<small>PER APPROVED HOUR</small></div>
+      </div>
+
+      <div class="plans reveal" data-stagger>
+        <div class="plan">
+          <span class="ptag">Part time</span>
+          <h3>4 hours a day</h3>
+          <div class="pmath">4 hours &times; 30 days = <b>120 hours</b></div>
+          <div class="pamt">&#8377;18,000<small>in a month</small></div>
+          <p class="pnote">Works alongside college or a full-time job.</p>
+        </div>
+        <div class="plan best">
+          <span class="ptag">Full time</span>
+          <h3>8 hours a day</h3>
+          <div class="pmath">8 hours &times; 30 days = <b>240 hours</b></div>
+          <div class="pamt">&#8377;36,000<small>in a month</small></div>
+          <p class="pnote">A full monthly income, working from home.</p>
+        </div>
+      </div>
+
+      <div class="calc reveal">
+        <div class="calc-head">
+          <b>Count your own earning</b>
+          <span>Move the slider to the hours you can work each day</span>
+        </div>
+        <div class="calc-body">
+          <label for="hrs">I can work <b id="hrsVal">4 hours</b> a day</label>
+          <input id="hrs" type="range" min="1" max="12" step="1" value="4"
+                 aria-describedby="cMonth" aria-label="Hours you work each day">
+          <div class="calc-scale"><span>1 hour</span><span>12 hours</span></div>
+          <div class="calc-out">
+            <div><span>Per day</span><b id="cDay">&#8377;600</b></div>
+            <div><span>Per week</span><b id="cWeek">&#8377;4,200</b></div>
+            <div class="big"><span>Per month (30 days)</span><b id="cMonth">&#8377;18,000</b></div>
+          </div>
+          <p class="calc-note">Calculated at <b>&#8377;150 per approved hour</b>. What you actually receive depends on the work you complete and that passes quality review, so treat this as an estimate rather than a guaranteed salary.</p>
         </div>
       </div>
     </div>
@@ -839,6 +937,7 @@
           <h3 class="fhead">Quick Links</h3>
           <ul class="flinks-v">
             <li><a href="#top">Home</a></li>
+            <li><a href="#earnings">Earnings</a></li>
             <li><a href="#process">How It Works</a></li>
             <li><a href="#eligibility">Eligibility</a></li>
             <li><a href="#faq">FAQs</a></li>
@@ -1099,6 +1198,39 @@
         btn.disabled = false; btn.textContent = "Send Message";
       });
     });
+  })();
+
+  /* Earnings calculator: hours per day -> day / week / month at a fixed rate. */
+  (function(){
+    var RATE = 150;            // rupees per approved hour
+    var DAYS_PER_MONTH = 30;
+    var slider = document.getElementById("hrs");
+    if (!slider) return;
+
+    var elDay = document.getElementById("cDay");
+    var elWeek = document.getElementById("cWeek");
+    var elMonth = document.getElementById("cMonth");
+    var elVal = document.getElementById("hrsVal");
+
+    function rupees(n){
+      // en-IN grouping (18,000 not 18.000), with a plain fallback.
+      try { return "₹" + n.toLocaleString("en-IN"); }
+      catch (e) { return "₹" + String(n); }
+    }
+
+    function update(){
+      var h = Number(slider.value) || 0;
+      elDay.textContent = rupees(h * RATE);
+      elWeek.textContent = rupees(h * RATE * 7);
+      elMonth.textContent = rupees(h * RATE * DAYS_PER_MONTH);
+      elVal.textContent = h + (h === 1 ? " hour" : " hours");
+      // Fill the track up to the thumb.
+      var pct = ((h - slider.min) / (slider.max - slider.min)) * 100;
+      slider.style.setProperty("--pct", pct + "%");
+    }
+
+    slider.addEventListener("input", update);
+    update();
   })();
 </script>
 </body>
