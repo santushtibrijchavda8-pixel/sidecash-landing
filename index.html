@@ -3,14 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Google Analytics (GA4). Measures visitors and where they come from.
-     Reports are private to the account; the G- id here is a public label. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-355CDY34HL"></script>
+<!-- Consent Mode v2. Analytics (Google Analytics) and advertising (Meta Pixel /
+     Conversions API) are DENIED by default and are loaded only after the visitor
+     accepts, from the consent banner script near the end of the body. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
   gtag('js', new Date());
-  gtag('config', 'G-355CDY34HL');
 </script>
 <title>sidecash.ai</title>
 <meta name="description" content="Get paid for simple video labeling work. Join the SideCash.ai early access list: guided onboarding, quality-reviewed tasks, and transparent payments. Free to join, no deposits, no hidden charges.">
@@ -524,6 +529,27 @@
     .calc-out{grid-template-columns:1fr}
     .calc-out .big b{font-size:28px}
   }
+
+  /* ---- Cookie consent banner ---- */
+  .cc{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#fff;
+    border-top:1px solid var(--line);box-shadow:0 -8px 30px rgba(0,0,0,.10);
+    padding:16px 0;display:none}
+  .cc.show{display:block}
+  .cc .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between}
+  .cc p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.6;max-width:640px}
+  .cc a{color:var(--green-ink);text-decoration:underline}
+  .cc-actions{display:flex;flex-wrap:wrap;gap:8px}
+  .cc-btn{border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:600;
+    font-size:13.5px;border-radius:10px;padding:9px 16px;cursor:pointer}
+  .cc-btn.primary{background:var(--green);border-color:transparent;color:#fff}
+  .cc-btn.link{border:none;background:none;color:var(--green-ink);text-decoration:underline;padding:9px 6px}
+  .cc-prefs{display:none;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+  .cc-prefs.show{display:block}
+  .cc-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0}
+  .cc-row input{margin-top:3px}
+  .cc-row label b{display:block;font-size:13.5px;color:var(--ink)}
+  .cc-row label span{font-size:12.5px;color:var(--muted)}
+  .cc-row.locked{opacity:.7}
 </style>
 </head>
 <body>
@@ -573,6 +599,7 @@
           <span class="ptext"><b>500+ already registered.</b> Early registrations get priority when batches open.</span>
         </div>
         <p class="note">Free to join | No deposits required | No hidden charges</p>
+        <p class="note">By joining, you agree to our <a href="/terms-of-service">Terms of Service</a> and <a href="/privacy-policy">Privacy Policy</a>.</p>
       </div>
 
       <!-- DASHBOARD MOCKUP -->
@@ -956,6 +983,7 @@
             <li><a href="/data-protection">Data Protection</a></li>
             <li><a href="/grievance">Grievance Redressal</a></li>
             <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="#" data-cc-open>Cookie preferences</a></li>
           </ul>
         </nav>
         <div>
@@ -1194,6 +1222,118 @@
     slider.addEventListener("input", update);
     update();
   })();
+</script>
+<!-- Cookie consent banner. Essential cookies always on; analytics and
+     advertising load only after the visitor accepts. -->
+<div class="cc" id="cc" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="wrap">
+    <p>
+      We use essential cookies to run the site. With your consent we also use
+      <b>Google Analytics</b> to measure traffic and the <b>Meta Pixel and Conversions API</b> to
+      measure our advertising. See our <a href="/cookies">Cookie Policy</a>.
+    </p>
+    <div class="cc-actions">
+      <button class="cc-btn link" type="button" id="cc-manage">Manage</button>
+      <button class="cc-btn" type="button" id="cc-reject">Reject non-essential</button>
+      <button class="cc-btn primary" type="button" id="cc-accept">Accept all</button>
+    </div>
+  </div>
+  <div class="wrap cc-prefs" id="cc-prefs">
+    <div style="width:100%">
+      <div class="cc-row locked">
+        <input type="checkbox" checked disabled aria-label="Essential cookies (always on)">
+        <label><b>Essential</b><span>Keeps the site working and you logged in. Always on.</span></label>
+      </div>
+      <div class="cc-row">
+        <input type="checkbox" id="cc-analytics">
+        <label for="cc-analytics"><b>Analytics</b><span>Google Analytics, to count visitors and improve the site.</span></label>
+      </div>
+      <div class="cc-row">
+        <input type="checkbox" id="cc-ads">
+        <label for="cc-ads"><b>Advertising and measurement</b><span>Meta Pixel and Conversions API, to measure how our ads perform.</span></label>
+      </div>
+      <div class="cc-actions" style="margin-top:10px">
+        <button class="cc-btn primary" type="button" id="cc-save">Save choices</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var GA_ID = 'G-355CDY34HL';
+  // Set your Meta Pixel ID here to switch on advertising cookies. Until then the
+  // advertising option is disclosed and offered but loads nothing.
+  var META_PIXEL_ID = '';
+  var KEY = 'sc_consent_v1';
+
+  var cc = document.getElementById('cc');
+  var prefs = document.getElementById('cc-prefs');
+  var elA = document.getElementById('cc-analytics');
+  var elAds = document.getElementById('cc-ads');
+
+  function apply(cats){
+    if(cats.analytics){
+      gtag('consent','update',{ analytics_storage:'granted' });
+      if(!window.__gaLoaded){
+        window.__gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(s);
+        gtag('config', GA_ID);
+      }
+    }
+    if(cats.ads){
+      gtag('consent','update',{ ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted' });
+      if(META_PIXEL_ID && !window.__fbLoaded){
+        window.__fbLoaded = true;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', META_PIXEL_ID);
+        fbq('track', 'PageView');
+      }
+    }
+  }
+
+  function saved(){ try { return JSON.parse(localStorage.getItem(KEY)); } catch(e){ return null; } }
+  function store(cats){ localStorage.setItem(KEY, JSON.stringify(cats)); }
+
+  function openBanner(showPrefs){
+    var s = saved();
+    elA.checked = s ? !!s.analytics : false;
+    elAds.checked = s ? !!s.ads : false;
+    prefs.classList.toggle('show', !!showPrefs);
+    cc.classList.add('show');
+  }
+  function closeBanner(){ cc.classList.remove('show'); prefs.classList.remove('show'); }
+
+  document.getElementById('cc-accept').addEventListener('click', function(){
+    var c = { analytics:true, ads:true }; store(c); apply(c); closeBanner();
+  });
+  document.getElementById('cc-reject').addEventListener('click', function(){
+    var c = { analytics:false, ads:false }; store(c); closeBanner();
+  });
+  document.getElementById('cc-manage').addEventListener('click', function(){
+    prefs.classList.toggle('show');
+  });
+  document.getElementById('cc-save').addEventListener('click', function(){
+    var c = { analytics: elA.checked, ads: elAds.checked }; store(c); apply(c); closeBanner();
+  });
+
+  // Footer "Cookie preferences" link reopens the controls so consent can be changed or withdrawn.
+  document.addEventListener('click', function(e){
+    var t = e.target.closest && e.target.closest('[data-cc-open]');
+    if(t){ e.preventDefault(); openBanner(true); }
+  });
+
+  // First visit -> ask. Returning visit -> apply the stored choice silently.
+  var existing = saved();
+  if(existing){ apply(existing); } else { openBanner(false); }
+})();
 </script>
 </body>
 </html>
