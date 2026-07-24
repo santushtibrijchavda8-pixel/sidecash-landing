@@ -503,7 +503,7 @@
   .calc-body label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin:0 0 10px}
   .calc-body label b{color:var(--green-ink);font-size:15px}
   #hrs{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;outline:none;
-    background:linear-gradient(90deg,var(--green) 0%,var(--green) var(--pct,27%),var(--mint-line) var(--pct,27%),var(--mint-line) 100%)}
+    background:linear-gradient(90deg,var(--green) 0%,var(--green) var(--pct,0%),var(--mint-line) var(--pct,0%),var(--mint-line) 100%)}
   #hrs::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;
     background:#fff;border:3px solid var(--green);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18)}
   #hrs::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--green);cursor:pointer}
@@ -625,7 +625,7 @@
     <div class="wrap">
       <div class="reveal" style="text-align:center">
         <p class="eyebrow">What you earn</p>
-        <h2>&#8377;150 for every approved hour</h2>
+        <h2>You get paid for every approved hour</h2>
         <p class="sub">One clear rate. No deposits, no deductions, no hidden charges. You decide how many hours you work each day.</p>
       </div>
 
@@ -657,15 +657,15 @@
         </div>
         <div class="calc-body">
           <label for="hrs">I can work <b id="hrsVal">4 hours</b> a day</label>
-          <input id="hrs" type="range" min="1" max="12" step="1" value="4"
+          <input id="hrs" type="range" min="4" max="18" step="1" value="4"
                  aria-describedby="cMonth" aria-label="Hours you work each day">
-          <div class="calc-scale"><span>1 hour</span><span>12 hours</span></div>
+          <div class="calc-scale"><span>4 hours (minimum)</span><span>18 hours</span></div>
           <div class="calc-out">
             <div><span>Per day</span><b id="cDay">&#8377;600</b></div>
             <div><span>Per week</span><b id="cWeek">&#8377;4,200</b></div>
             <div class="big"><span>Per month (30 days)</span><b id="cMonth">&#8377;18,000</b></div>
           </div>
-          <p class="calc-note">Calculated at <b>&#8377;150 per approved hour</b>. What you actually receive depends on the work you complete and that passes quality review, so treat this as an estimate rather than a guaranteed salary.</p>
+          <p class="calc-note">Calculated at the approved-hour rate shown above, over 30 days. What you actually receive depends on the work you complete and that passes quality review, so treat this as an estimate rather than a guaranteed salary.</p>
         </div>
       </div>
     </div>
