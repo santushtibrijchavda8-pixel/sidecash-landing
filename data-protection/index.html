@@ -87,8 +87,9 @@
         <h2>3. Access control model</h2>
         <p>Access is enforced server-side by a capability model: role determines capabilities, and attribute checks (team, region, project, workflow state, sensitivity) bound their reach. Notable rules:</p>
         <ul>
-          <li>Team leads and ops managers: masked identity data only, within their teams or regions.</li>
-          <li>Finance: payout ledgers and batches with masked identities; no KYC document browsing.</li>
+          <li>Authorized personnel of the Company may access and process PAN and Aadhaar information only where necessary to resolve payment or transaction-related issues, comply with legal or regulatory obligations, or as otherwise permitted under applicable law.</li>
+          <li>Team leads and ops managers: identifiers are displayed masked by default, within their teams or regions.</li>
+          <li>Finance: payout ledgers and batches, with access to the identity details required to make a payment.</li>
           <li>Compliance: KYC review with document access that requires a written reason and is always audited.</li>
           <li>Directors: analytics and approvals; sensitive document viewing is not part of the role.</li>
           <li>Founder break-glass access exists, still passes capability checks, and is logged at critical risk level.</li>
@@ -99,7 +100,7 @@
         <p>We keep data only as long as needed:</p>
         <ul>
           <li>Account and profile data: life of account + 90 days.</li>
-          <li>Identity and payout records (PAN and bank account details, stored encrypted): only while needed for verification, salary payments and record-keeping, then deleted unless the law requires otherwise. We do not collect Aadhaar.</li>
+          <li>Identity and payout records (PAN, Aadhaar and bank account details, stored encrypted): only while needed for verification, salary payments and record-keeping, then deleted unless the law requires otherwise.</li>
           <li>Payout and tax records: statutory retention (typically 7 to 8 years).</li>
           <li>Project work data: per client contract, handled only for the specific project it belongs to.</li>
           <li>Audit logs: minimum 3 years.</li>

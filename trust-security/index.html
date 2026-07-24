@@ -79,8 +79,8 @@
         <h2>1. How we protect your data</h2>
         <ul>
           <li>Secure account access: Session-based authentication with secure, httpOnly cookies. MFA and passkeys are on the roadmap for all internal admin roles before production launch.</li>
-          <li>KYC protection: Identity numbers are stored masked (last 4 digits) with full values in encrypted fields only. We never ask for full Aadhaar numbers; masked and offline routes only, always with consent.</li>
-          <li>Masked data for managers: Team leads and managers see verification status labels and masked identifiers, never raw PAN, Aadhaar, bank numbers, or documents. Finance sees payout records with masked identities.</li>
+          <li>KYC protection: Identity numbers are stored encrypted and are displayed masked by default. Authorized personnel of the Company may access and process PAN and Aadhaar information only where necessary to resolve payment or transaction-related issues, comply with legal or regulatory obligations, or as otherwise permitted under applicable law.</li>
+          <li>Access is limited and logged: Identifiers are shown masked across the platform. Where authorized personnel need the full value for a payment or a legal obligation, that access is restricted to those roles and each access is recorded in the audit trail.</li>
           <li>Audit logs: Logins, role changes, KYC decisions, document views, payout approvals, and privacy requests all write permanent audit events with actor, action, reason, and risk level.</li>
           <li>Role-based admin access: Access is limited by role, team, project, region, workflow state, and data sensitivity. Every server operation re-checks permissions; nothing trusts the browser.</li>
           <li>Consent history: Every consent is versioned and stored with its exact text and timestamp. Withdrawing an optional consent takes one click in your Privacy Centre.</li>
@@ -91,7 +91,7 @@
       </section>
       <section class="lg-sec">
         <h2>2. What a manager sees vs what exists</h2>
-        <p>When an operations manager opens your profile they see: your name, city, training status, quality score, and a label like &quot;Verified&quot; next to KYC. They see &quot;A/C ****4821&quot;, not your account number. They see &quot;PAN ******82F&quot;, not your PAN. The full values exist only in encrypted storage reachable by payment and verification systems, plus a small compliance team whose every document view is logged with a written reason.</p>
+        <p>When an operations manager opens your profile they see: your name, city, training status, quality score, and a label like &quot;Verified&quot; next to KYC. Identifiers are shown masked, for example &quot;A/C ****4821&quot; and &quot;PAN ******82F&quot;. Full values are held in encrypted storage. Authorized personnel of the Company may access and process PAN and Aadhaar information only where necessary to resolve payment or transaction-related issues, comply with legal or regulatory obligations, or as otherwise permitted under applicable law, and every such access is logged.</p>
       </section>
       <section class="lg-sec">
         <h2>3. Questions about how we protect your data?</h2>
