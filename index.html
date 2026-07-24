@@ -1233,33 +1233,13 @@
 </script>
 <!-- Cookie consent banner. Essential cookies always on; analytics and
      advertising load only after the visitor accepts. -->
-<div class="cc" id="cc" role="dialog" aria-live="polite" aria-label="Cookie consent">
-  <button class="cc-x" type="button" id="cc-reject" aria-label="Decline non-essential cookies" title="Decline">&times;</button>
+<div class="cc" id="cc" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <button class="cc-x" type="button" id="cc-dismiss" aria-label="Close">&times;</button>
   <div class="cc-main">
     <span class="cc-ic" aria-hidden="true">&#127850;</span>
     <div class="cc-body">
-      <p>We use cookies to run the site and measure our ads. <a href="/cookies">Cookie Policy</a></p>
-      <div class="cc-actions">
-        <button class="cc-btn" type="button" id="cc-accept">Accept</button>
-        <button class="cc-link" type="button" id="cc-manage">Manage</button>
-      </div>
-    </div>
-  </div>
-  <div class="cc-prefs" id="cc-prefs">
-    <div class="cc-row locked">
-      <input type="checkbox" checked disabled aria-label="Essential cookies (always on)">
-      <label><b>Essential</b><span>Keeps the site working. Always on.</span></label>
-    </div>
-    <div class="cc-row">
-      <input type="checkbox" id="cc-analytics">
-      <label for="cc-analytics"><b>Analytics</b><span>Google Analytics.</span></label>
-    </div>
-    <div class="cc-row">
-      <input type="checkbox" id="cc-ads">
-      <label for="cc-ads"><b>Advertising</b><span>Meta Pixel and Conversions API.</span></label>
-    </div>
-    <div class="cc-actions" style="margin-top:8px">
-      <button class="cc-btn" type="button" id="cc-save">Save choices</button>
+      <p>We use cookies to run the site, analyze traffic and measure our advertising. By continuing to use this site, you agree to our use of cookies. See our <a href="/cookies">Cookie Policy</a>.</p>
+      <button class="cc-btn" type="button" id="cc-accept">Got it</button>
     </div>
   </div>
 </div>
@@ -1270,74 +1250,56 @@
   // Set your Meta Pixel ID here to switch on advertising cookies. Until then the
   // advertising option is disclosed and offered but loads nothing.
   var META_PIXEL_ID = '';
-  var KEY = 'sc_consent_v1';
-
+  var KEY = 'sc_consent_v2';
   var cc = document.getElementById('cc');
-  var prefs = document.getElementById('cc-prefs');
-  var elA = document.getElementById('cc-analytics');
-  var elAds = document.getElementById('cc-ads');
 
-  function apply(cats){
-    if(cats.analytics){
-      gtag('consent','update',{ analytics_storage:'granted' });
-      if(!window.__gaLoaded){
-        window.__gaLoaded = true;
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-        document.head.appendChild(s);
-        gtag('config', GA_ID);
-      }
+  // "Got it" agrees to all cookies (implied-consent notice). Loads Google
+  // Analytics and, once META_PIXEL_ID is set, the Meta Pixel.
+  function apply(){
+    gtag('consent','update',{
+      analytics_storage:'granted', ad_storage:'granted',
+      ad_user_data:'granted', ad_personalization:'granted'
+    });
+    if(!window.__gaLoaded){
+      window.__gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+      gtag('config', GA_ID);
     }
-    if(cats.ads){
-      gtag('consent','update',{ ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted' });
-      if(META_PIXEL_ID && !window.__fbLoaded){
-        window.__fbLoaded = true;
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-        document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', META_PIXEL_ID);
-        fbq('track', 'PageView');
-      }
+    if(META_PIXEL_ID && !window.__fbLoaded){
+      window.__fbLoaded = true;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', META_PIXEL_ID);
+      fbq('track', 'PageView');
     }
   }
 
-  function saved(){ try { return JSON.parse(localStorage.getItem(KEY)); } catch(e){ return null; } }
-  function store(cats){ localStorage.setItem(KEY, JSON.stringify(cats)); }
-
-  function openBanner(showPrefs){
-    var s = saved();
-    elA.checked = s ? !!s.analytics : false;
-    elAds.checked = s ? !!s.ads : false;
-    prefs.classList.toggle('show', !!showPrefs);
-    cc.classList.add('show');
-  }
-  function closeBanner(){ cc.classList.remove('show'); prefs.classList.remove('show'); }
+  function agreed(){ try { return localStorage.getItem(KEY) === '1'; } catch(e){ return false; } }
 
   document.getElementById('cc-accept').addEventListener('click', function(){
-    var c = { analytics:true, ads:true }; store(c); apply(c); closeBanner();
+    try { localStorage.setItem(KEY, '1'); } catch(e){}
+    apply();
+    cc.classList.remove('show');
   });
-  document.getElementById('cc-reject').addEventListener('click', function(){
-    var c = { analytics:false, ads:false }; store(c); closeBanner();
+  // The corner X just closes the notice for now (no cookies stored); it shows
+  // again next visit until "Got it" is chosen.
+  document.getElementById('cc-dismiss').addEventListener('click', function(){
+    cc.classList.remove('show');
   });
-  document.getElementById('cc-manage').addEventListener('click', function(){
-    prefs.classList.toggle('show');
-  });
-  document.getElementById('cc-save').addEventListener('click', function(){
-    var c = { analytics: elA.checked, ads: elAds.checked }; store(c); apply(c); closeBanner();
-  });
-
-  // Footer "Cookie preferences" link reopens the controls so consent can be changed or withdrawn.
+  // Footer "Cookie preferences" link reopens the notice.
   document.addEventListener('click', function(e){
     var t = e.target.closest && e.target.closest('[data-cc-open]');
-    if(t){ e.preventDefault(); openBanner(true); }
+    if(t){ e.preventDefault(); cc.classList.add('show'); }
   });
 
-  // First visit -> ask. Returning visit -> apply the stored choice silently.
-  var existing = saved();
-  if(existing){ apply(existing); } else { openBanner(false); }
+  // Already agreed -> load silently. Otherwise show the notice.
+  if(agreed()){ apply(); } else { cc.classList.add('show'); }
 })();
 </script>
 </body>
