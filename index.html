@@ -898,7 +898,7 @@
             <p class="err-msg" id="err-email">Enter a valid email address.</p>
             <label for="cf-msg">Message</label>
             <textarea id="cf-msg" name="message" placeholder="Tell us how we can help..."></textarea>
-            <p class="consent-note">By sending this message, you agree to our <button type="button" class="link-btn" data-dlg="dlg-terms">Terms of Service</button> and <button type="button" class="link-btn" data-dlg="dlg-privacy">Privacy Policy</button>.</p>
+            <p class="consent-note">By sending this message, you agree to our <a href="/terms-of-service">Terms of Service</a> and <a href="/privacy-policy">Privacy Policy</a>.</p>
             <button type="submit" class="btn" id="cf-submit">Send Message</button>
             <div class="form-status" id="cf-status" role="status"></div>
           </form>
@@ -947,11 +947,12 @@
         <nav aria-label="Legal">
           <h3 class="fhead">Legal</h3>
           <ul class="flinks-v">
-            <li><button type="button" data-dlg="dlg-privacy">Privacy</button></li>
-            <li><button type="button" data-dlg="dlg-terms">Terms</button></li>
-            <li><button type="button" data-dlg="dlg-trust">Trust &amp; Security</button></li>
-            <li><button type="button" data-dlg="dlg-dp">Data Protection</button></li>
-            <li><button type="button" data-dlg="dlg-grievance">Grievance</button></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/terms-of-service">Terms of Service</a></li>
+            <li><a href="/trust-security">Trust &amp; Security</a></li>
+            <li><a href="/data-protection">Data Protection</a></li>
+            <li><a href="/grievance">Grievance Redressal</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
           </ul>
         </nav>
         <div>
@@ -974,48 +975,6 @@
 </button>
 
 <!-- LEGAL DIALOGS -->
-<dialog id="dlg-trust">
-  <div class="dlg-head">Trust &amp; Security</div>
-  <div class="dlg-body">
-    <p>SideCash.ai is built security-first: role-based access, masked sensitive data, audited actions, and consent-driven data collection.</p>
-    <p>We never charge fees, never ask for OTPs or passwords, and never promise unrealistic income. Full details publish with the main platform.</p>
-  </div>
-  <button class="btn ghost dlg-close" type="button">Close</button>
-</dialog>
-<dialog id="dlg-privacy">
-  <div class="dlg-head">Privacy</div>
-  <div class="dlg-body">
-    <p>SideCash.ai is a product of Santushti Infotech Private Limited (Rajkot, Gujarat). Information you share on this page (the sign-up and contact form) is stored securely and used only to contact you about SideCash.ai.</p>
-    <p>This website also uses cookies and Google Analytics to measure how many people visit and from which region. Those reports are private to us and are never used for advertising, and you can block analytics cookies in your browser without affecting the site.</p>
-    <p>We do not sell your data. To access or delete your details, email support@sidecash.ai. Read the full <a href="https://dashboard.sidecash.ai/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://dashboard.sidecash.ai/cookies" target="_blank" rel="noopener">Cookie Policy</a>.</p>
-  </div>
-  <button class="btn ghost dlg-close" type="button">Close</button>
-</dialog>
-<dialog id="dlg-terms">
-  <div class="dlg-head">Terms</div>
-  <div class="dlg-body">
-    <p>This page is a pre-registration for an upcoming program. Joining the early access list does not guarantee work, income, or selection; batches open based on project availability.</p>
-    <p>Participation is free. Read the full <a href="https://dashboard.sidecash.ai/terms" target="_blank" rel="noopener">Terms of Service</a>.</p>
-  </div>
-  <button class="btn ghost dlg-close" type="button">Close</button>
-</dialog>
-<dialog id="dlg-grievance">
-  <div class="dlg-head">Grievance</div>
-  <div class="dlg-body">
-    <p>Have a complaint or concern, including misuse of the SideCash.ai name? Write to support@sidecash.ai with the subject "Grievance" and we will respond within 7 working days.</p>
-    <p>See our full <a href="https://dashboard.sidecash.ai/grievance" target="_blank" rel="noopener">Grievance Redressal</a> process.</p>
-  </div>
-  <button class="btn ghost dlg-close" type="button">Close</button>
-</dialog>
-<dialog id="dlg-dp">
-  <div class="dlg-head">Data Protection</div>
-  <div class="dlg-body">
-    <p>We collect only what this page asks for, store it securely, restrict internal access, and retain it for internal records and future communication about the program.</p>
-    <p>You may request correction or deletion at any time via support@sidecash.ai. Read our full <a href="https://dashboard.sidecash.ai/data-protection" target="_blank" rel="noopener">Data Protection</a> framework, aligned with India's Digital Personal Data Protection Act, 2023.</p>
-  </div>
-  <button class="btn ghost dlg-close" type="button">Close</button>
-</dialog>
-
 <script>
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
