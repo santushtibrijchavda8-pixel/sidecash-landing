@@ -530,25 +530,26 @@
     .calc-out .big b{font-size:28px}
   }
 
-  /* ---- Cookie consent banner ---- */
-  .cc{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#fff;
-    border-top:1px solid var(--line);box-shadow:0 -8px 30px rgba(0,0,0,.10);
-    padding:16px 0;display:none}
+  /* ---- Cookie consent banner (compact) ---- */
+  .cc{position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;background:#fff;
+    border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 34px rgba(0,0,0,.14);
+    padding:12px 14px;max-width:560px;margin:0 auto;display:none}
   .cc.show{display:block}
-  .cc .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between}
-  .cc p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.6;max-width:640px}
+  .cc .wrap{max-width:none;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+  .cc p{margin:0;flex:1 1 220px;font-size:13px;color:var(--muted);line-height:1.45}
   .cc a{color:var(--green-ink);text-decoration:underline}
-  .cc-actions{display:flex;flex-wrap:wrap;gap:8px}
+  .cc-actions{display:flex;gap:8px;flex-shrink:0}
   .cc-btn{border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:600;
-    font-size:13.5px;border-radius:10px;padding:9px 16px;cursor:pointer}
+    font-size:13px;border-radius:9px;padding:7px 16px;cursor:pointer}
   .cc-btn.primary{background:var(--green);border-color:transparent;color:#fff}
-  .cc-btn.link{border:none;background:none;color:var(--green-ink);text-decoration:underline;padding:9px 6px}
-  .cc-prefs{display:none;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+  .cc-link{border:none;background:none;color:var(--muted);font-size:12px;
+    text-decoration:underline;cursor:pointer;padding:2px 0;flex-basis:100%;text-align:left}
+  .cc-prefs{display:none;margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
   .cc-prefs.show{display:block}
-  .cc-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0}
-  .cc-row input{margin-top:3px}
-  .cc-row label b{display:block;font-size:13.5px;color:var(--ink)}
-  .cc-row label span{font-size:12.5px;color:var(--muted)}
+  .cc-row{display:flex;gap:9px;align-items:flex-start;padding:5px 0}
+  .cc-row input{margin-top:2px}
+  .cc-row label b{display:block;font-size:13px;color:var(--ink)}
+  .cc-row label span{font-size:12px;color:var(--muted)}
   .cc-row.locked{opacity:.7}
 </style>
 </head>
@@ -1227,32 +1228,28 @@
      advertising load only after the visitor accepts. -->
 <div class="cc" id="cc" role="dialog" aria-live="polite" aria-label="Cookie consent">
   <div class="wrap">
-    <p>
-      We use essential cookies to run the site. With your consent we also use
-      <b>Google Analytics</b> to measure traffic and the <b>Meta Pixel and Conversions API</b> to
-      measure our advertising. See our <a href="/cookies">Cookie Policy</a>.
-    </p>
+    <p>We use cookies to run the site and measure our ads. <a href="/cookies">Learn more</a></p>
     <div class="cc-actions">
-      <button class="cc-btn link" type="button" id="cc-manage">Manage</button>
-      <button class="cc-btn" type="button" id="cc-reject">Reject non-essential</button>
-      <button class="cc-btn primary" type="button" id="cc-accept">Accept all</button>
+      <button class="cc-btn" type="button" id="cc-reject">Decline</button>
+      <button class="cc-btn primary" type="button" id="cc-accept">Accept</button>
     </div>
+    <button class="cc-link" type="button" id="cc-manage">Manage</button>
   </div>
   <div class="wrap cc-prefs" id="cc-prefs">
     <div style="width:100%">
       <div class="cc-row locked">
         <input type="checkbox" checked disabled aria-label="Essential cookies (always on)">
-        <label><b>Essential</b><span>Keeps the site working and you logged in. Always on.</span></label>
+        <label><b>Essential</b><span>Keeps the site working. Always on.</span></label>
       </div>
       <div class="cc-row">
         <input type="checkbox" id="cc-analytics">
-        <label for="cc-analytics"><b>Analytics</b><span>Google Analytics, to count visitors and improve the site.</span></label>
+        <label for="cc-analytics"><b>Analytics</b><span>Google Analytics.</span></label>
       </div>
       <div class="cc-row">
         <input type="checkbox" id="cc-ads">
-        <label for="cc-ads"><b>Advertising and measurement</b><span>Meta Pixel and Conversions API, to measure how our ads perform.</span></label>
+        <label for="cc-ads"><b>Advertising</b><span>Meta Pixel and Conversions API.</span></label>
       </div>
-      <div class="cc-actions" style="margin-top:10px">
+      <div class="cc-actions" style="margin-top:8px">
         <button class="cc-btn primary" type="button" id="cc-save">Save choices</button>
       </div>
     </div>
