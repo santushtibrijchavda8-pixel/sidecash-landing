@@ -74,6 +74,8 @@
   .more a{display:inline-block;margin:0 16px 8px 0;font-size:14px;font-weight:600;text-decoration:none}
   .more a:hover{text-decoration:underline}
 
+  /* The footer itself is injected from /footer.html (shared across every page),
+     which carries its own scoped styles, so no footer CSS is needed here. */
 
   @media (max-width:640px){
     .card{padding:22px 18px 20px;border-radius:16px}
@@ -132,7 +134,7 @@
           <p>We keep data only as long as needed:</p>
           <ul>
             <li>Account and profile data: life of account + 90 days.</li>
-            <li>Identity and payout records (PAN, Aadhaar and bank account details, stored encrypted): only while needed for verification, salary payments and record-keeping, then deleted unless the law requires otherwise.</li>
+            <li>Identity and payout records (PAN, Aadhaar and bank account details, stored encrypted): only while needed for verification, payout processing and record-keeping, then deleted unless the law requires otherwise.</li>
             <li>Payout and tax records: statutory retention (typically 7 to 8 years).</li>
             <li>Project work data: per client contract, handled only for the specific project it belongs to.</li>
             <li>Audit logs: minimum 3 years.</li>
@@ -164,7 +166,7 @@
     </div>
   </main>
 
-    <!-- Shared site footer: loaded once from /footer.html so every page stays in sync. -->
+  <!-- Shared site footer: loaded once from /footer.html so every page stays in sync. -->
   <div id="site-footer"></div>
   <script>
   (function(){

@@ -74,6 +74,8 @@
   .more a{display:inline-block;margin:0 16px 8px 0;font-size:14px;font-weight:600;text-decoration:none}
   .more a:hover{text-decoration:underline}
 
+  /* The footer itself is injected from /footer.html (shared across every page),
+     which carries its own scoped styles, so no footer CSS is needed here. */
 
   @media (max-width:640px){
     .card{padding:22px 18px 20px;border-radius:16px}
@@ -152,7 +154,7 @@
     </div>
   </main>
 
-    <!-- Shared site footer: loaded once from /footer.html so every page stays in sync. -->
+  <!-- Shared site footer: loaded once from /footer.html so every page stays in sync. -->
   <div id="site-footer"></div>
   <script>
   (function(){
