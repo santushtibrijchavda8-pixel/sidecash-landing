@@ -150,6 +150,12 @@
   .logo:hover .logo-ico{animation:icoSpin 1.2s var(--ease) 1}
   @keyframes icoSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
   .nav .btn{padding:10px 18px;font-size:14px}
+  /* Header actions: Login (ghost) beside Sign Up (primary). */
+  .nav-cta{display:flex;align-items:center;gap:10px}
+  @media (max-width:420px){
+    .nav-cta{gap:8px}
+    .nav .btn{padding:9px 14px;font-size:13px}
+  }
 
   /* Hero */
   .hero{background:
@@ -572,7 +578,13 @@
         </g>
       </svg>
     </a>
-    <a class="btn js-form-link" href="https://dashboard.sidecash.ai/join" target="_blank" rel="noopener">Sign Up / Login</a>
+    <div class="nav-cta">
+      <!-- Login keeps its own href on purpose: the js-form-link script
+           rewrites those buttons to SIGNUP_URL, which would otherwise send
+           returning users to the signup page. -->
+      <a class="btn ghost" href="https://dashboard.sidecash.ai/login" target="_blank" rel="noopener">Login</a>
+      <a class="btn js-form-link" href="https://dashboard.sidecash.ai/join" target="_blank" rel="noopener">Sign Up</a>
+    </div>
   </div>
 </header>
 
