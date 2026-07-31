@@ -8,7 +8,11 @@
      scoped under `footer` so they never touch the rest of a page.
      ========================================================================== */
   footer{background:#EDF3EF;border-top:1px solid var(--line,#E5E7EB);padding:56px 0 32px}
-  footer .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  /* The footer deliberately has NO container of its own. Every page that
+     loads this file defines .wrap, so the footer adopts that page's
+     container and lines up with the content above it - wide on the
+     homepage, narrow on the legal pages. Pinning a width here is what made
+     the footer 220px wider than the text above it on every legal page. */
   footer .fbrand{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:38px;align-items:start}
   footer .fhead{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#6B7280);margin:0 0 14px}
   footer .flinks-v{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
@@ -24,6 +28,20 @@
   footer .logo{display:inline-flex;align-items:center;text-decoration:none}
   footer .logo-svg{height:30px;width:auto;display:block;overflow:visible}
   footer .copyright{margin-top:40px;padding-top:18px;border-top:1px solid var(--line,#E5E7EB);font-size:12.5px;color:var(--muted,#6B7280);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
+  /* Desktop rhythm, matching the sections above so the page does not visibly
+     change its spacing rules at the bottom. min-width scoped, so tablets and
+     phones keep exactly the footer they have today. */
+  @media (min-width:1200px){
+    footer{padding:80px 0 40px}
+    footer .fbrand{gap:52px}
+    /* Same scale correction as the page above: the small end comes up so the
+       footer does not read as fine print under a full-size page. */
+    footer .fnote{max-width:46ch;font-size:14.5px}
+    footer .copyright{margin-top:56px;padding-top:22px;font-size:13.5px}
+    footer .flinks-v a,footer .fmail a{font-size:15.5px}
+    footer .fentity{font-size:13.5px}
+    footer .fhead{font-size:12.5px}
+  }
   @media (max-width:880px){footer .fbrand{grid-template-columns:1fr 1fr;gap:30px}}
   @media (max-width:560px){footer .fbrand{grid-template-columns:1fr}}
 </style>

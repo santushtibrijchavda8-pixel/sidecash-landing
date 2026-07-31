@@ -97,7 +97,12 @@
     background:#ECFDF5;color:var(--deep)}
   img,svg{max-width:100%}
   a{color:var(--green-ink)}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  /* The shell every section sits in. At 1080 a 1920 screen was 44% empty
+     margin. 1440 with a 40px desktop gutter puts the content edge about
+     280px in from the glass, which is where the reference site sits. It can
+     only bite above 1120px - below that the shell was already filling the
+     viewport, so phones and tablets are untouched by the change. */
+  .wrap{max-width:1440px;margin:0 auto;padding:0 20px}
   .btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;
     border:0;border-radius:12px;padding:14px 26px;font-size:16px;font-weight:600;cursor:pointer;
     font-family:inherit;text-decoration:none;box-shadow:0 10px 30px -10px rgba(32,183,118,.55);
@@ -109,8 +114,18 @@
   .btn svg{transition:transform .18s var(--ease)}
   .btn:hover svg{transform:translateX(3px)}
   h1,h2,h3{letter-spacing:-.022em;line-height:1.12;text-wrap:balance;font-weight:700}
-  h2{font-size:clamp(25px,3.5vw,34px);margin:0 0 8px}
-  .sub{color:var(--muted);margin:0 0 28px}
+  /* Only the ceiling moves. The floor and the vw slope are untouched, so
+     every size below ~970px viewport is byte-identical to before - the
+     heading grows on a wide screen and nowhere else. */
+  h2{font-size:clamp(25px,3.5vw,40px);margin:0 0 8px}
+  /* Prose is capped by reading measure, not by the shell. Widening the shell
+     without this would stretch section intros past 150 characters a line,
+     which is harder to read than the narrow layout we started with. The cap
+     is inert on phones - the screen is already narrower than 64ch. */
+  .sub{color:var(--muted);margin:0 0 28px;max-width:64ch}
+  /* The one section that centres its intro - so it also gets balanced wrapping,
+     which a centred block needs and a left-aligned one does not. */
+  .rate .sub{margin-inline:auto;text-wrap:balance}
   .eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green-ink);margin:0 0 8px}
   section{padding:68px 0}
   section.alt{background:var(--mint)}
@@ -164,7 +179,7 @@
     linear-gradient(var(--ground),var(--ground));
     padding:76px 0 68px}
   .hero .grid{display:grid;grid-template-columns:1fr 1.06fr;gap:40px;align-items:center}
-  .hero h1{font-size:clamp(34px,5vw,52px);font-weight:800;margin:18px 0 14px}
+  .hero h1{font-size:clamp(34px,5vw,58px);font-weight:800;margin:18px 0 14px}
   .hero p.lead{font-size:18px;color:var(--muted);max-width:54ch;margin:0 0 12px}
   .rotator{min-height:24px;font-size:14.5px;font-weight:600;color:var(--deep);margin:0 0 24px}
   .rotator span{display:inline-block}
@@ -382,7 +397,7 @@
   details .a{overflow:hidden}
   html.js details[open] .a{animation:faqIn .3s var(--ease)}
   @keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-  details p{margin:0 0 17px 46px;color:var(--muted);font-size:14.5px}
+  details p{margin:0 0 17px 46px;color:var(--muted);font-size:14.5px;max-width:74ch}
 
   /* CTA band */
   .band{background:linear-gradient(150deg,var(--deep),var(--deep-2));border-radius:20px;
@@ -466,6 +481,7 @@
   .dlg-body a{color:var(--green-ink);font-weight:600;text-decoration:underline}
   .dlg-close{margin:0 22px 20px;padding:9px 18px;font-size:14px}
 
+
   @media (max-width: 880px){
     .hero .grid{grid-template-columns:1fr}
     .cards3{grid-template-columns:1fr}
@@ -495,12 +511,36 @@
   }
   /* ---- Rate campaign + earnings calculator ---- */
   .rate{background:var(--mint);border-top:1px solid var(--mint-line);border-bottom:1px solid var(--mint-line)}
-  .ratehero{display:grid;place-items:center;margin:0 0 26px}
-  .rateno{display:inline-flex;align-items:baseline;gap:4px;font-weight:800;letter-spacing:-.02em;
-    font-size:clamp(56px,11vw,104px);line-height:1;color:var(--deep);position:relative}
-  .rateno span{font-size:.5em;font-weight:700}
-  .rateno small{position:absolute;left:50%;transform:translateX(-50%);bottom:-26px;white-space:nowrap;
-    font-size:14px;font-weight:600;color:var(--green-ink);letter-spacing:.02em}
+  /* The rate is set as a specification, not a headline. The reader's question
+     here is "is this real and are there catches", not "is that a big number",
+     so the numeral sits beside its unit behind a hairline - the way a rate is
+     printed on something that pays you - on a plate that matches the plan
+     cards below, so the two read as the same kind of object.
+     The unit is in normal flow now. It used to be absolutely positioned 26px
+     below the numeral, which reserved no space, left the block sitting closer
+     to the cards beneath it than to the heading it belongs to, and pinned the
+     offset to one font size while the numeral scaled with the viewport. */
+  .ratehero{display:grid;place-items:center;margin:0}
+  .rateno{display:inline-flex;align-items:baseline;gap:5px;
+    background:var(--card);border:1px solid var(--mint-line);border-radius:18px;
+    padding:26px 38px;
+    box-shadow:0 1px 2px rgba(17,24,39,.04),0 18px 44px -26px rgba(6,78,59,.26);
+    font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
+    font-size:clamp(46px,7vw,80px);line-height:1;color:var(--deep)}
+  .rateno span{font-size:.52em;font-weight:700}
+  /* stretch, so the divider spans the full height of the numeral rather than
+     baseline-aligning to it and leaving a stub of a rule */
+  .rateno small{align-self:stretch;display:flex;align-items:center;
+    margin-left:28px;padding-left:28px;border-left:1px solid var(--mint-line);
+    font-size:12.5px;font-weight:700;line-height:1.4;letter-spacing:.14em;
+    color:var(--green-ink);text-align:left}
+  @media (max-width:560px){
+    /* wrap rather than switch direction: the currency mark and the digits are
+       separate flex items, so a column would stack those too */
+    .rateno{flex-wrap:wrap;justify-content:center;padding:22px 26px}
+    .rateno small{flex:1 1 100%;align-self:auto;justify-content:center;
+      margin:18px 0 0;padding:15px 0 0;border-left:0;border-top:1px solid var(--mint-line)}
+  }
   .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:52px 0 0}
   .plan{background:var(--card);border:1px solid var(--mint-line);border-radius:18px;padding:22px 22px 20px;position:relative}
   .plan.best{border-color:var(--green);box-shadow:0 10px 30px rgba(32,183,118,.16)}
@@ -534,7 +574,7 @@
   .calc-out .big{background:linear-gradient(150deg,var(--deep),var(--deep-2));border-color:transparent}
   .calc-out .big span{color:#A7F3D0}
   .calc-out .big b{color:#fff;font-size:30px}
-  .calc-note{margin:16px 0 0;font-size:12px;color:var(--muted);line-height:1.6}
+  .calc-note{margin:16px 0 0;font-size:12px;color:var(--muted);line-height:1.6;max-width:88ch}
   @media (max-width:760px){
     .plans{grid-template-columns:1fr}
     .calc-out{grid-template-columns:1fr}
@@ -570,6 +610,110 @@
     .cc-ic{display:none}
     .cc p{flex:1 1 100%;font-size:12px}
     .cc-acts{flex:1 1 100%;justify-content:flex-end}
+  }
+
+  /* ==========================================================================
+     DESKTOP LAYER - deliberately the last thing in this stylesheet.
+     Several base rules (.plan, .pmath, .pnote, .ptag, .calc-note, label) are
+     declared further down than where this block used to sit. Same specificity,
+     so source order decided and six of these rules were silently losing.
+     Anything added here must stay at the end of the sheet.
+     ========================================================================== */
+  /* Desktop breathing room. Deliberately last among the base rules so it
+     wins on source order, and held at 1200px so a tablet or a small laptop
+     keeps exactly the spacing it has today. Wider cards need wider gaps and
+     taller sections, or the extra room reads as sprawl rather than
+     composition. The gutter goes to 32px here and only here: on a 1280px
+     laptop the shell now reaches both screen edges, and 20px of padding
+     against the glass looks like an accident. It costs ~24px of content on
+     a large monitor, which is a good trade for never touching the edge. */
+  @media (min-width:1200px){
+    .wrap{padding:0 40px}
+    section{padding:96px 0}
+
+    /* Heading -> intro -> content rhythm, opened up to carry the larger type */
+    h2{margin:0 0 12px}
+    .eyebrow{margin:0 0 10px}
+    .sub{font-size:17px;margin:0 0 36px}
+    .hero p.lead{font-size:19px}
+
+    /* Wider cards want wider gutters between them */
+    .hero .grid{gap:64px}
+    .cards3,.whygrid,.plans{gap:24px}
+    .steps,.elig{gap:22px}
+
+    /* Interior padding grows with the card, or the content looks pinned to
+       the corner of a box that got bigger around it */
+    .cards3 .card{padding:30px}
+    .whygrid .card{padding:26px}
+    .plan{padding:28px 28px 24px}
+
+    /* ---- Type scale ----
+       The page was set for a 1080px column: display type at 40-80px sitting
+       over body copy at 13-15px, a range of nearly 3:1. Widening the shell
+       exposed it, because large headings above small text is exactly what
+       reads as unfinished. So the small end comes up further than the large
+       end - about +15% at 13px, +10% at 20px, display untouched - which
+       closes the range to roughly 2.3:1 without inflating the page. */
+
+    /* Long-form copy */
+    .sub{font-size:18px}
+    .hero p.lead{font-size:20px}
+    .rotator{font-size:16px}
+    details p{font-size:16.5px}
+    summary{font-size:17.5px}
+    .elig li{font-size:16px}
+
+    /* Section cards */
+    .cards3 h3{font-size:19px}
+    .cards3 p{font-size:16px}
+    .whygrid h3{font-size:17.5px}
+    .whygrid p{font-size:15.5px}
+    .step-c h3{font-size:17.5px}
+    .step-c p{font-size:15px}
+    .wt-steps li > div{font-size:16.5px}
+    .wt-n{font-size:14px}
+
+    /* Earnings block */
+    .plan h3{font-size:22px}
+    .pmath{font-size:15.5px}
+    .pnote{font-size:14.5px}
+    .ptag{font-size:12px}
+    .calc-note{font-size:13.5px}
+
+    /* Hero supporting text */
+    .proof .ptext{font-size:15px}
+    .hero .note{font-size:15px}
+    .eyebrow,.wt-eyebrow{font-size:13px}
+
+    /* The earnings card is a mockup of a real dashboard, so it stays denser
+       than the page around it - but it doubled in width, and 9-10px labels
+       in a 670px card look like a rendering fault rather than a design. */
+    .dash .amt{font-size:34px}
+    .dash .amt small{font-size:13.5px}
+    .dash .ptitle{font-size:14.5px}
+    .dash .psub{font-size:13px}
+    .dash .who{font-size:12px}
+    .bars .v,.bars .t{font-size:11.5px}
+    .flow .step{font-size:11.5px}
+    .chips b{font-size:17px}
+    .chips span{font-size:10.5px}
+    .chips em{font-size:11px}
+    .trustline b{font-size:13.5px}
+    .trustline span{font-size:12.5px}
+
+    /* Contact form, and the calculator's own label - which carries a more
+       specific selector of its own, so it needs naming separately */
+    label{font-size:14.5px}
+    .consent-note{font-size:14.5px}
+    .calc-body label{font-size:14.5px}
+    .calc-body label b{font-size:16.5px}
+    .calc-head b{font-size:18.5px}
+    .calc-head span{font-size:14.5px}
+
+    /* Footer type and spacing live in footer.html, not here: that file is
+       injected after this stylesheet and scopes everything under `footer`,
+       so rules written here would be silently outranked. */
   }
 </style>
 </head>
