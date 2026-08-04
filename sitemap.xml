@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Only sidecash.ai and its legal pages should be findable in search (owner,
+  4 Aug 2026). The dashboard host carries a site-wide noindex header and is
+  deliberately absent from here.
+
+  lastmod values are the real dates these pages last changed, not the date
+  this file was edited - a sitemap that claims everything changed today
+  teaches crawlers to ignore the field.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sidecash.ai/</loc><lastmod>2026-07-09</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sidecash.ai/</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sidecash.ai/privacy-policy</loc><lastmod>2026-07-31</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://sidecash.ai/terms-of-service</loc><lastmod>2026-07-31</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://sidecash.ai/cookies</loc><lastmod>2026-07-31</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
