@@ -571,6 +571,16 @@
     .cc p{flex:1 1 100%;font-size:12px}
     .cc-acts{flex:1 1 100%;justify-content:flex-end}
   }
+
+  /* Section links in the header (8 Aug 2026). Hidden on small screens -
+     the mobile header keeps logo + buttons only. Deliberately NOT
+     js-form-link: that class is rewritten to the signup URL by script. */
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;transition:color .15s ease}
+  .nav-links a:hover{color:var(--green-ink)}
+  @media (max-width:840px){.nav-links{display:none}}
+  html{scroll-behavior:smooth}
+  #earnings,#about,#faq{scroll-margin-top:84px}
 </style>
 </head>
 <body>
@@ -595,6 +605,11 @@
         </g>
       </svg>
     </a>
+    <nav class="nav-links" aria-label="Page sections">
+      <a href="/#earnings">What You Earn</a>
+      <a href="/#about">How It Works</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
     <div class="nav-cta">
       <!-- Login keeps its own href on purpose: the js-form-link script
            rewrites those buttons to SIGNUP_URL, which would otherwise send
